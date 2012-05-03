@@ -1,0 +1,373 @@
+ ------
+ Mock framework
+ ------
+ Marco Speranza and Simone Tripodi
+ ------
+ 2010
+ ------
+~~
+~~   Copyright 2012 The 99 Software Foundation
+~~
+~~   Licensed under the Apache License, Version 2.0 (the "License");
+~~   you may not use this file except in compliance with the License.
+~~   You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~   Unless required by applicable law or agreed to in writing, software
+~~   distributed under the License is distributed on an "AS IS" BASIS,
+~~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~   See the License for the specific language governing permissions and
+~~   limitations under the License.
+~~
+
+~~author: Marco Speranza
+~~version: $Id: index.apt 924 2009-12-31 10:11:36Z  marco.speranza79 $
+
+Mock framework
+
+  <JUnice> integra due tipi di <Mock frameworks> e tramite <Google Guice> inietta le classi
+  mock create, nella vostra logica di bussines.
+
+
+  <JUnice> mette a disposizione una annotazione <<<@org.nnsoft.guice.junice.mock.annotation.Mock>>>
+  per annotare le <fields> che dovranno essere mockate.
+
+  E' importante sottolineare che <JUnice> rimpiazzer‡ ogni <google-guice binding> presente
+  con il binding mockatto dichiarato nel test-case.
+
+  <JUnice> supporta due tipi di framework:
+
+  * Easy-Mock  (<<<org.nnsoft.guice.junice.mock.annotation.MockType.EASY_MOCK>>>)
+
+  * Mockito    (<<<org.nnsoft.guice.junice.mock.annotation.MockType.MOCKITO>>>)
+
+  <<by default>> JUnice crea dei mock Easy-Mock .
+
+
+
+* Scegliere il mock-framework preferito
+
+  Per scegliere tre i differenti tipi di mock framework Ë possibile annotare la classe di test in questo modo:
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+@MockFramework(type=MockType.MOCKITO)
+public class SimpleTest {
+
+}
++----------------------------------------+
+
+
+
+* L'annotazione @Mock
+
+  <<<org.nnsoft.guice.junice.annotation.Mock>>> Ë una annotazione di field usata dal core <JUniceRunner>
+  per creare e inizializzare l'iniettore <google-guice> con in binding tra il tipo
+  dichiarato nella <field> e il mock appena creato.
+
+  L'annotazione <<<org.nnsoft.guice.junice.annotation.Mock>>> puÚ essere configurata con questi parametri:
+
+
+*----+------+------+
+|| Propriet‡ ||  Tipo   ||  Descrizione     |
+*----+------+------+
+| <<providedBy>> | <<<java.lang.String>>> | Nome del metodo <<public static>> con il tipo di ritorno uguale a quello della field annotata|
+*----+------+------+
+| <<providerClass>> | <<<Class>>> | Specifica la classe dove è presente il metodo <<providedBy>> |
+*----+------+------+
+| <<reserAfter>> | boolean | <<true>> (default) il mock verr‡ resettato dopo ogni metodo di test.  |
+*----+------+------+
+| <<annotateWith>> | <<<Class>>> | Specifica l'annotazione che verr‡ usata da guice per fare il binding |
+*----+------+------+
+| <<namedWith>> | <<<Class>>> | Specifica l'annotazione che verr‡ usata da guice per fare il binding tramite Names.named |
+*----+------+------+
+| <<type>> | <<<<<<org.nnsoft.guice.junice.annotation.MockObjType>>>>>> | Specifica il tipo di mock che verr‡ creato |
+*----+------+------+
+
+
+ Vediamo ora un tipico uso di questa annotazione.
+ Data la classe <HelloWorld> che dipende dall'interfaccia <Service>
+
++----------------------------------------+
+
+public class HelloWorld {
+
+    @Inject
+    private Service service;
+
+    ...
+
+    public String sayHalloByService() {
+        return service.go();
+    }
+
+    ...
+}
++----------------------------------------+
+
+  Craiamo un test case con <JUnice> dichiarando le <fields>
+  <HelloWorld> e <Sevice> e annotandole come di seguito:
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+public class SimpleTest {
+
+    //Create and inject a simple EasyMock Strict mock
+    @org.nnsoft.guice.junice.annotation.Mock
+    private Service service;
+
+    @Inject
+    private HelloWorld helloWorld;
+
+    @Test
+    public void testMock(){
+        //Stub created mock
+        EasyMock.expect(service.go()).andReturn("Ciao");
+        EasyMock.replay(providedMock);
+
+        assertNotNull(service);
+        assertEquals("Ciao", helloWorld.sayHalloByService());
+
+        EasyMock.verify(service);
+    }
+
+}
++----------------------------------------+
+
+  In questo modo <JUnice> crea un istanza mock dell'interfaccia <Service>,
+  crea una instanza <reale>  della classe <HelloWorld>  e inietta in quest'ultima
+  il mock creato in precedenza.
+
+
+** Mock resetAfter
+
+  <<Note>>
+  Il runner resetter‡ tutti i mocks dopo ogni metodo di test. Per cambiare questo comportamento di default
+  annotare le <fileds> nel modo seguente:
+
++----------------------------------------+
+
+    ...
+
+    @Mock(resetAfter=false)
+    private Service service;
+
+    ...
++----------------------------------------+
+
+
+** Mock provider
+
+   <JUnitRunner> crea un mock per ogni annotazione <<<Mock>>> presente nella classe.
+   A volte è necessario delegare la creazione del mock ad un metodo.
+
+
+   <JUnice> mette a disposizione  il parametro <<providedBy>> della annotazione <<@org.nnsoft.guice.junice.annotation.Mock>>, quando
+   una <field> Ë annotata in questo modo, la creazione del mock per questa <field> Ë delegata al metodo che ha come
+   prototipo: <<public static <T> [valore definto in providedBy] ()>>> dove <T> Ë il tipo della <filed> annotata con
+   l'annotazione @Mock.
+
+   Vediamo un esempio
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+public class SimpleTest {
+
+  @Mock(providedBy="providerMethod")
+  private Service service;
+
+  public static Service providerMethod() {
+    Service mocked = EasyMock.createNiceMock(Service.class);
+
+    ...
+
+    return mockedService;
+  }
+
+  ...
+
+}
++----------------------------------------+
+
+  <<Nota>>
+  E' possibile anche implementare il metodo in una classe diversa da quella di test
+  e annotare la filed in questo modo:
+
++----------------------------------------+
+
+public class ServiceMockProvider {
+
+  public static Service providerMethod() {
+    Service mocked = EasyMock.createNiceMock(Service.class);
+
+    ...
+
+    return mockedService;
+  }
+}
++----------------------------------------+
+
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+public class SimpleTest {
+
+    @Mock(providedBy="providerMethod",
+                      providerClass=ServiceMockProvider.class)
+    private Service service;
+
+    ...
+}
++----------------------------------------+
+
+
+** Mock type
+
+  E' possibile specificare il tipo di mock da creare. I possibili valori valori sono:
+
+    * EASY_MOCK_NORMAL per creare il mock di default di EasyMock (valore di default)
+
+    * EASY_MOCK_STRICT per creare un EasyMock strict mock
+
+    * EASY_MOCK_NICE per creare un EasyMock nice mock
+
+
+
+
+
+* Replace module
+
+  In fase di inizializzazione dell'iniettore, <JUniceRunner> colleziona tutti i moduli dichiarati
+  tramite le annotazioni {{{guice.html}guice}} e in pi˘ aggiunge i bindings creati con le annotazioni
+   <<<org.nnsoft.guice.junice.annotation.Mock>>>
+
+  In caso di dichiarazione multipla di un binding, <JUnice> sovrascrive tutti i bindings esistenti
+  con i bindings dichiarati tramite le annotazioni <<<org.nnsoft.guice.junice.annotation.Mock>>>
+
+  Per esempio dato il modulo:
+
++----------------------------------------+
+
+public class ServiceModule extends AbstractModule {
+
+    @Override
+    protected void configure() {
+        bind(Service.class)
+            .to(ServiceImpl.class)
+                .asEagerSingleton();
+        ...
+    }
+}
++----------------------------------------+
+
+
+  e la sua implementazione:
+
++----------------------------------------+
+
+public class ServiceImpl implements Service {
+
+    public String go() {
+        return "It's real class";
+    }
+
+}
++----------------------------------------+
+
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+@GuiceModules(modules=ServiceModule.class)
+public class TestCustomInjectionTest {
+
+    @Mock
+    private static Service service;
+
+    @Test
+    public void testOverideModule() throws Exception {
+        assertNotNull(service);
+
+        EasyMock.expect(service.go())
+                .andReturn("Mocked injected class");
+
+        assertEquals("Mocked injected class", service.go());
+    }
+
+}
+
++----------------------------------------+
+
+
+  il runner darà precedenza al binding dichiarato tramite l'annotazione @Mock e quindi
+  l'iniettore inietterà nella classe di test e in tutte le dipenenze l'oggetto mockato e non quello reale.
+
+
+* Annotazione Mock mutlipla per lo stesso tipo
+
+   PoichË per ogni @Mock <JUnice> crea un google-guice binding, in presenza di una annotazione
+   multipla per lo stesso tipo, non Ë  possibile creare un binding di default.
+
+   <JUnice> adotta questa convesione:
+
+   Il binding verr‡ creato <<se e solo se>> non ci sono conflitti tra i tipi
+   annotati con l'annotazione <<<org.nnsoft.guice.junice.annotation.Mock>>>.
+
+
+   <JUnice> rileva un <conflitto di tipo>
+
+   * se due o piu field sono annotate con l'annotazione <<<org.nnsoft.guice.junice.annotation.Mock>>> e
+     non sono stati specificati parametri <<<org.nnsoft.guice.junice.annotation.Mock#annotatedWith>>> differenti.
+
+   []
+
+   Nel caso in cui si Ë in presenza di un conflitto il binding per quel tipo <<non verr‡ creato>>
+   e verr‡ eseguito il <set> delle <fields> solo per la classe di test ma non per tutte le altre classi che dipendono dal
+   tipo in conflitto.
+
+   Per esempio:
+
+
++----------------------------------------+
+
+@RunWith(JUniceRunner.class)
+public class TestCustomInjectionTest extendes Module {
+
+    public void configure(Binder binder) {
+        binder.bind(Service.class).toInstance(serviceOne);
+    }
+
+    @Mock
+    private static Service serviceOne;
+
+    @Mock
+    private Service serviceTwo;
+
+    @Inject
+    private HelloWorld helloWorld;
+
+    @Test
+    public void testOverideModule() throws Exception {
+        assertNotNull(serviceOne);
+        assertNotNull(serviceTwo);
+    }
+}
++----------------------------------------+
+
+
+
+  In questo caso la classe <<<HelloWorld>>> ha una dipendenza con l'interfaccia <<Service>>.
+  Se non verr‡ specificato un binding <on the fly> appropriato <<<Google Guice>>> lancer‡
+  una <<<com.google.inject.ConfigurationExcepion>>>
+  Per specificare un binding on the fly vedere {{{guice.html}guice}}
+
+
+
+
+
+
