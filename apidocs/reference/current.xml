@@ -1,0 +1,825 @@
+<api>
+<package name="org.nnsoft.guice.junice"
+>
+<class name="GuiceMockModule"
+ extends="com.google.inject.AbstractModule"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="GuiceMockModule"
+ type="org.nnsoft.guice.junice.GuiceMockModule"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mockedFields" type="java.util.Map&lt;java.lang.reflect.Field, java.lang.Object&gt;">
+</parameter>
+</constructor>
+<method name="configure"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</method>
+</class>
+<class name="JUniceRunner"
+ extends="org.junit.runners.BlockJUnit4ClassRunner"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="JUniceRunner"
+ type="org.nnsoft.guice.junice.JUniceRunner"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="klass" type="java.lang.Class&lt;?&gt;">
+</parameter>
+<exception name="InitializationError" type="org.junit.runners.model.InitializationError">
+</exception>
+</constructor>
+<method name="createInjector"
+ return="com.google.inject.Injector"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="modules" type="java.util.List&lt;com.google.inject.Module&gt;">
+</parameter>
+</method>
+<method name="inizializeInjector"
+ return="java.util.List&lt;com.google.inject.Module&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+<parameter name="clazz" type="java.lang.Class&lt;?&gt;">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+<exception name="IllegalAccessException" type="java.lang.IllegalAccessException">
+</exception>
+<exception name="InstantiationException" type="java.lang.InstantiationException">
+</exception>
+</method>
+</class>
+</package>
+<package name="org.nnsoft.guice.junice.annotation"
+>
+<class name="GuiceModules"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.lang.annotation.Annotation">
+</implements>
+</class>
+<class name="GuiceProvidedModules"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.lang.annotation.Annotation">
+</implements>
+</class>
+<class name="Mock"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.lang.annotation.Annotation">
+</implements>
+</class>
+<class name="Mock.NoAnnotation"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Mock.NoAnnotation"
+ type="org.nnsoft.guice.junice.annotation.Mock.NoAnnotation"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="MockFramework"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="java.lang.annotation.Annotation">
+</implements>
+</class>
+<class name="MockObjType"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="org.nnsoft.guice.junice.annotation.MockObjType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="org.nnsoft.guice.junice.annotation.MockObjType[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="MockType"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="org.nnsoft.guice.junice.annotation.MockType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="org.nnsoft.guice.junice.annotation.MockType[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+</package>
+<package name="org.nnsoft.guice.junice.handler"
+>
+<class name="GuiceInjectableClassHandler"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.AnnotationHandler">
+</implements>
+<constructor name="GuiceInjectableClassHandler"
+ type="org.nnsoft.guice.junice.handler.GuiceInjectableClassHandler"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getClasses"
+ return="java.lang.Class&lt;?&gt;[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="handle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="com.google.inject.Inject">
+</parameter>
+<parameter name="element" type="java.lang.reflect.AccessibleObject">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+<field name="classes"
+ type="java.util.Set"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="protected"
+>
+</field>
+</class>
+<class name="GuiceModuleHandler"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.ClassHandler">
+</implements>
+<constructor name="GuiceModuleHandler"
+ type="org.nnsoft.guice.junice.handler.GuiceModuleHandler"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getModules"
+ return="java.util.List&lt;com.google.inject.Module&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="handle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="org.nnsoft.guice.junice.annotation.GuiceModules">
+</parameter>
+<parameter name="element" type="java.lang.Class&lt;?&gt;">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</class>
+<class name="GuiceProvidedModuleHandler"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.MethodHandler">
+</implements>
+<constructor name="GuiceProvidedModuleHandler"
+ type="org.nnsoft.guice.junice.handler.GuiceProvidedModuleHandler"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getModules"
+ return="java.util.List&lt;com.google.inject.Module&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="handle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="org.nnsoft.guice.junice.annotation.GuiceProvidedModules">
+</parameter>
+<parameter name="method" type="java.lang.reflect.Method">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</class>
+<class name="MockFrameworkHandler"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.ClassHandler">
+</implements>
+<constructor name="MockFrameworkHandler"
+ type="org.nnsoft.guice.junice.handler.MockFrameworkHandler"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getMockType"
+ return="org.nnsoft.guice.junice.annotation.MockType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="handle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="org.nnsoft.guice.junice.annotation.MockFramework">
+</parameter>
+<parameter name="element" type="java.lang.Class&lt;?&gt;">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</class>
+<class name="MockHandler"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.FieldHandler">
+</implements>
+<constructor name="MockHandler"
+ type="org.nnsoft.guice.junice.handler.MockHandler"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="getMockedObject"
+ return="java.util.HashMap&lt;java.lang.reflect.Field, java.lang.Object&gt;"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="engine" type="org.nnsoft.guice.junice.mock.MockEngine">
+</parameter>
+</method>
+<method name="handle"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="org.nnsoft.guice.junice.annotation.Mock">
+</parameter>
+<parameter name="element" type="java.lang.reflect.Field">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</class>
+</package>
+<package name="org.nnsoft.guice.junice.mock"
+>
+<interface name="MockEngine"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="createMock"
+ return="T"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cls" type="java.lang.Class&lt;T&gt;">
+</parameter>
+<parameter name="type" type="org.nnsoft.guice.junice.annotation.MockObjType">
+</parameter>
+</method>
+<method name="resetMock"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="objects" type="java.lang.Object...">
+</parameter>
+</method>
+</interface>
+</package>
+<package name="org.nnsoft.guice.junice.mock.framework"
+>
+<class name="EasyMockFramework"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.mock.MockEngine">
+</implements>
+<constructor name="EasyMockFramework"
+ type="org.nnsoft.guice.junice.mock.framework.EasyMockFramework"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="createMock"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cls" type="java.lang.Class&lt;T&gt;">
+</parameter>
+<parameter name="type" type="org.nnsoft.guice.junice.annotation.MockObjType">
+</parameter>
+</method>
+<method name="resetMock"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="objects" type="java.lang.Object...">
+</parameter>
+</method>
+</class>
+<class name="MockitoFramework"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.mock.MockEngine">
+</implements>
+<constructor name="MockitoFramework"
+ type="org.nnsoft.guice.junice.mock.framework.MockitoFramework"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="createMock"
+ return="T"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cls" type="java.lang.Class&lt;T&gt;">
+</parameter>
+<parameter name="type" type="org.nnsoft.guice.junice.annotation.MockObjType">
+</parameter>
+</method>
+<method name="resetMock"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="objects" type="java.lang.Object...">
+</parameter>
+</method>
+</class>
+</package>
+<package name="org.nnsoft.guice.junice.mock.guice"
+>
+<class name="MockMembersInjector"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.google.inject.MembersInjector">
+</implements>
+<constructor name="MockMembersInjector"
+ type="org.nnsoft.guice.junice.mock.guice.MockMembersInjector"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="field" type="java.lang.reflect.Field">
+</parameter>
+<parameter name="mockedObjects" type="java.util.Map&lt;java.lang.reflect.Field, java.lang.Object&gt;">
+</parameter>
+</constructor>
+<method name="injectMembers"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="t" type="T">
+</parameter>
+</method>
+</class>
+<class name="MockTypeListener"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.google.inject.spi.TypeListener">
+</implements>
+<constructor name="MockTypeListener"
+ type="org.nnsoft.guice.junice.mock.guice.MockTypeListener"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mockedObjects" type="java.util.Map&lt;java.lang.reflect.Field, java.lang.Object&gt;">
+</parameter>
+</constructor>
+<method name="hear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="typeLiteral" type="com.google.inject.TypeLiteral&lt;T&gt;">
+</parameter>
+<parameter name="typeEncounter" type="com.google.inject.spi.TypeEncounter&lt;T&gt;">
+</parameter>
+</method>
+</class>
+</package>
+<package name="org.nnsoft.guice.junice.reflection"
+>
+<interface name="AnnotationHandler"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="handle"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotation" type="A">
+</parameter>
+<parameter name="element" type="E">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</interface>
+<interface name="ClassHandler"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.AnnotationHandler">
+</implements>
+</interface>
+<class name="ClassVisitor"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="ClassVisitor"
+ type="org.nnsoft.guice.junice.reflection.ClassVisitor"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="registerHandler"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="annotationType" type="java.lang.Class&lt;A&gt;">
+</parameter>
+<parameter name="handler" type="org.nnsoft.guice.junice.reflection.AnnotationHandler&lt;A, ? extends java.lang.reflect.AnnotatedElement&gt;">
+</parameter>
+</method>
+<method name="visit"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="type" type="java.lang.Class&lt;?&gt;">
+</parameter>
+<exception name="HandleException" type="org.nnsoft.guice.junice.reflection.HandleException">
+</exception>
+</method>
+</class>
+<interface name="FieldHandler"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.AnnotationHandler">
+</implements>
+</interface>
+<class name="HandleException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="HandleException"
+ type="org.nnsoft.guice.junice.reflection.HandleException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="message" type="java.lang.String">
+</parameter>
+</constructor>
+<constructor name="HandleException"
+ type="org.nnsoft.guice.junice.reflection.HandleException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="message" type="java.lang.String">
+</parameter>
+<parameter name="cause" type="java.lang.Throwable">
+</parameter>
+</constructor>
+<constructor name="HandleException"
+ type="org.nnsoft.guice.junice.reflection.HandleException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="cause" type="java.lang.Throwable">
+</parameter>
+</constructor>
+</class>
+<interface name="MethodHandler"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="org.nnsoft.guice.junice.reflection.AnnotationHandler">
+</implements>
+</interface>
+</package>
+</api>

@@ -1,0 +1,8 @@
+org.nnsoft.guice.junice
+org.nnsoft.guice.junice.annotation
+org.nnsoft.guice.junice.handler
+org.nnsoft.guice.junice.mock
+org.nnsoft.guice.junice.mock.framework
+org.nnsoft.guice.junice.mock.guice
+org.nnsoft.guice.junice.reflection
+

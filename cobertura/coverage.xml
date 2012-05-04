@@ -1,0 +1,2057 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.7865707434052758" branch-rate="0.7202380952380952" lines-covered="328" lines-valid="417" branches-covered="121" branches-valid="168" complexity="3.617021276595745" version="1.9.4.1" timestamp="1336159090532">
+	<sources>
+		<source>/Users/simonetripodi/Documents/workspace/junice/src/main/java</source>
+		<source>--source</source>
+	</sources>
+	<packages>
+		<package name="org.nnsoft.guice.junice" line-rate="0.8783068783068783" branch-rate="0.7529411764705882" complexity="4.533333333333333">
+			<classes>
+				<class name="org.nnsoft.guice.junice.GuiceMockModule" filename="org/nnsoft/guice/junice/GuiceMockModule.java" line-rate="0.7592592592592593" branch-rate="0.84375" complexity="7.666666666666667">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="2" branch="false"/>
+								<line number="56" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Map;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="66" hits="14" branch="false"/>
+								<line number="67" hits="14" branch="false"/>
+								<line number="68" hits="14" branch="false"/>
+							</lines>
+						</method>
+						<method name="checkTypeConflict" signature="(Ljava/util/Collection;)Z" line-rate="0.7142857142857143" branch-rate="0.8125">
+							<lines>
+								<line number="123" hits="2" branch="false"/>
+								<line number="124" hits="2" branch="false"/>
+								<line number="125" hits="2" branch="false"/>
+								<line number="127" hits="10" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="128" hits="6" branch="false"/>
+								<line number="130" hits="6" branch="true" condition-coverage="100% (4/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="131" hits="2" branch="false"/>
+								<line number="133" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="134" hits="0" branch="false"/>
+								<line number="135" hits="0" branch="false"/>
+								<line number="138" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="139" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="140" hits="2" branch="false"/>
+								<line number="143" hits="0" branch="false"/>
+								<line number="144" hits="0" branch="false"/>
+								<line number="148" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="149" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="150" hits="2" branch="false"/>
+								<line number="153" hits="0" branch="false"/>
+								<line number="154" hits="0" branch="false"/>
+								<line number="158" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="configure" signature="()V" line-rate="0.75" branch-rate="0.875">
+							<lines>
+								<line number="73" hits="14" branch="false"/>
+								<line number="75" hits="50" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="76" hits="22" branch="false"/>
+								<line number="79" hits="46" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="80" hits="18" branch="false"/>
+								<line number="82" hits="18" branch="false"/>
+								<line number="83" hits="18" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="2" branch="false"/>
+								<line number="87" hits="18" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="88" hits="58" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="89" hits="22" branch="false"/>
+								<line number="90" hits="22" branch="false"/>
+								<line number="91" hits="22" branch="false"/>
+								<line number="92" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="93" hits="2" branch="false"/>
+								<line number="94" hits="20" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="95" hits="2" branch="false"/>
+								<line number="97" hits="18" branch="false"/>
+								<line number="99" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="100" hits="22" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+								<line number="106" hits="0" branch="false"/>
+								<line number="107" hits="0" branch="false"/>
+								<line number="108" hits="0" branch="false"/>
+								<line number="109" hits="0" branch="false"/>
+								<line number="110" hits="0" branch="false"/>
+								<line number="111" hits="0" branch="false"/>
+								<line number="114" hits="14" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="54" hits="2" branch="false"/>
+						<line number="56" hits="2" branch="false"/>
+						<line number="66" hits="14" branch="false"/>
+						<line number="67" hits="14" branch="false"/>
+						<line number="68" hits="14" branch="false"/>
+						<line number="73" hits="14" branch="false"/>
+						<line number="75" hits="50" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="76" hits="22" branch="false"/>
+						<line number="79" hits="46" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="80" hits="18" branch="false"/>
+						<line number="82" hits="18" branch="false"/>
+						<line number="83" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="2" branch="false"/>
+						<line number="87" hits="18" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="88" hits="58" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="89" hits="22" branch="false"/>
+						<line number="90" hits="22" branch="false"/>
+						<line number="91" hits="22" branch="false"/>
+						<line number="92" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="93" hits="2" branch="false"/>
+						<line number="94" hits="20" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="95" hits="2" branch="false"/>
+						<line number="97" hits="18" branch="false"/>
+						<line number="99" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="100" hits="22" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+						<line number="107" hits="0" branch="false"/>
+						<line number="108" hits="0" branch="false"/>
+						<line number="109" hits="0" branch="false"/>
+						<line number="110" hits="0" branch="false"/>
+						<line number="111" hits="0" branch="false"/>
+						<line number="114" hits="14" branch="false"/>
+						<line number="123" hits="2" branch="false"/>
+						<line number="124" hits="2" branch="false"/>
+						<line number="125" hits="2" branch="false"/>
+						<line number="127" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="128" hits="6" branch="false"/>
+						<line number="130" hits="6" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="131" hits="2" branch="false"/>
+						<line number="133" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="134" hits="0" branch="false"/>
+						<line number="135" hits="0" branch="false"/>
+						<line number="138" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="139" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="140" hits="2" branch="false"/>
+						<line number="143" hits="0" branch="false"/>
+						<line number="144" hits="0" branch="false"/>
+						<line number="148" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="149" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="150" hits="2" branch="false"/>
+						<line number="153" hits="0" branch="false"/>
+						<line number="154" hits="0" branch="false"/>
+						<line number="158" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.JUniceRunner" filename="org/nnsoft/guice/junice/JUniceRunner.java" line-rate="0.9416666666666667" branch-rate="0.6875" complexity="3.5454545454545454">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="113" hits="2" branch="false"/>
+								<line number="115" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/Class;)V" line-rate="0.6666666666666666" branch-rate="0.5">
+							<lines>
+								<line number="123" hits="22" branch="false"/>
+								<line number="133" hits="22" branch="false"/>
+								<line number="136" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="137" hits="22" branch="false"/>
+								<line number="140" hits="22" branch="false"/>
+								<line number="142" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="143" hits="22" branch="false"/>
+								<line number="145" hits="0" branch="false"/>
+								<line number="146" hits="0" branch="false"/>
+								<line number="147" hits="0" branch="false"/>
+								<line number="148" hits="0" branch="false"/>
+								<line number="150" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="access$0" signature="(Lorg/nnsoft/guice/junice/JUniceRunner;)Ljava/util/Map;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="121" hits="36" branch="false"/>
+							</lines>
+						</method>
+						<method name="createInjector" signature="(Ljava/util/List;)Lcom/google/inject/Injector;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="213" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="createTest" signature="()Ljava/lang/Object;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="205" hits="34" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="206" hits="34" branch="false"/>
+								<line number="208" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="flush" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="178" hits="22" branch="false"/>
+								<line number="179" hits="22" branch="false"/>
+								<line number="180" hits="22" branch="false"/>
+								<line number="181" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="inizializeInjector" signature="(Ljava/lang/Class;)Ljava/util/List;" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="228" hits="22" branch="false"/>
+								<line number="229" hits="22" branch="false"/>
+								<line number="230" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="231" hits="22" branch="false"/>
+								<line number="233" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="resetAllResetAfterMocks" signature="()V" line-rate="1.0" branch-rate="0.75">
+							<lines>
+								<line number="237" hits="110" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="238" hits="42" branch="false"/>
+								<line number="239" hits="42" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="240" hits="42" branch="false"/>
+								<line number="241" hits="42" branch="false"/>
+								<line number="244" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="run" signature="(Lorg/junit/runner/notification/RunNotifier;)V" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="156" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="157" hits="44" branch="false"/>
+								<line number="158" hits="22" branch="false"/>
+								<line number="159" hits="22" branch="false"/>
+								<line number="160" hits="22" branch="false"/>
+								<line number="163" hits="22" branch="false"/>
+								<line number="164" hits="22" branch="false"/>
+								<line number="165" hits="22" branch="false"/>
+								<line number="167" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="168" hits="44" branch="false"/>
+								<line number="169" hits="22" branch="false"/>
+								<line number="170" hits="22" branch="false"/>
+								<line number="172" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="runChild" signature="(Lorg/junit/runners/model/FrameworkMethod;Lorg/junit/runner/notification/RunNotifier;)V" line-rate="1.0" branch-rate="0.5">
+							<lines>
+								<line number="186" hits="34" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="187" hits="68" branch="false"/>
+								<line number="188" hits="34" branch="false"/>
+								<line number="189" hits="34" branch="false"/>
+								<line number="192" hits="34" branch="false"/>
+								<line number="193" hits="34" branch="false"/>
+								<line number="195" hits="34" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="196" hits="68" branch="false"/>
+								<line number="197" hits="34" branch="false"/>
+								<line number="198" hits="34" branch="false"/>
+								<line number="201" hits="34" branch="false"/>
+							</lines>
+						</method>
+						<method name="visitClass" signature="(Ljava/lang/Class;)Lcom/google/inject/Module;" line-rate="0.9516129032258065" branch-rate="0.7857142857142857">
+							<lines>
+								<line number="254" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="255" hits="44" branch="false"/>
+								<line number="256" hits="22" branch="false"/>
+								<line number="258" hits="22" branch="false"/>
+								<line number="261" hits="22" branch="false"/>
+								<line number="262" hits="22" branch="false"/>
+								<line number="263" hits="22" branch="false"/>
+								<line number="264" hits="22" branch="false"/>
+								<line number="265" hits="22" branch="false"/>
+								<line number="267" hits="22" branch="false"/>
+								<line number="268" hits="22" branch="false"/>
+								<line number="269" hits="22" branch="false"/>
+								<line number="270" hits="22" branch="false"/>
+								<line number="271" hits="22" branch="false"/>
+								<line number="272" hits="22" branch="false"/>
+								<line number="275" hits="22" branch="false"/>
+								<line number="278" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="279" hits="2" branch="false"/>
+								<line number="283" hits="22" branch="false"/>
+								<line number="284" hits="22" branch="false"/>
+								<line number="285" hits="22" branch="false"/>
+								<line number="286" hits="22" branch="false"/>
+								<line number="287" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="289" hits="14" branch="false"/>
+								<line number="290" hits="14" branch="false"/>
+								<line number="291" hits="14" branch="false"/>
+								<line number="295" hits="22" branch="false"/>
+								<line number="298" hits="22" branch="false"/>
+								<line number="305" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="306" hits="18" branch="false"/>
+								<line number="310" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="311" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="312" hits="4" branch="false"/>
+								<line number="313" hits="2" branch="false"/>
+								<line number="315" hits="2" branch="false"/>
+								<line number="316" hits="2" branch="false"/>
+								<line number="320" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="321" hits="14" branch="false"/>
+								<line number="329" hits="50" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="330" hits="22" branch="false"/>
+								<line number="331" hits="22" branch="false"/>
+								<line number="332" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="333" hits="4" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="334" hits="4" branch="false"/>
+								<line number="337" hits="4" branch="false"/>
+								<line number="338" hits="4" branch="false"/>
+								<line number="343" hits="14" branch="false"/>
+								<line number="346" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="347" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="348" hits="22" branch="false"/>
+								<line number="349" hits="22" branch="false"/>
+								<line number="350" hits="22" branch="false"/>
+								<line number="351" hits="106" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="352" hits="62" branch="false"/>
+								<line number="353" hits="62" branch="false"/>
+								<line number="355" hits="22" branch="false"/>
+								<line number="357" hits="44" branch="false"/>
+								<line number="359" hits="0" branch="false"/>
+								<line number="360" hits="0" branch="false"/>
+								<line number="361" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="362" hits="22" branch="false"/>
+								<line number="364" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="113" hits="2" branch="false"/>
+						<line number="115" hits="2" branch="false"/>
+						<line number="121" hits="36" branch="false"/>
+						<line number="123" hits="22" branch="false"/>
+						<line number="133" hits="22" branch="false"/>
+						<line number="136" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="137" hits="22" branch="false"/>
+						<line number="140" hits="22" branch="false"/>
+						<line number="142" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="143" hits="22" branch="false"/>
+						<line number="145" hits="0" branch="false"/>
+						<line number="146" hits="0" branch="false"/>
+						<line number="147" hits="0" branch="false"/>
+						<line number="148" hits="0" branch="false"/>
+						<line number="150" hits="22" branch="false"/>
+						<line number="156" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="157" hits="44" branch="false"/>
+						<line number="158" hits="22" branch="false"/>
+						<line number="159" hits="22" branch="false"/>
+						<line number="160" hits="22" branch="false"/>
+						<line number="163" hits="22" branch="false"/>
+						<line number="164" hits="22" branch="false"/>
+						<line number="165" hits="22" branch="false"/>
+						<line number="167" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="168" hits="44" branch="false"/>
+						<line number="169" hits="22" branch="false"/>
+						<line number="170" hits="22" branch="false"/>
+						<line number="172" hits="22" branch="false"/>
+						<line number="178" hits="22" branch="false"/>
+						<line number="179" hits="22" branch="false"/>
+						<line number="180" hits="22" branch="false"/>
+						<line number="181" hits="22" branch="false"/>
+						<line number="186" hits="34" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="187" hits="68" branch="false"/>
+						<line number="188" hits="34" branch="false"/>
+						<line number="189" hits="34" branch="false"/>
+						<line number="192" hits="34" branch="false"/>
+						<line number="193" hits="34" branch="false"/>
+						<line number="195" hits="34" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="196" hits="68" branch="false"/>
+						<line number="197" hits="34" branch="false"/>
+						<line number="198" hits="34" branch="false"/>
+						<line number="201" hits="34" branch="false"/>
+						<line number="205" hits="34" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="206" hits="34" branch="false"/>
+						<line number="208" hits="34" branch="false"/>
+						<line number="213" hits="22" branch="false"/>
+						<line number="228" hits="22" branch="false"/>
+						<line number="229" hits="22" branch="false"/>
+						<line number="230" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="231" hits="22" branch="false"/>
+						<line number="233" hits="22" branch="false"/>
+						<line number="237" hits="110" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="238" hits="42" branch="false"/>
+						<line number="239" hits="42" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="240" hits="42" branch="false"/>
+						<line number="241" hits="42" branch="false"/>
+						<line number="244" hits="34" branch="false"/>
+						<line number="254" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="255" hits="44" branch="false"/>
+						<line number="256" hits="22" branch="false"/>
+						<line number="258" hits="22" branch="false"/>
+						<line number="261" hits="22" branch="false"/>
+						<line number="262" hits="22" branch="false"/>
+						<line number="263" hits="22" branch="false"/>
+						<line number="264" hits="22" branch="false"/>
+						<line number="265" hits="22" branch="false"/>
+						<line number="267" hits="22" branch="false"/>
+						<line number="268" hits="22" branch="false"/>
+						<line number="269" hits="22" branch="false"/>
+						<line number="270" hits="22" branch="false"/>
+						<line number="271" hits="22" branch="false"/>
+						<line number="272" hits="22" branch="false"/>
+						<line number="275" hits="22" branch="false"/>
+						<line number="278" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="279" hits="2" branch="false"/>
+						<line number="283" hits="22" branch="false"/>
+						<line number="284" hits="22" branch="false"/>
+						<line number="285" hits="22" branch="false"/>
+						<line number="286" hits="22" branch="false"/>
+						<line number="287" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="289" hits="14" branch="false"/>
+						<line number="290" hits="14" branch="false"/>
+						<line number="291" hits="14" branch="false"/>
+						<line number="295" hits="22" branch="false"/>
+						<line number="298" hits="22" branch="false"/>
+						<line number="305" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="306" hits="18" branch="false"/>
+						<line number="310" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="311" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="312" hits="4" branch="false"/>
+						<line number="313" hits="2" branch="false"/>
+						<line number="315" hits="2" branch="false"/>
+						<line number="316" hits="2" branch="false"/>
+						<line number="320" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="321" hits="14" branch="false"/>
+						<line number="329" hits="50" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="330" hits="22" branch="false"/>
+						<line number="331" hits="22" branch="false"/>
+						<line number="332" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="333" hits="4" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="334" hits="4" branch="false"/>
+						<line number="337" hits="4" branch="false"/>
+						<line number="338" hits="4" branch="false"/>
+						<line number="343" hits="14" branch="false"/>
+						<line number="346" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="347" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="348" hits="22" branch="false"/>
+						<line number="349" hits="22" branch="false"/>
+						<line number="350" hits="22" branch="false"/>
+						<line number="351" hits="106" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="352" hits="62" branch="false"/>
+						<line number="353" hits="62" branch="false"/>
+						<line number="355" hits="22" branch="false"/>
+						<line number="357" hits="44" branch="false"/>
+						<line number="359" hits="0" branch="false"/>
+						<line number="360" hits="0" branch="false"/>
+						<line number="361" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="362" hits="22" branch="false"/>
+						<line number="364" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.JUniceRunner$1" filename="org/nnsoft/guice/junice/JUniceRunner.java" line-rate="1.0" branch-rate="1.0" complexity="3.5454545454545454">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lorg/nnsoft/guice/junice/JUniceRunner;[Ljava/lang/Class;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="22" branch="false"/>
+								<line number="298" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="configure" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="302" hits="18" branch="false"/>
+								<line number="303" hits="18" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="22" branch="false"/>
+						<line number="298" hits="22" branch="false"/>
+						<line number="302" hits="18" branch="false"/>
+						<line number="303" hits="18" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.JUniceRunner$2" filename="org/nnsoft/guice/junice/JUniceRunner.java" line-rate="1.0" branch-rate="1.0" complexity="3.5454545454545454">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lorg/nnsoft/guice/junice/JUniceRunner;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="14" branch="false"/>
+								<line number="321" hits="14" branch="false"/>
+							</lines>
+						</method>
+						<method name="configure" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="324" hits="14" branch="false"/>
+								<line number="325" hits="14" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="14" branch="false"/>
+						<line number="321" hits="14" branch="false"/>
+						<line number="324" hits="14" branch="false"/>
+						<line number="325" hits="14" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.MockEngineFactory" filename="org/nnsoft/guice/junice/MockEngineFactory.java" line-rate="0.5714285714285714" branch-rate="0.8" complexity="6.0">
+					<methods>
+						<method name="$SWITCH_TABLE$org$nnsoft$guice$junice$annotation$MockType" signature="()[I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="64" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="getMockEngine" signature="(Lorg/nnsoft/guice/junice/annotation/MockType;)Lorg/nnsoft/guice/junice/mock/MockEngine;" line-rate="0.5" branch-rate="0.6666666666666666">
+							<lines>
+								<line number="46" hits="64" branch="true" condition-coverage="66% (2/3)">
+									<conditions>
+										<condition number="0" type="switch" coverage="66%"/>
+									</conditions>
+								</line>
+								<line number="48" hits="58" branch="false"/>
+								<line number="51" hits="6" branch="false"/>
+								<line number="54" hits="0" branch="false"/>
+								<line number="55" hits="0" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="31" hits="64" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="46" hits="64" branch="true" condition-coverage="66% (2/3)">
+							<conditions>
+								<condition number="0" type="switch" coverage="66%"/>
+							</conditions>
+						</line>
+						<line number="48" hits="58" branch="false"/>
+						<line number="51" hits="6" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.package-info" filename="org/nnsoft/guice/junice/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.annotation" line-rate="0.9090909090909091" branch-rate="1.0" complexity="0.0">
+			<classes>
+				<class name="org.nnsoft.guice.junice.annotation.GuiceModules" filename="org/nnsoft/guice/junice/annotation/GuiceModules.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.GuiceProvidedModules" filename="org/nnsoft/guice/junice/annotation/GuiceProvidedModules.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.Mock" filename="org/nnsoft/guice/junice/annotation/Mock.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.Mock$NoAnnotation" filename="org/nnsoft/guice/junice/annotation/Mock.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="40" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.MockFramework" filename="org/nnsoft/guice/junice/annotation/MockFramework.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.MockObjType" filename="org/nnsoft/guice/junice/annotation/MockObjType.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="26" hits="2" branch="false"/>
+								<line number="27" hits="2" branch="false"/>
+								<line number="28" hits="2" branch="false"/>
+								<line number="29" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="24" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lorg/nnsoft/guice/junice/annotation/MockObjType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lorg/nnsoft/guice/junice/annotation/MockObjType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="4" branch="false"/>
+						<line number="24" hits="10" branch="false"/>
+						<line number="26" hits="2" branch="false"/>
+						<line number="27" hits="2" branch="false"/>
+						<line number="28" hits="2" branch="false"/>
+						<line number="29" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.MockType" filename="org/nnsoft/guice/junice/annotation/MockType.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="27" hits="2" branch="false"/>
+								<line number="28" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="25" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Lorg/nnsoft/guice/junice/annotation/MockType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="4" branch="false"/>
+							</lines>
+						</method>
+						<method name="values" signature="()[Lorg/nnsoft/guice/junice/annotation/MockType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="4" branch="false"/>
+						<line number="25" hits="6" branch="false"/>
+						<line number="27" hits="2" branch="false"/>
+						<line number="28" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.annotation.package-info" filename="org/nnsoft/guice/junice/annotation/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.handler" line-rate="0.6753246753246753" branch-rate="0.6379310344827587" complexity="4.133333333333334">
+			<classes>
+				<class name="org.nnsoft.guice.junice.handler.GuiceInjectableClassHandler" filename="org/nnsoft/guice/junice/handler/GuiceInjectableClassHandler.java" line-rate="0.8666666666666667" branch-rate="0.5" complexity="3.5">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="39" hits="46" branch="false"/>
+								<line number="42" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="getClasses" signature="()[Ljava/lang/Class;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="49" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Lcom/google/inject/Inject;Ljava/lang/reflect/AccessibleObject;)V" line-rate="0.8" branch-rate="0.5">
+							<lines>
+								<line number="56" hits="28" branch="false"/>
+								<line number="58" hits="28" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="59" hits="28" branch="false"/>
+								<line number="60" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="61" hits="0" branch="false"/>
+								<line number="64" hits="28" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="65" hits="18" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="66" hits="18" branch="false"/>
+								<line number="68" hits="18" branch="false"/>
+								<line number="70" hits="28" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="28" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="28" branch="false"/>
+						<line number="39" hits="46" branch="false"/>
+						<line number="40" hits="2" branch="false"/>
+						<line number="42" hits="22" branch="false"/>
+						<line number="49" hits="22" branch="false"/>
+						<line number="56" hits="28" branch="false"/>
+						<line number="58" hits="28" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="59" hits="28" branch="false"/>
+						<line number="60" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="61" hits="0" branch="false"/>
+						<line number="64" hits="28" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="65" hits="18" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="66" hits="18" branch="false"/>
+						<line number="68" hits="18" branch="false"/>
+						<line number="70" hits="28" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.GuiceModuleHandler" filename="org/nnsoft/guice/junice/handler/GuiceModuleHandler.java" line-rate="0.8571428571428571" branch-rate="0.75" complexity="2.3333333333333335">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="2" branch="false"/>
+								<line number="39" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="43" hits="22" branch="false"/>
+								<line number="44" hits="22" branch="false"/>
+								<line number="45" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModules" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="51" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="10" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Lorg/nnsoft/guice/junice/annotation/GuiceModules;Ljava/lang/Class;)V" line-rate="0.7142857142857143" branch-rate="0.75">
+							<lines>
+								<line number="58" hits="20" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="59" hits="10" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="60" hits="10" branch="false"/>
+								<line number="63" hits="10" branch="false"/>
+								<line number="64" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="false"/>
+								<line number="68" hits="10" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="10" branch="false"/>
+						<line number="37" hits="2" branch="false"/>
+						<line number="39" hits="2" branch="false"/>
+						<line number="43" hits="22" branch="false"/>
+						<line number="44" hits="22" branch="false"/>
+						<line number="45" hits="22" branch="false"/>
+						<line number="51" hits="22" branch="false"/>
+						<line number="58" hits="20" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="59" hits="10" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="60" hits="10" branch="false"/>
+						<line number="63" hits="10" branch="false"/>
+						<line number="64" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="false"/>
+						<line number="68" hits="10" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.GuiceProvidedModuleHandler" filename="org/nnsoft/guice/junice/handler/GuiceProvidedModuleHandler.java" line-rate="0.825" branch-rate="0.7222222222222222" complexity="4.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="44" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="46" branch="false"/>
+								<line number="46" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="addModules" signature="(Ljava/lang/Iterable;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="104" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="105" hits="2" branch="false"/>
+								<line number="107" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="addModules" signature="([Lcom/google/inject/Module;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="110" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="111" hits="2" branch="false"/>
+								<line number="113" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModules" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="52" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Lorg/nnsoft/guice/junice/annotation/GuiceProvidedModules;Ljava/lang/reflect/Method;)V" line-rate="0.7586206896551724" branch-rate="0.6428571428571429">
+							<lines>
+								<line number="60" hits="8" branch="false"/>
+								<line number="62" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="63" hits="16" branch="false"/>
+								<line number="64" hits="8" branch="false"/>
+								<line number="65" hits="8" branch="false"/>
+								<line number="66" hits="8" branch="false"/>
+								<line number="67" hits="8" branch="false"/>
+								<line number="70" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="71" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="72" hits="0" branch="false"/>
+								<line number="73" hits="0" branch="false"/>
+								<line number="74" hits="0" branch="false"/>
+								<line number="77" hits="8" branch="false"/>
+								<line number="80" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="81" hits="4" branch="false"/>
+								<line number="83" hits="4" branch="false"/>
+								<line number="84" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="85" hits="2" branch="false"/>
+								<line number="87" hits="2" branch="false"/>
+								<line number="88" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="89" hits="2" branch="false"/>
+								<line number="91" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="false"/>
+								<line number="93" hits="0" branch="false"/>
+								<line number="94" hits="0" branch="false"/>
+								<line number="97" hits="8" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="98" hits="16" branch="false"/>
+								<line number="99" hits="8" branch="false"/>
+								<line number="101" hits="8" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="8" branch="false"/>
+						<line number="42" hits="46" branch="false"/>
+						<line number="44" hits="2" branch="false"/>
+						<line number="46" hits="22" branch="false"/>
+						<line number="52" hits="22" branch="false"/>
+						<line number="60" hits="8" branch="false"/>
+						<line number="62" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="16" branch="false"/>
+						<line number="64" hits="8" branch="false"/>
+						<line number="65" hits="8" branch="false"/>
+						<line number="66" hits="8" branch="false"/>
+						<line number="67" hits="8" branch="false"/>
+						<line number="70" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="71" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="72" hits="0" branch="false"/>
+						<line number="73" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="77" hits="8" branch="false"/>
+						<line number="80" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="81" hits="4" branch="false"/>
+						<line number="83" hits="4" branch="false"/>
+						<line number="84" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="85" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+						<line number="88" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="89" hits="2" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="false"/>
+						<line number="93" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+						<line number="97" hits="8" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="98" hits="16" branch="false"/>
+						<line number="99" hits="8" branch="false"/>
+						<line number="101" hits="8" branch="false"/>
+						<line number="104" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="105" hits="2" branch="false"/>
+						<line number="107" hits="2" branch="false"/>
+						<line number="110" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="111" hits="2" branch="false"/>
+						<line number="113" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.GuiceProvidedModuleHandler$1" filename="org/nnsoft/guice/junice/handler/GuiceProvidedModuleHandler.java" line-rate="1.0" branch-rate="1.0" complexity="4.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lorg/nnsoft/guice/junice/handler/GuiceProvidedModuleHandler;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="4" branch="false"/>
+								<line number="83" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="4" branch="false"/>
+						<line number="83" hits="4" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.GuiceProvidedModuleHandler$2" filename="org/nnsoft/guice/junice/handler/GuiceProvidedModuleHandler.java" line-rate="1.0" branch-rate="1.0" complexity="4.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lorg/nnsoft/guice/junice/handler/GuiceProvidedModuleHandler;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="2" branch="false"/>
+								<line number="87" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="2" branch="false"/>
+						<line number="87" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.MockFrameworkHandler" filename="org/nnsoft/guice/junice/handler/MockFrameworkHandler.java" line-rate="0.6428571428571429" branch-rate="0.3333333333333333" complexity="3.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="35" hits="24" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMockType" signature="()Lorg/nnsoft/guice/junice/annotation/MockType;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="45" hits="24" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Lorg/nnsoft/guice/junice/annotation/MockFramework;Ljava/lang/Class;)V" line-rate="0.5" branch-rate="0.3333333333333333">
+							<lines>
+								<line number="52" hits="2" branch="true" condition-coverage="25% (1/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="53" hits="0" branch="false"/>
+								<line number="55" hits="0" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+								<line number="58" hits="0" branch="false"/>
+								<line number="61" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="62" hits="2" branch="false"/>
+								<line number="65" hits="2" branch="false"/>
+								<line number="66" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="2" branch="false"/>
+						<line number="35" hits="24" branch="false"/>
+						<line number="37" hits="2" branch="false"/>
+						<line number="45" hits="24" branch="false"/>
+						<line number="52" hits="2" branch="true" condition-coverage="25% (1/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="53" hits="0" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="58" hits="0" branch="false"/>
+						<line number="61" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="62" hits="2" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="66" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.MockHandler" filename="org/nnsoft/guice/junice/handler/MockHandler.java" line-rate="0.4925373134328358" branch-rate="0.7" complexity="6.5">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="43" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="41" hits="46" branch="false"/>
+								<line number="45" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="createMockedObjectBymockFramekork" signature="(Lorg/nnsoft/guice/junice/mock/MockEngine;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="59" hits="66" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="60" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="61" hits="16" branch="false"/>
+								<line number="62" hits="16" branch="false"/>
+								<line number="63" hits="16" branch="false"/>
+								<line number="66" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMockProviderForType" signature="(Ljava/lang/Object;Ljava/lang/reflect/Method;Ljava/lang/Class;)Ljava/lang/Object;" line-rate="0.4117647058823529" branch-rate="0.5">
+							<lines>
+								<line number="123" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="125" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="126" hits="12" branch="false"/>
+								<line number="127" hits="6" branch="false"/>
+								<line number="129" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="130" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="131" hits="0" branch="false"/>
+								<line number="132" hits="0" branch="false"/>
+								<line number="133" hits="0" branch="false"/>
+								<line number="134" hits="0" branch="false"/>
+								<line number="135" hits="0" branch="false"/>
+								<line number="136" hits="0" branch="false"/>
+								<line number="139" hits="6" branch="false"/>
+								<line number="140" hits="0" branch="false"/>
+								<line number="141" hits="0" branch="false"/>
+								<line number="144" hits="0" branch="false"/>
+								<line number="145" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMockedObject" signature="(Lorg/nnsoft/guice/junice/mock/MockEngine;)Ljava/util/HashMap;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="54" hits="22" branch="false"/>
+								<line number="55" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Ljava/lang/annotation/Annotation;Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="1" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="(Lorg/nnsoft/guice/junice/annotation/Mock;Ljava/lang/reflect/Field;)V" line-rate="0.3684210526315789" branch-rate="0.75">
+							<lines>
+								<line number="70" hits="22" branch="false"/>
+								<line number="72" hits="22" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="22" branch="false"/>
+								<line number="75" hits="22" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="76" hits="6" branch="false"/>
+								<line number="77" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="78" hits="2" branch="false"/>
+								<line number="81" hits="6" branch="false"/>
+								<line number="83" hits="6" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+								<line number="86" hits="0" branch="false"/>
+								<line number="87" hits="0" branch="false"/>
+								<line number="88" hits="0" branch="false"/>
+								<line number="89" hits="0" branch="false"/>
+								<line number="92" hits="12" branch="false"/>
+								<line number="93" hits="6" branch="false"/>
+								<line number="94" hits="6" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+								<line number="98" hits="0" branch="false"/>
+								<line number="99" hits="0" branch="false"/>
+								<line number="100" hits="0" branch="false"/>
+								<line number="102" hits="0" branch="false"/>
+								<line number="103" hits="0" branch="false"/>
+								<line number="104" hits="0" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+								<line number="106" hits="0" branch="false"/>
+								<line number="107" hits="0" branch="false"/>
+								<line number="108" hits="0" branch="false"/>
+								<line number="109" hits="0" branch="false"/>
+								<line number="110" hits="0" branch="false"/>
+								<line number="111" hits="0" branch="false"/>
+								<line number="112" hits="0" branch="false"/>
+								<line number="113" hits="0" branch="false"/>
+								<line number="116" hits="16" branch="false"/>
+								<line number="118" hits="22" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="1" hits="22" branch="false"/>
+						<line number="41" hits="46" branch="false"/>
+						<line number="43" hits="2" branch="false"/>
+						<line number="45" hits="22" branch="false"/>
+						<line number="54" hits="22" branch="false"/>
+						<line number="55" hits="22" branch="false"/>
+						<line number="59" hits="66" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="60" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="61" hits="16" branch="false"/>
+						<line number="62" hits="16" branch="false"/>
+						<line number="63" hits="16" branch="false"/>
+						<line number="66" hits="22" branch="false"/>
+						<line number="70" hits="22" branch="false"/>
+						<line number="72" hits="22" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="22" branch="false"/>
+						<line number="75" hits="22" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="76" hits="6" branch="false"/>
+						<line number="77" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="78" hits="2" branch="false"/>
+						<line number="81" hits="6" branch="false"/>
+						<line number="83" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+						<line number="88" hits="0" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="92" hits="12" branch="false"/>
+						<line number="93" hits="6" branch="false"/>
+						<line number="94" hits="6" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="98" hits="0" branch="false"/>
+						<line number="99" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="false"/>
+						<line number="103" hits="0" branch="false"/>
+						<line number="104" hits="0" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+						<line number="107" hits="0" branch="false"/>
+						<line number="108" hits="0" branch="false"/>
+						<line number="109" hits="0" branch="false"/>
+						<line number="110" hits="0" branch="false"/>
+						<line number="111" hits="0" branch="false"/>
+						<line number="112" hits="0" branch="false"/>
+						<line number="113" hits="0" branch="false"/>
+						<line number="116" hits="16" branch="false"/>
+						<line number="118" hits="22" branch="false"/>
+						<line number="123" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="125" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="126" hits="12" branch="false"/>
+						<line number="127" hits="6" branch="false"/>
+						<line number="129" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="130" hits="6" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="131" hits="0" branch="false"/>
+						<line number="132" hits="0" branch="false"/>
+						<line number="133" hits="0" branch="false"/>
+						<line number="134" hits="0" branch="false"/>
+						<line number="135" hits="0" branch="false"/>
+						<line number="136" hits="0" branch="false"/>
+						<line number="139" hits="6" branch="false"/>
+						<line number="140" hits="0" branch="false"/>
+						<line number="141" hits="0" branch="false"/>
+						<line number="144" hits="0" branch="false"/>
+						<line number="145" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.handler.package-info" filename="org/nnsoft/guice/junice/handler/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.mock" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="org.nnsoft.guice.junice.mock.MockEngine" filename="org/nnsoft/guice/junice/mock/MockEngine.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.mock.package-info" filename="org/nnsoft/guice/junice/mock/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.mock.framework" line-rate="0.6111111111111112" branch-rate="0.5555555555555556" complexity="3.75">
+			<classes>
+				<class name="org.nnsoft.guice.junice.mock.framework.EasyMockFramework" filename="org/nnsoft/guice/junice/mock/framework/EasyMockFramework.java" line-rate="0.6" branch-rate="0.5714285714285714" complexity="5.0">
+					<methods>
+						<method name="$SWITCH_TABLE$org$nnsoft$guice$junice$annotation$MockObjType" signature="()[I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="72" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+							</lines>
+						</method>
+						<method name="createMock" signature="(Ljava/lang/Class;Lorg/nnsoft/guice/junice/annotation/MockObjType;)Ljava/lang/Object;" line-rate="0.42857142857142855" branch-rate="0.4">
+							<lines>
+								<line number="43" hits="14" branch="true" condition-coverage="40% (2/5)">
+									<conditions>
+										<condition number="0" type="switch" coverage="40%"/>
+									</conditions>
+								</line>
+								<line number="45" hits="0" branch="false"/>
+								<line number="48" hits="2" branch="false"/>
+								<line number="52" hits="12" branch="false"/>
+								<line number="55" hits="0" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="resetMock" signature="([Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="38" branch="false"/>
+								<line number="37" hits="38" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="30" hits="72" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="36" hits="38" branch="false"/>
+						<line number="37" hits="38" branch="false"/>
+						<line number="43" hits="14" branch="true" condition-coverage="40% (2/5)">
+							<conditions>
+								<condition number="0" type="switch" coverage="40%"/>
+							</conditions>
+						</line>
+						<line number="45" hits="0" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="52" hits="12" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.mock.framework.MockitoFramework" filename="org/nnsoft/guice/junice/mock/framework/MockitoFramework.java" line-rate="0.625" branch-rate="0.5" complexity="2.5">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="createMock" signature="(Ljava/lang/Class;Lorg/nnsoft/guice/junice/annotation/MockObjType;)Ljava/lang/Object;" line-rate="0.4" branch-rate="0.5">
+							<lines>
+								<line number="44" hits="2" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="45" hits="2" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="resetMock" signature="([Ljava/lang/Object;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="4" branch="false"/>
+								<line number="37" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="30" hits="6" branch="false"/>
+						<line number="36" hits="4" branch="false"/>
+						<line number="37" hits="4" branch="false"/>
+						<line number="44" hits="2" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="45" hits="2" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.mock.framework.package-info" filename="org/nnsoft/guice/junice/mock/framework/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.mock.guice" line-rate="0.9" branch-rate="1.0" complexity="2.5">
+			<classes>
+				<class name="org.nnsoft.guice.junice.mock.guice.MockMembersInjector" filename="org/nnsoft/guice/junice/mock/guice/MockMembersInjector.java" line-rate="0.7777777777777778" branch-rate="1.0" complexity="2.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/reflect/Field;Ljava/util/Map;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="35" hits="22" branch="false"/>
+								<line number="36" hits="22" branch="false"/>
+								<line number="37" hits="22" branch="false"/>
+								<line number="38" hits="22" branch="false"/>
+								<line number="39" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="injectMembers" signature="(Ljava/lang/Object;)V" line-rate="0.5" branch-rate="1.0">
+							<lines>
+								<line number="46" hits="42" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="50" hits="42" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="35" hits="22" branch="false"/>
+						<line number="36" hits="22" branch="false"/>
+						<line number="37" hits="22" branch="false"/>
+						<line number="38" hits="22" branch="false"/>
+						<line number="39" hits="22" branch="false"/>
+						<line number="46" hits="42" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="50" hits="42" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.mock.guice.MockTypeListener" filename="org/nnsoft/guice/junice/mock/guice/MockTypeListener.java" line-rate="1.0" branch-rate="1.0" complexity="3.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Map;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="14" branch="false"/>
+								<line number="43" hits="14" branch="false"/>
+								<line number="44" hits="14" branch="false"/>
+							</lines>
+						</method>
+						<method name="hear" signature="(Lcom/google/inject/TypeLiteral;Lcom/google/inject/spi/TypeEncounter;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="48" hits="160" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="49" hits="62" branch="false"/>
+								<line number="52" hits="532" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="53" hits="434" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="54" hits="44" branch="false"/>
+								<line number="55" hits="22" branch="false"/>
+								<line number="60" hits="98" branch="false"/>
+								<line number="61" hits="98" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="42" hits="14" branch="false"/>
+						<line number="43" hits="14" branch="false"/>
+						<line number="44" hits="14" branch="false"/>
+						<line number="48" hits="160" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="49" hits="62" branch="false"/>
+						<line number="52" hits="532" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="53" hits="434" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="54" hits="44" branch="false"/>
+						<line number="55" hits="22" branch="false"/>
+						<line number="60" hits="98" branch="false"/>
+						<line number="61" hits="98" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.mock.guice.package-info" filename="org/nnsoft/guice/junice/mock/guice/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="org.nnsoft.guice.junice.reflection" line-rate="0.76" branch-rate="0.9" complexity="1.8571428571428572">
+			<classes>
+				<class name="org.nnsoft.guice.junice.reflection.AnnotationHandler" filename="org/nnsoft/guice/junice/reflection/AnnotationHandler.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.ClassHandler" filename="org/nnsoft/guice/junice/reflection/ClassHandler.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.ClassVisitor" filename="org/nnsoft/guice/junice/reflection/ClassVisitor.java" line-rate="1.0" branch-rate="0.9" complexity="3.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="36" hits="46" branch="false"/>
+								<line number="39" hits="22" branch="false"/>
+							</lines>
+						</method>
+						<method name="handle" signature="([Ljava/lang/reflect/AnnotatedElement;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="62" hits="278" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="63" hits="332" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="64" hits="358" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="65" hits="70" branch="false"/>
+								<line number="69" hits="90" branch="false"/>
+							</lines>
+						</method>
+						<method name="registerHandler" signature="(Ljava/lang/Class;Lorg/nnsoft/guice/junice/reflection/AnnotationHandler;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="110" branch="false"/>
+								<line number="43" hits="110" branch="false"/>
+							</lines>
+						</method>
+						<method name="visit" signature="(Ljava/lang/Class;)V" line-rate="1.0" branch-rate="0.75">
+							<lines>
+								<line number="46" hits="52" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="47" hits="52" branch="false"/>
+								<line number="49" hits="52" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="22" branch="false"/>
+								<line number="53" hits="30" branch="false"/>
+								<line number="54" hits="30" branch="false"/>
+								<line number="55" hits="30" branch="false"/>
+								<line number="57" hits="30" branch="false"/>
+								<line number="58" hits="30" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="36" hits="46" branch="false"/>
+						<line number="37" hits="2" branch="false"/>
+						<line number="39" hits="22" branch="false"/>
+						<line number="42" hits="110" branch="false"/>
+						<line number="43" hits="110" branch="false"/>
+						<line number="46" hits="52" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="47" hits="52" branch="false"/>
+						<line number="49" hits="52" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="22" branch="false"/>
+						<line number="53" hits="30" branch="false"/>
+						<line number="54" hits="30" branch="false"/>
+						<line number="55" hits="30" branch="false"/>
+						<line number="57" hits="30" branch="false"/>
+						<line number="58" hits="30" branch="false"/>
+						<line number="62" hits="278" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="332" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="64" hits="358" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="65" hits="70" branch="false"/>
+						<line number="69" hits="90" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.FieldHandler" filename="org/nnsoft/guice/junice/reflection/FieldHandler.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.HandleException" filename="org/nnsoft/guice/junice/reflection/HandleException.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/Throwable;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/Throwable;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="29" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.MethodHandler" filename="org/nnsoft/guice/junice/reflection/MethodHandler.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="org.nnsoft.guice.junice.reflection.package-info" filename="org/nnsoft/guice/junice/reflection/package-info.java" line-rate="1.0" branch-rate="1.0" complexity="0.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
