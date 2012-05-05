@@ -16,8 +16,7 @@
 package org.nnsoft.guice.junice.handler;
 
 import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.Member;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -31,7 +30,7 @@ import com.google.inject.Inject;
 
 /**
  * Handler class to handle all {@link Inject} annotations.
- * 
+ *
  * @see ClassVisitor
  */
 public final class GuiceInjectableClassHandler
@@ -43,7 +42,7 @@ public final class GuiceInjectableClassHandler
 
     /**
      * Return all {@link Class} that contains at last one {@link Inject} annotation.
-     * 
+     *
      * @return {@link Class} array.
      */
     public Class<?>[] getClasses()
@@ -59,13 +58,9 @@ public final class GuiceInjectableClassHandler
     {
         Class<?> type = null;
 
-        if ( element instanceof Field )
+        if ( element instanceof Member )
         {
-            type = ( (Field) element ).getDeclaringClass();
-        }
-        else if ( element instanceof Method )
-        {
-            type = ( (Method) element ).getDeclaringClass();
+            type = ( (Member) element ).getDeclaringClass();
         }
 
         if ( type != null && !this.classes.contains( type ) )
