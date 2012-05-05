@@ -34,7 +34,6 @@ public class MockMembersInjector<T>
     public MockMembersInjector( Field field, Map<Field, Object> mockedObjects )
     {
         this.field = field;
-        this.field.setAccessible( true );
         this.mockedObjects = mockedObjects;
     }
 
@@ -43,13 +42,20 @@ public class MockMembersInjector<T>
      */
     public void injectMembers( T t )
     {
+        boolean wasAccessible = field.isAccessible();
+        field.setAccessible( true );
+
         try
         {
-            this.field.set( t, this.mockedObjects.get( this.field ) );
+            field.set( t, mockedObjects.get( field ) );
         }
         catch ( IllegalAccessException e )
         {
             throw new RuntimeException( e );
+        }
+        finally
+        {
+            field.setAccessible( wasAccessible );
         }
     }
 
