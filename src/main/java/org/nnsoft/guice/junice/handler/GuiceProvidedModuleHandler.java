@@ -33,7 +33,7 @@ import com.google.inject.internal.MoreTypes;
 
 /**
  * Handler class to handle all {@link GuiceProvidedModules} annotations.
- * 
+ *
  * @see ClassVisitor
  * @see GuiceProvidedModules
  */
@@ -50,7 +50,7 @@ public final class GuiceProvidedModuleHandler
      */
     public List<Module> getModules()
     {
-        return this.modules;
+        return modules;
     }
 
     /**
@@ -79,19 +79,19 @@ public final class GuiceProvidedModuleHandler
         {
             if ( Module.class.isAssignableFrom( returnType ) )
             {
-                this.modules.add( (Module) method.invoke( type ) );
+                modules.add( (Module) method.invoke( type ) );
             }
             else if ( MoreTypes.getRawType( new TypeLiteral<Iterable<Module>>()
             {
             }.getType() ).isAssignableFrom( returnType ) )
             {
-                this.addModules( (Iterable<Module>) method.invoke( type ) );
+                addModules( (Iterable<Module>) method.invoke( type ) );
             }
             else if ( MoreTypes.getRawType( new TypeLiteral<Module[]>()
             {
             }.getType() ).isAssignableFrom( returnType ) )
             {
-                this.addModules( (Module[]) method.invoke( type ) );
+                addModules( (Module[]) method.invoke( type ) );
             }
         }
         catch ( Exception e )

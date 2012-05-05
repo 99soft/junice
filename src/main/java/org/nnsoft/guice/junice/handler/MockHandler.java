@@ -31,7 +31,7 @@ import org.nnsoft.guice.junice.reflection.HandleException;
 
 /**
  * Handler class to handle all {@link Mock} annotations.
- * 
+ *
  * @see ClassVisitor
  * @see Mock
  */
@@ -50,7 +50,7 @@ public final class MockHandler
     public HashMap<Field, Object> getMockedObject( MockEngine engine )
     {
         createMockedObjectBymockFramekork( engine );
-        return this.mockedObjects;
+        return mockedObjects;
     }
 
     private void createMockedObjectBymockFramekork( MockEngine engine )
@@ -61,7 +61,7 @@ public final class MockHandler
             {
                 Field field = entry.getKey();
                 Mock mock = field.getAnnotation( Mock.class );
-                this.mockedObjects.put( entry.getKey(), engine.createMock( (Class<?>) entry.getValue(), mock.type() ) );
+                mockedObjects.put( entry.getKey(), engine.createMock( (Class<?>) entry.getValue(), mock.type() ) );
             }
         }
     }
@@ -96,7 +96,7 @@ public final class MockHandler
                 try
                 {
                     Object mocked = getMockProviderForType( element.getType(), method, type );
-                    this.mockedObjects.put( element, mocked );
+                    mockedObjects.put( element, mocked );
                 }
                 catch ( Throwable t )
                 {
@@ -120,7 +120,7 @@ public final class MockHandler
         }
         else
         {
-            this.mockedObjects.put( element, element.getType() );
+            mockedObjects.put( element, element.getType() );
         }
     }
 

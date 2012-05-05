@@ -29,7 +29,7 @@ import com.google.inject.Module;
 
 /**
  * Handler class to handle all {@link GuiceModules} annotations.
- * 
+ *
  * @see ClassVisitor
  */
 public final class GuiceModuleHandler
@@ -42,7 +42,7 @@ public final class GuiceModuleHandler
 
     public GuiceModuleHandler()
     {
-        this.modules = new ArrayList<Module>( 1 );
+        modules = new ArrayList<Module>( 1 );
     }
 
     /**
@@ -67,7 +67,7 @@ public final class GuiceModuleHandler
             }
             try
             {
-                this.modules.add( module.newInstance() );
+                modules.add( module.newInstance() );
             }
             catch ( Exception e )
             {

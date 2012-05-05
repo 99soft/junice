@@ -47,7 +47,7 @@ public final class GuiceInjectableClassHandler
      */
     public Class<?>[] getClasses()
     {
-        return this.classes.toArray( new Class<?>[this.classes.size()] );
+        return classes.toArray( new Class<?>[classes.size()] );
     }
 
     /**
@@ -63,13 +63,13 @@ public final class GuiceInjectableClassHandler
             type = ( (Member) element ).getDeclaringClass();
         }
 
-        if ( type != null && !this.classes.contains( type ) )
+        if ( type != null && !classes.contains( type ) )
         {
             if ( logger.isLoggable( Level.FINER ) )
             {
                 logger.finer( "   Found injectable type: " + type );
             }
-            this.classes.add( type );
+            classes.add( type );
         }
     }
 

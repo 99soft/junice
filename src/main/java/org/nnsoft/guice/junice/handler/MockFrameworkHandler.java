@@ -26,7 +26,7 @@ import org.nnsoft.guice.junice.reflection.HandleException;
 
 /**
  * Handler class to handle all {@link MockFramework} annotations.
- * 
+ *
  * @see ClassVisitor
  * @see MockFramework
  */
@@ -52,7 +52,7 @@ public final class MockFrameworkHandler
     public void handle( MockFramework annotation, Class<?> element )
         throws HandleException
     {
-        if ( this.mockType != null && this.mockType != annotation.value() )
+        if ( mockType != null && mockType != annotation.value() )
         {
             throw new HandleException( "Inconsistent mock framework found. " + "Mock framework already set [setted: "
                 + mockType + " now found: " + annotation.value() + "]" );
@@ -63,7 +63,7 @@ public final class MockFrameworkHandler
             logger.finer( "  Found MockFramework: " + annotation.value() );
         }
 
-        this.mockType = annotation.value();
+        mockType = annotation.value();
     }
 
 }
