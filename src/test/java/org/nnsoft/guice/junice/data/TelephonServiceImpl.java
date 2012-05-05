@@ -15,9 +15,12 @@
  */
 package org.nnsoft.guice.junice.data;
 
-public class TelephonServiceImpl implements TelephonService {
+public class TelephonServiceImpl
+    implements TelephonService
+{
 
-    public String getTelephonNumber() {
+    public String getTelephonNumber()
+    {
         return "It's real class";
     }
 

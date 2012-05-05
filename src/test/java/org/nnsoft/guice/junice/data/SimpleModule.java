@@ -17,11 +17,14 @@ package org.nnsoft.guice.junice.data;
 
 import com.google.inject.AbstractModule;
 
-public class SimpleModule extends AbstractModule {
+public class SimpleModule
+    extends AbstractModule
+{
 
     @Override
-    protected void configure() {
-        bind(HelloWorld.class);
+    protected void configure()
+    {
+        bind( HelloWorld.class );
     }
 
 }

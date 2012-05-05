@@ -54,188 +54,211 @@ import com.google.inject.matcher.Matchers;
 import com.google.inject.util.Modules;
 
 /**
- * <p>It's a {@link BlockJUnit4ClassRunner} runner.</p>
- *
- * <p>This class creates a Google Guice {@link Injector} configured by
- * {@link GuiceModules} annotation (only fr modules with default constructor) and
- * {@link GuiceProvidedModules} annotation and {@link Mock}.</p>
- *
+ * <p>
+ * It's a {@link BlockJUnit4ClassRunner} runner.
+ * </p>
+ * <p>
+ * This class creates a Google Guice {@link Injector} configured by {@link GuiceModules} annotation (only fr modules
+ * with default constructor) and {@link GuiceProvidedModules} annotation and {@link Mock}.
+ * </p>
  * <p>
  * <b>Example #1:</b> <br>
+ * 
  * <pre>
- *
+ * 
  * &#064;RunWith(JUniceRunner.class)
  * &#064;GuiceModules(modules=SimpleModule.class)
  * public class AcmeTestCase {
- *
+ * 
  *     &#064;GuiceProvidedModules
  *     static public Module getProperties() {
  *         ...
  *         return Modules.combine(new ComplexModule(loadProperies()), ...  );
  *     }
- *
+ * 
  * </pre>
+ * 
  * </p>
- *
  * <p>
  * <b>Example #2:</b> <br>
+ * 
  * <pre>
- *
+ * 
  * &#064;RunWith(JUniceRunner.class)
  * public class AcmeTestCase extends com.google.inject.AbstractModule {
- *
+ * 
  *     public void configure() {
  *         //Configure your proper modules
  *         ...
  *         bind(Service.class).annotatedWith(TestAnnotation.class).to(ServiceTestImpl.class);
  *         ...
  *     }
- *
+ * 
  *     &#064;Mock
  *     private AnotherService serviceMock;
- *
+ * 
  *     &#064;Inject
  *     private Service serviceTest;
- *
+ * 
  *     &#064;org.junit.Test
  *     public void test() {
  *         assertNotNull(serviceMock);
  *         assertNotNull(serviceTest);
  *     }
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @see GuiceMockModule
  */
-public class JUniceRunner extends BlockJUnit4ClassRunner {
+public class JUniceRunner
+    extends BlockJUnit4ClassRunner
+{
 
-    final private static Log logger = LogFactory.getLog(JUniceRunner.class);
+    final private static Log logger = LogFactory.getLog( JUniceRunner.class );
 
     private Injector injector;
 
     final private List<Module> allModules;
 
-    final private Map<Field, Object> mocked = new HashMap<Field, Object>(1);
+    final private Map<Field, Object> mocked = new HashMap<Field, Object>( 1 );
 
     private MockType mockFramework = MockType.EASY_MOCK;
 
     /**
      * JUniceRunner constructor to create the core JUnice class.
-     *
+     * 
      * @see RunWith
      * @param klass The test case class to run.
      * @throws org.junit.runners.model.InitializationError if any error occurs.
      */
-    public JUniceRunner(Class<?> klass) throws  InitializationError {
-        super(klass);
+    public JUniceRunner( Class<?> klass )
+        throws InitializationError
+    {
+        super( klass );
 
-        try {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Inizializing JUniceRunner for class: " + klass.getSimpleName());
+        try
+        {
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( "Inizializing JUniceRunner for class: " + klass.getSimpleName() );
             }
 
-            this.allModules = inizializeInjector(klass);
+            this.allModules = inizializeInjector( klass );
 
-            if (logger.isDebugEnabled()) {
-                logger.debug("done...");
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( "done..." );
             }
-        } catch (Exception e) {
-            final List<Throwable> throwables = new ArrayList<Throwable>(1);
-            throwables.add(e);
-            throw new InitializationError(throwables);
+        }
+        catch ( Exception e )
+        {
+            final List<Throwable> throwables = new ArrayList<Throwable>( 1 );
+            throwables.add( e );
+            throw new InitializationError( throwables );
         }
     }
 
     /**
      * {@inheritDoc}
      */
-    public void run(final RunNotifier notifier) {
-        if (logger.isDebugEnabled()) {
-            logger.debug(" ### Run test case: "
-                    + getTestClass().getJavaClass()
-                    + " ### ");
-            logger.debug(" #### Creating injector ####");
+    public void run( final RunNotifier notifier )
+    {
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( " ### Run test case: " + getTestClass().getJavaClass() + " ### " );
+            logger.debug( " #### Creating injector ####" );
         }
 
-        this.injector = createInjector(allModules);
-        super.run(notifier);
+        this.injector = createInjector( allModules );
+        super.run( notifier );
         this.flush();
 
-        if (logger.isDebugEnabled()) {
-            logger.debug(" ### End test case: "
-                    + getTestClass().getJavaClass().getName()
-                    + " ### ");
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( " ### End test case: " + getTestClass().getJavaClass().getName() + " ### " );
         }
     }
 
     /**
      * {@inheritDoc}
      */
-    private void flush() {
+    private void flush()
+    {
         this.injector = null;
         this.allModules.clear();
         this.mocked.clear();
     }
 
-
     @Override
-    protected void runChild(FrameworkMethod method, RunNotifier notifier) {
-        if (logger.isDebugEnabled()) {
-            logger.debug(" +++ invoke test method: "
-                    + method.getName()
-                    + " +++ ");
+    protected void runChild( FrameworkMethod method, RunNotifier notifier )
+    {
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( " +++ invoke test method: " + method.getName() + " +++ " );
         }
 
-        super.runChild(method, notifier);
+        super.runChild( method, notifier );
         resetAllResetAfterMocks();
 
-        if (logger.isDebugEnabled()) {
-            logger.debug(" --- end test method: "
-                    + method.getName()
-                    + " --- ");
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( " --- end test method: " + method.getName() + " --- " );
         }
 
     }
 
     // create test class via Google-Guice to inject all not-static dependencies.
-    protected Object createTest() throws Exception {
-        if (logger.isDebugEnabled()) {
-            logger.debug(" Create and inject test class: " + getTestClass().getJavaClass());
+    protected Object createTest()
+        throws Exception
+    {
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( " Create and inject test class: " + getTestClass().getJavaClass() );
         }
-        return this.injector.getInstance(getTestClass().getJavaClass());
+        return this.injector.getInstance( getTestClass().getJavaClass() );
     }
 
-    protected Injector createInjector(List<Module> modules) {
+    protected Injector createInjector( List<Module> modules )
+    {
 
-        return Guice.createInjector(modules);
+        return Guice.createInjector( modules );
     }
 
     /**
-     * <p>Initialize the main Injector.</p>
-     *
-     * <p>This methot collects modules from {@link GuiceModules},
-     * {@link GuiceProvidedModules}, {@link Mock}, creates a Google-Guice Injector and than
-     * inject static members into callings class.</p>
-     *
+     * <p>
+     * Initialize the main Injector.
+     * </p>
+     * <p>
+     * This methot collects modules from {@link GuiceModules}, {@link GuiceProvidedModules}, {@link Mock}, creates a
+     * Google-Guice Injector and than inject static members into callings class.
+     * </p>
+     * 
      * @throws IllegalAccessException
      * @throws InstantiationException
      * @throws HandleException
      */
-    protected List<Module> inizializeInjector(Class<?> clazz) throws HandleException, InstantiationException, IllegalAccessException {
+    protected List<Module> inizializeInjector( Class<?> clazz )
+        throws HandleException, InstantiationException, IllegalAccessException
+    {
         final List<Module> modules = new ArrayList<Module>();
-        Module m = visitClass(clazz);
-        if (m != null) {
-            modules.add(m);
+        Module m = visitClass( clazz );
+        if ( m != null )
+        {
+            modules.add( m );
         }
         return modules;
     }
 
-    private void resetAllResetAfterMocks() {
-        for (Entry<Field, Object> entry :  mocked.entrySet()) {
-            final Mock mockAnnotation =  entry.getKey().getAnnotation(Mock.class);
-            if (mockAnnotation.resetAfter()){
-                MockEngine mockEngine = MockEngineFactory.getMockEngine(mockFramework);
-                mockEngine.resetMock(entry.getValue());
+    private void resetAllResetAfterMocks()
+    {
+        for ( Entry<Field, Object> entry : mocked.entrySet() )
+        {
+            final Mock mockAnnotation = entry.getKey().getAnnotation( Mock.class );
+            if ( mockAnnotation.resetAfter() )
+            {
+                MockEngine mockEngine = MockEngineFactory.getMockEngine( mockFramework );
+                mockEngine.resetMock( entry.getValue() );
             }
         }
     }
@@ -244,119 +267,139 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
      * @throws HandleException
      * @throws IllegalAccessException
      * @throws InstantiationException
-     *
      */
-    private Module visitClass(final Class<?> clazz) throws HandleException, InstantiationException, IllegalAccessException {
-        try {
-            if (logger.isDebugEnabled()) {
-                logger.debug("  Start introspecting class: "
-                        + clazz.getName());
+    private Module visitClass( final Class<?> clazz )
+        throws HandleException, InstantiationException, IllegalAccessException
+    {
+        try
+        {
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( "  Start introspecting class: " + clazz.getName() );
             }
-            final List<Module> allModules = new ArrayList<Module>(1);
+            final List<Module> allModules = new ArrayList<Module>( 1 );
 
-            //Setup the handlers
-            final GuiceProvidedModuleHandler guiceProvidedModuleHandler =  new GuiceProvidedModuleHandler();
+            // Setup the handlers
+            final GuiceProvidedModuleHandler guiceProvidedModuleHandler = new GuiceProvidedModuleHandler();
             final GuiceModuleHandler guiceModuleHandler = new GuiceModuleHandler();
             final GuiceInjectableClassHandler guiceInjectableClassHandler = new GuiceInjectableClassHandler();
             final MockHandler mockHandler = new MockHandler();
             final MockFrameworkHandler mockFrameworkHandler = new MockFrameworkHandler();
 
             final ClassVisitor visitor = new ClassVisitor();
-            visitor.registerHandler(GuiceProvidedModules.class, guiceProvidedModuleHandler);
-            visitor.registerHandler(GuiceModules.class, guiceModuleHandler);
-            visitor.registerHandler(Mock.class, mockHandler);
-            visitor.registerHandler(MockFramework.class, mockFrameworkHandler);
-            visitor.registerHandler(Inject.class, guiceInjectableClassHandler);
+            visitor.registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler );
+            visitor.registerHandler( GuiceModules.class, guiceModuleHandler );
+            visitor.registerHandler( Mock.class, mockHandler );
+            visitor.registerHandler( MockFramework.class, mockFrameworkHandler );
+            visitor.registerHandler( Inject.class, guiceInjectableClassHandler );
 
-            //Visit class and super-classes
-            visitor.visit(clazz);
+            // Visit class and super-classes
+            visitor.visit( clazz );
 
-            //Retrieve mock framework
-            if (mockFrameworkHandler.getMockType() != null) {
+            // Retrieve mock framework
+            if ( mockFrameworkHandler.getMockType() != null )
+            {
                 this.mockFramework = mockFrameworkHandler.getMockType();
             }
 
             // retrieve the modules founded
-            allModules.addAll(guiceProvidedModuleHandler.getModules());
-            allModules.addAll(guiceModuleHandler.getModules());
-            MockEngine engine = MockEngineFactory.getMockEngine(this.mockFramework);
-            this.mocked.putAll(mockHandler.getMockedObject(engine));
-            if (!this.mocked.isEmpty() ) {
-                //Replace all real module binding with Mocked moduled.
-                Module m = Modules.override(allModules).with(new GuiceMockModule(this.mocked));
+            allModules.addAll( guiceProvidedModuleHandler.getModules() );
+            allModules.addAll( guiceModuleHandler.getModules() );
+            MockEngine engine = MockEngineFactory.getMockEngine( this.mockFramework );
+            this.mocked.putAll( mockHandler.getMockedObject( engine ) );
+            if ( !this.mocked.isEmpty() )
+            {
+                // Replace all real module binding with Mocked moduled.
+                Module m = Modules.override( allModules ).with( new GuiceMockModule( this.mocked ) );
                 allModules.clear();
-                allModules.add(m);
+                allModules.add( m );
             }
 
-            //Add only clasess that have got the Inject annotation
+            // Add only clasess that have got the Inject annotation
             final Class<?>[] injectableClasses = guiceInjectableClassHandler.getClasses();
-            //final Class<?>[] mockInjectableClasses = mockInjectableClassHandler.getClasses();
+            // final Class<?>[] mockInjectableClasses = mockInjectableClassHandler.getClasses();
 
-            final AbstractModule statcInjector = new AbstractModule() {
+            final AbstractModule statcInjector = new AbstractModule()
+            {
                 @Override
-                protected void configure() {
+                protected void configure()
+                {
                     // inject all STATIC dependencies
-                    requestStaticInjection(injectableClasses);
+                    requestStaticInjection( injectableClasses );
                 }
             };
-            if (injectableClasses.length != 0) {
-                allModules.add(statcInjector);
+            if ( injectableClasses.length != 0 )
+            {
+                allModules.add( statcInjector );
             }
 
-            //Check if the class is itself a Google Module.
-            if (Module.class.isAssignableFrom(getTestClass().getJavaClass())) {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("   creating module from test class "
-                            + getTestClass().getJavaClass());
+            // Check if the class is itself a Google Module.
+            if ( Module.class.isAssignableFrom( getTestClass().getJavaClass() ) )
+            {
+                if ( logger.isDebugEnabled() )
+                {
+                    logger.debug( "   creating module from test class " + getTestClass().getJavaClass() );
                 }
                 final Module classModule = (Module) getTestClass().getJavaClass().newInstance();
-                allModules.add(classModule);
+                allModules.add( classModule );
             }
 
-            //create MockTypeListenerModule
-            if (this.mocked.size() != 0) {
-                final AbstractModule mockTypeListenerModule = new AbstractModule() {
+            // create MockTypeListenerModule
+            if ( this.mocked.size() != 0 )
+            {
+                final AbstractModule mockTypeListenerModule = new AbstractModule()
+                {
                     @Override
-                    protected void configure() {
-                        bindListener(Matchers.any(), new MockTypeListener(mocked));
+                    protected void configure()
+                    {
+                        bindListener( Matchers.any(), new MockTypeListener( mocked ) );
                     }
                 };
 
                 // BEGIN patch for issue: google-guice: #452
-                for (Entry<Field, Object> entry : mocked.entrySet()) {
+                for ( Entry<Field, Object> entry : mocked.entrySet() )
+                {
                     final Field field = entry.getKey();
                     final Object mock = entry.getValue();
-                    if (Modifier.isStatic(field.getModifiers())){
-                        if (logger.isDebugEnabled()) {
-                            logger.debug("   inject static mock field: " + field.getName());
+                    if ( Modifier.isStatic( field.getModifiers() ) )
+                    {
+                        if ( logger.isDebugEnabled() )
+                        {
+                            logger.debug( "   inject static mock field: " + field.getName() );
                         }
 
-                        field.setAccessible(true);
-                        field.set(field.getDeclaringClass(), mock);
+                        field.setAccessible( true );
+                        field.set( field.getDeclaringClass(), mock );
                     }
                 }
                 // END patch for issue: google-guice: #452
 
-                allModules.add(mockTypeListenerModule);
+                allModules.add( mockTypeListenerModule );
             }
 
-            if (allModules.size() != 0) {
-                if (logger.isDebugEnabled()) {
+            if ( allModules.size() != 0 )
+            {
+                if ( logger.isDebugEnabled() )
+                {
                     StringBuilder builder = new StringBuilder();
-                    builder.append(" Collected modules: ");
-                    builder.append("\n");
-                    for (Module module : allModules) {
-                        builder.append("    " + module);
-                        builder.append("\n");
+                    builder.append( " Collected modules: " );
+                    builder.append( "\n" );
+                    for ( Module module : allModules )
+                    {
+                        builder.append( "    " + module );
+                        builder.append( "\n" );
                     }
-                    logger.debug(builder.toString());
+                    logger.debug( builder.toString() );
                 }
-                return Modules.combine(allModules);
+                return Modules.combine( allModules );
             }
             return null;
-        } finally {
-            if (logger.isDebugEnabled()) {
-                logger.debug(" ...done");
+        }
+        finally
+        {
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( " ...done" );
             }
         }
     }

@@ -24,21 +24,25 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
-@RunWith(JUniceRunner.class)
-public class InjectModuleClassTestCase extends AbstractModule {
+@RunWith( JUniceRunner.class )
+public class InjectModuleClassTestCase
+    extends AbstractModule
+{
 
-    public void configure() {
-        bind(Integer.class).annotatedWith(Names.named("numeber.version")).toInstance(10);
+    public void configure()
+    {
+        bind( Integer.class ).annotatedWith( Names.named( "numeber.version" ) ).toInstance( 10 );
     }
 
     @Inject
-    @Named("numeber.version")
+    @Named( "numeber.version" )
     private Integer version;
 
     @Test
-    public void testInjectModuleClass(){
-        Assert.assertNotNull(version);
-        Assert.assertEquals(10, version.intValue());
+    public void testInjectModuleClass()
+    {
+        Assert.assertNotNull( version );
+        Assert.assertEquals( 10, version.intValue() );
     }
 
 }

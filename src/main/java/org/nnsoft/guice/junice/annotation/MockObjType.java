@@ -18,11 +18,9 @@ package org.nnsoft.guice.junice.annotation;
 /**
  * Enumeration class to specifies the preferred mock object.
  */
-public enum MockObjType {
+public enum MockObjType
+{
 
-    EASY_MOCK_NORMAL,
-    EASY_MOCK_STRICT,
-    EASY_MOCK_NICE,
-    DEFAULT
+    EASY_MOCK_NORMAL, EASY_MOCK_STRICT, EASY_MOCK_NICE, DEFAULT
 
 }

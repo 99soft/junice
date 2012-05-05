@@ -18,3 +18,4 @@
  * Contains core classes to build mock fileds google member injector.
  */
 package org.nnsoft.guice.junice.mock.guice;
+

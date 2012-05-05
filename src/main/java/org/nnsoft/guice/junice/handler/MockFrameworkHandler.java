@@ -23,41 +23,43 @@ import org.nnsoft.guice.junice.reflection.ClassHandler;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
 import org.nnsoft.guice.junice.reflection.HandleException;
 
-
 /**
  * Handler class to handle all {@link MockFramework} annotations.
- *
+ * 
  * @see ClassVisitor
  * @see MockFramework
  */
-public final class MockFrameworkHandler implements ClassHandler<MockFramework> {
+public final class MockFrameworkHandler
+    implements ClassHandler<MockFramework>
+{
 
-    final static private Log logger = LogFactory.getLog(MockFrameworkHandler.class);
+    final static private Log logger = LogFactory.getLog( MockFrameworkHandler.class );
 
     private MockType mockType;
 
     /**
      * @return the mockType
      */
-    public MockType getMockType() {
+    public MockType getMockType()
+    {
         return mockType;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void handle(MockFramework annotation, Class<?> element) throws HandleException {
-        if (this.mockType != null && this.mockType != annotation.value()) {
-            throw new HandleException("Inconsistent mock framework found. "
-                    + "Mock framework already set [setted: "
-                    + mockType
-                    + " now found: "
-                    + annotation.value()
-                    + "]");
+    public void handle( MockFramework annotation, Class<?> element )
+        throws HandleException
+    {
+        if ( this.mockType != null && this.mockType != annotation.value() )
+        {
+            throw new HandleException( "Inconsistent mock framework found. " + "Mock framework already set [setted: "
+                + mockType + " now found: " + annotation.value() + "]" );
         }
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("  Found MockFramework: " + annotation.value());
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( "  Found MockFramework: " + annotation.value() );
         }
 
         this.mockType = annotation.value();

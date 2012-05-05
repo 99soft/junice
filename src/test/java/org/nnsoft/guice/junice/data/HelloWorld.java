@@ -21,33 +21,39 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Singleton
-public class HelloWorld {
+public class HelloWorld
+{
 
-    @Inject(optional=true)
+    @Inject( optional = true )
     private Service service;
 
-    @Inject(optional=true)
+    @Inject( optional = true )
     private TelephonService telephon;
 
-    @Inject(optional=true)
+    @Inject( optional = true )
     private List<Service> services;
 
-    public String sayHallo() {
+    public String sayHallo()
+    {
         return "Hello World!!!!";
     }
 
-    public String sayHalloByService() {
+    public String sayHalloByService()
+    {
         return service.go();
     }
 
-    public void callHelloWorldTelephon() {
+    public void callHelloWorldTelephon()
+    {
         String number = telephon.getTelephonNumber();
-        service.call(number);
+        service.call( number );
     }
 
-    public void sayHalloByServiceLists() {
-        for (Service service : services) {
-           service.go();
+    public void sayHalloByServiceLists()
+    {
+        for ( Service service : services )
+        {
+            service.go();
         }
     }
 

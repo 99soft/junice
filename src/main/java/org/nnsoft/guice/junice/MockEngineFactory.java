@@ -23,25 +23,24 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
 
 /**
  * Factory class to create the mock framework.
- *
+ * 
  * @see MockFramework
  */
-final class MockEngineFactory {
+final class MockEngineFactory
+{
 
     /**
-     * Mock factory constructor.
-     * <br>
-     * Supported framewors:
-     * <li> {@link MockType}.EASY_MOCK
-     * <li> {@link MockType}.MOCKITO
-     * <br>
-     *
+     * Mock factory constructor. <br>
+     * Supported framewors: <li> {@link MockType}.EASY_MOCK <li> {@link MockType}.MOCKITO <br>
+     * 
      * @see MockType
      * @param type of mock framework to create.
      * @return An instance of mock framework.
      */
-    public static MockEngine getMockEngine(MockType type) {
-        switch (type) {
+    public static MockEngine getMockEngine( MockType type )
+    {
+        switch ( type )
+        {
             case EASY_MOCK:
                 return new EasyMockFramework();
 
@@ -49,9 +48,7 @@ final class MockEngineFactory {
                 return new MockitoFramework();
 
             default:
-                throw new IllegalArgumentException("Unrecognized MockeType '"
-                        + type.name()
-                        + "'");
+                throw new IllegalArgumentException( "Unrecognized MockeType '" + type.name() + "'" );
         }
     }
 

@@ -15,15 +15,18 @@
  */
 package org.nnsoft.guice.junice.data;
 
-public class WhoIm {
+public class WhoIm
+{
 
     private String name;
 
-    public WhoIm(String name){
+    public WhoIm( String name )
+    {
         this.name = name;
     }
 
-    public String sayWhoIm(){
+    public String sayWhoIm()
+    {
         return name;
     }
 

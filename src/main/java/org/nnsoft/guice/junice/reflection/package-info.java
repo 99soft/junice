@@ -18,3 +18,4 @@
  * Contains core classes to build class reflection.
  */
 package org.nnsoft.guice.junice.reflection;
+

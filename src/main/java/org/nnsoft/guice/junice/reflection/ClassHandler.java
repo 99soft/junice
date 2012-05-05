@@ -20,6 +20,8 @@ import java.lang.annotation.Annotation;
 /**
  * Interface to specify a generic class handler.
  */
-public interface ClassHandler<A extends Annotation> extends AnnotationHandler<A, Class<?>> {
+public interface ClassHandler<A extends Annotation>
+    extends AnnotationHandler<A, Class<?>>
+{
 
 }

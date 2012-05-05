@@ -17,10 +17,12 @@ package org.nnsoft.guice.junice.data;
 
 import org.easymock.classextension.EasyMock;
 
-public class ServiceMockProvider {
+public class ServiceMockProvider
+{
 
-    public static Service providerMethod() {
-        Service mockedService = EasyMock.createNiceMock(Service.class);
+    public static Service providerMethod()
+    {
+        Service mockedService = EasyMock.createNiceMock( Service.class );
         return mockedService;
     }
 

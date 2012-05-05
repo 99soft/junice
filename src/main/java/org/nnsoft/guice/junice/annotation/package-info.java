@@ -18,3 +18,4 @@
  * Contains core annotations classes to configure JUnice framework.
  */
 package org.nnsoft.guice.junice.annotation;
+

@@ -30,9 +30,10 @@ import org.nnsoft.guice.junice.data.TelephonService;
 
 import com.google.inject.Inject;
 
-@RunWith(JUniceRunner.class)
-@GuiceModules(ServiceModule.class)
-public class TestCustomInjectionTest {
+@RunWith( JUniceRunner.class )
+@GuiceModules( ServiceModule.class )
+public class TestCustomInjectionTest
+{
 
     @Mock
     private static Service service;
@@ -44,29 +45,34 @@ public class TestCustomInjectionTest {
     private HelloWorld helloWorld;
 
     @BeforeClass
-    public static void setUp() {
-        Assert.assertNotNull(service);
-        //service.go();
+    public static void setUp()
+    {
+        Assert.assertNotNull( service );
+        // service.go();
     }
 
     @Test
-    public void test() throws Exception {
-        Assert.assertNotNull(service);
-        Assert.assertNotNull(telephonService);
-        Assert.assertNotNull(helloWorld);
+    public void test()
+        throws Exception
+    {
+        Assert.assertNotNull( service );
+        Assert.assertNotNull( telephonService );
+        Assert.assertNotNull( helloWorld );
     }
 
     @Test
-    public void testOverideModule() throws Exception {
-        Assert.assertNotNull(service);
-        Assert.assertNotNull(telephonService);
-        Assert.assertEquals("It's real class", telephonService.getTelephonNumber());
+    public void testOverideModule()
+        throws Exception
+    {
+        Assert.assertNotNull( service );
+        Assert.assertNotNull( telephonService );
+        Assert.assertEquals( "It's real class", telephonService.getTelephonNumber() );
 
-        EasyMock.expect(service.go()).andReturn("Mocked injected class");
-        EasyMock.replay(service);
+        EasyMock.expect( service.go() ).andReturn( "Mocked injected class" );
+        EasyMock.replay( service );
 
-        Assert.assertEquals("Mocked injected class", helloWorld.sayHalloByService());
-        EasyMock.verify(service);
+        Assert.assertEquals( "Mocked injected class", helloWorld.sayHalloByService() );
+        EasyMock.verify( service );
     }
 
 }

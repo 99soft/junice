@@ -19,33 +19,34 @@ import org.mockito.Mockito;
 import org.nnsoft.guice.junice.annotation.MockObjType;
 import org.nnsoft.guice.junice.mock.MockEngine;
 
-
 /**
  * Specifies the Mockito Framework.
- *
+ * 
  * @see MockEngine
  */
-public class MockitoFramework implements MockEngine {
+public class MockitoFramework
+    implements MockEngine
+{
 
     /**
      * {@inheritDoc}
      */
-    public void resetMock(Object... objects) {
-        Mockito.reset(objects);
+    public void resetMock( Object... objects )
+    {
+        Mockito.reset( objects );
     }
 
-
     /**
      * {@inheritDoc}
      */
-    public <T> T createMock(Class<T> cls, MockObjType type) {
-        if (MockObjType.DEFAULT.equals(type)) {
-            return Mockito.mock(cls);
+    public <T> T createMock( Class<T> cls, MockObjType type )
+    {
+        if ( MockObjType.DEFAULT.equals( type ) )
+        {
+            return Mockito.mock( cls );
         }
 
-        throw new IllegalArgumentException("Unsupported mock type '"
-                    + type
-                    + "' for Mockito Framework." );
+        throw new IllegalArgumentException( "Unsupported mock type '" + type + "' for Mockito Framework." );
     }
 
 }

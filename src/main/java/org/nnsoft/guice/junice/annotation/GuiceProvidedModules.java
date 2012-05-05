@@ -23,15 +23,20 @@ import java.lang.annotation.Target;
 import com.google.inject.Module;
 
 /**
- * <p>Annotate a <b>public static</b> method to create a Google Guice {@link Module} provider.</p>
- *
- * <p>The method return type must be one of:<ul>
+ * <p>
+ * Annotate a <b>public static</b> method to create a Google Guice {@link Module} provider.
+ * </p>
+ * <p>
+ * The method return type must be one of:
+ * <ul>
  * <li>com.google.inject.Module</li>
  * <li>Iterable&lt;com.google.inject.Module&gt;</li>
- * <li>com.google.inject.Module[]</li></p>
+ * <li>com.google.inject.Module[]</li>
+ * </p>
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface GuiceProvidedModules {
+@Retention( RetentionPolicy.RUNTIME )
+@Target( ElementType.METHOD )
+public @interface GuiceProvidedModules
+{
 
 }

@@ -18,20 +18,25 @@ package org.nnsoft.guice.junice.reflection;
 /**
  * Exception thrown by a {@link ClassVisitor} when a error occurs.
  */
-public final class HandleException extends Exception {
+public final class HandleException
+    extends Exception
+{
 
     private static final long serialVersionUID = 1L;
 
-    public HandleException(String message, Throwable cause) {
-        super(message, cause);
+    public HandleException( String message, Throwable cause )
+    {
+        super( message, cause );
     }
 
-    public HandleException(String message) {
-        super(message);
+    public HandleException( String message )
+    {
+        super( message );
     }
 
-    public HandleException(Throwable cause) {
-        super(cause);
+    public HandleException( Throwable cause )
+    {
+        super( cause );
     }
 
 }

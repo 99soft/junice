@@ -21,14 +21,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotate  test class to specify you favorite mock framework
+ * Annotate test class to specify you favorite mock framework
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface MockFramework {
+@Retention( RetentionPolicy.RUNTIME )
+@Target( ElementType.TYPE )
+public @interface MockFramework
+{
 
     /**
      * Type of mock that JUnice has to create.
+     * 
      * @return the choosen mock type.
      */
     public MockType value();

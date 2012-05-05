@@ -21,7 +21,8 @@ import java.lang.annotation.RetentionPolicy;
 import com.google.inject.BindingAnnotation;
 
 @BindingAnnotation
-@Retention(RetentionPolicy.RUNTIME)
-public @interface TestAnnotation2 {
+@Retention( RetentionPolicy.RUNTIME )
+public @interface TestAnnotation2
+{
 
 }

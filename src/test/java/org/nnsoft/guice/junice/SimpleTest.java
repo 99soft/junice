@@ -26,9 +26,10 @@ import com.google.inject.Inject;
 import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 
-@RunWith(JUniceRunner.class)
-@GuiceModules(SimpleModule.class)
-public class SimpleTest {
+@RunWith( JUniceRunner.class )
+@GuiceModules( SimpleModule.class )
+public class SimpleTest
+{
 
     /*
      * Any NON-static filed will be injecteded before run each tests.
@@ -37,13 +38,15 @@ public class SimpleTest {
     private HelloWorld helloWorldNotStatic;
 
     @BeforeClass
-    public static void setUpClass(){
+    public static void setUpClass()
+    {
     }
 
     @Test
-    public void testInjectNotStatic() {
-        Assert.assertNotNull(helloWorldNotStatic);
-        Assert.assertEquals("Hello World!!!!", helloWorldNotStatic.sayHallo());
+    public void testInjectNotStatic()
+    {
+        Assert.assertNotNull( helloWorldNotStatic );
+        Assert.assertEquals( "Hello World!!!!", helloWorldNotStatic.sayHallo() );
     }
 
 }

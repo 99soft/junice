@@ -17,12 +17,12 @@ package org.nnsoft.guice.junice.annotation;
 
 /**
  * Enumeration class to specifies your preferred mock framework.
- *
+ * 
  * @see MockFramework
  */
-public enum MockType {
+public enum MockType
+{
 
-    EASY_MOCK,
-    MOCKITO;
+    EASY_MOCK, MOCKITO;
 
 }

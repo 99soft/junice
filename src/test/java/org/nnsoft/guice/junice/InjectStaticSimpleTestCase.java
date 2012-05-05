@@ -29,9 +29,10 @@ import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 import org.nnsoft.guice.junice.data.WhoIm;
 
-@RunWith(JUniceRunner.class)
-@GuiceModules(SimpleModule.class)
-public class InjectStaticSimpleTestCase {
+@RunWith( JUniceRunner.class )
+@GuiceModules( SimpleModule.class )
+public class InjectStaticSimpleTestCase
+{
 
     /*
      * Any static filed will be injecteded once before creation of SimpleTest Class
@@ -43,20 +44,23 @@ public class InjectStaticSimpleTestCase {
     public static WhoIm whoIm;
 
     @GuiceProvidedModules
-    public static Module createComplexModule(){
-        return new ComplexModule("Marco Speranza");
+    public static Module createComplexModule()
+    {
+        return new ComplexModule( "Marco Speranza" );
     }
 
     @Test
-    public void testHelloWorld() {
-        Assert.assertNotNull(helloWorld);
-        Assert.assertEquals("Hello World!!!!", helloWorld.sayHallo());
+    public void testHelloWorld()
+    {
+        Assert.assertNotNull( helloWorld );
+        Assert.assertEquals( "Hello World!!!!", helloWorld.sayHallo() );
     }
 
     @Test
-    public void testWhoIm() {
-        Assert.assertNotNull(whoIm);
-        Assert.assertEquals("Marco Speranza", whoIm.sayWhoIm());
+    public void testWhoIm()
+    {
+        Assert.assertNotNull( whoIm );
+        Assert.assertEquals( "Marco Speranza", whoIm.sayWhoIm() );
     }
 
 }

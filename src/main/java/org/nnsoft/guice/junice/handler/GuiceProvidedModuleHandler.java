@@ -33,80 +33,92 @@ import com.google.inject.internal.MoreTypes;
 
 /**
  * Handler class to handle all {@link GuiceProvidedModules} annotations.
- *
+ * 
  * @see ClassVisitor
  * @see GuiceProvidedModules
  */
-public final class GuiceProvidedModuleHandler implements MethodHandler<GuiceProvidedModules> {
+public final class GuiceProvidedModuleHandler
+    implements MethodHandler<GuiceProvidedModules>
+{
 
-    private static Log logger = LogFactory.getLog(GuiceProvidedModuleHandler.class);
+    private static Log logger = LogFactory.getLog( GuiceProvidedModuleHandler.class );
 
     final private List<Module> modules = new ArrayList<Module>();
 
     /**
      * @return the guiceProviderModuleRegistry
      */
-    public List<Module> getModules() {
+    public List<Module> getModules()
+    {
         return this.modules;
     }
 
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("unchecked")
-    public void handle(GuiceProvidedModules annotation, Method method) throws HandleException {
+    @SuppressWarnings( "unchecked" )
+    public void handle( GuiceProvidedModules annotation, Method method )
+        throws HandleException
+    {
         final Class<?> returnType = method.getReturnType();
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("  Found "
-                    + GuiceProvidedModules.class.getSimpleName()
-                    + " annotated method, checking if return type '"
-                    + returnType.getName()
-                    + "' is one of (''|''|'')...");
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( "  Found " + GuiceProvidedModules.class.getSimpleName()
+                + " annotated method, checking if return type '" + returnType.getName() + "' is one of (''|''|'')..." );
         }
 
-        if (!Modifier.isPublic(method.getModifiers())
-                || !Modifier.isStatic(method.getModifiers())) {
-            throw new HandleException("Impossible to invoke method: "
-                    + method
-                    + ", it has to be static and public");
+        if ( !Modifier.isPublic( method.getModifiers() ) || !Modifier.isStatic( method.getModifiers() ) )
+        {
+            throw new HandleException( "Impossible to invoke method: " + method + ", it has to be static and public" );
         }
 
         final Class<?> type = method.getDeclaringClass();
 
-        try {
-            if (Module.class.isAssignableFrom(returnType)) {
-                this.modules.add((Module) method.invoke(type));
-            } else if (MoreTypes
-                    .getRawType(new TypeLiteral<Iterable<Module>>() {}.getType())
-                    .isAssignableFrom(returnType)) {
-                this.addModules((Iterable<Module>) method.invoke(type));
-            } else if (MoreTypes
-                    .getRawType(new TypeLiteral<Module[]>() {}.getType())
-                    .isAssignableFrom(returnType)) {
-                this.addModules((Module[]) method.invoke(type));
+        try
+        {
+            if ( Module.class.isAssignableFrom( returnType ) )
+            {
+                this.modules.add( (Module) method.invoke( type ) );
             }
-        } catch (Exception e) {
-            throw new HandleException("Error invoking method: "
-                    + method
-                    + "please make sure it is static and public", e);
+            else if ( MoreTypes.getRawType( new TypeLiteral<Iterable<Module>>()
+            {
+            }.getType() ).isAssignableFrom( returnType ) )
+            {
+                this.addModules( (Iterable<Module>) method.invoke( type ) );
+            }
+            else if ( MoreTypes.getRawType( new TypeLiteral<Module[]>()
+            {
+            }.getType() ).isAssignableFrom( returnType ) )
+            {
+                this.addModules( (Module[]) method.invoke( type ) );
+            }
+        }
+        catch ( Exception e )
+        {
+            throw new HandleException( "Error invoking method: " + method + "please make sure it is static and public",
+                                       e );
         }
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("  Invoked method: "
-                    + method.toGenericString());
+        if ( logger.isDebugEnabled() )
+        {
+            logger.debug( "  Invoked method: " + method.toGenericString() );
         }
     }
 
-    private void addModules(Iterable<Module> modules) {
-        for (Module module : modules) {
-            this.modules.add(module);
+    private void addModules( Iterable<Module> modules )
+    {
+        for ( Module module : modules )
+        {
+            this.modules.add( module );
         }
     }
 
-    private void addModules(Module... modules) {
-        for (Module module : modules) {
-            this.modules.add(module);
+    private void addModules( Module... modules )
+    {
+        for ( Module module : modules )
+        {
+            this.modules.add( module );
         }
     }
 

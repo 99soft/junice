@@ -18,3 +18,4 @@
  * Contains core classes to build mock framework and mock objects.
  */
 package org.nnsoft.guice.junice.mock;
+

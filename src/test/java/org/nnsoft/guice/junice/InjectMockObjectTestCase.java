@@ -29,11 +29,13 @@ import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 import org.nnsoft.guice.junice.data.TelephonService;
 
-@RunWith(JUniceRunner.class)
-@GuiceModules(SimpleModule.class)
-public class InjectMockObjectTestCase  extends AbstractMockTestCase {
+@RunWith( JUniceRunner.class )
+@GuiceModules( SimpleModule.class )
+public class InjectMockObjectTestCase
+    extends AbstractMockTestCase
+{
 
-    //Create and inject a simple EasyMock Strict mock
+    // Create and inject a simple EasyMock Strict mock
     @Mock
     private TelephonService telephonServiceMock;
 
@@ -44,45 +46,49 @@ public class InjectMockObjectTestCase  extends AbstractMockTestCase {
     private HelloWorld helloWorld;
 
     @Test
-    public void testMock(){
-        EasyMock.expect(providedMock.go()).andReturn("Ciao");
-        EasyMock.replay(providedMock);
+    public void testMock()
+    {
+        EasyMock.expect( providedMock.go() ).andReturn( "Ciao" );
+        EasyMock.replay( providedMock );
 
-        Assert.assertNotNull(this.providedMock);
-        Assert.assertEquals("Ciao", helloWorld.sayHalloByService());
-        EasyMock.verify(providedMock);
+        Assert.assertNotNull( this.providedMock );
+        Assert.assertEquals( "Ciao", helloWorld.sayHalloByService() );
+        EasyMock.verify( providedMock );
     }
 
     @Test
-    public void testMock2(){
-        EasyMock.expect(providedMock.go()).andReturn("Ciao");
-        EasyMock.replay(providedMock);
+    public void testMock2()
+    {
+        EasyMock.expect( providedMock.go() ).andReturn( "Ciao" );
+        EasyMock.replay( providedMock );
 
-        Assert.assertNotNull(this.providedMock);
-        Assert.assertEquals("Ciao", helloWorld.sayHalloByService());
-        EasyMock.verify(providedMock);
+        Assert.assertNotNull( this.providedMock );
+        Assert.assertEquals( "Ciao", helloWorld.sayHalloByService() );
+        EasyMock.verify( providedMock );
     }
 
     @Test
-    public void testStrickMock(){
-        EasyMock.expect(telephonServiceMock.getTelephonNumber()).andReturn("1234567890");
-        providedMock.call("1234567890");
+    public void testStrickMock()
+    {
+        EasyMock.expect( telephonServiceMock.getTelephonNumber() ).andReturn( "1234567890" );
+        providedMock.call( "1234567890" );
         EasyMock.expectLastCall().once();
-        EasyMock.replay(telephonServiceMock);
-        EasyMock.replay(providedMock);
+        EasyMock.replay( telephonServiceMock );
+        EasyMock.replay( providedMock );
 
         helloWorld.callHelloWorldTelephon();
 
-        EasyMock.verify(telephonServiceMock);
-        EasyMock.verify(providedMock);
+        EasyMock.verify( telephonServiceMock );
+        EasyMock.verify( providedMock );
 
-        //reset manually the mock object. Flag resettable is false!!!
-        EasyMock.reset(telephonServiceMock);
+        // reset manually the mock object. Flag resettable is false!!!
+        EasyMock.reset( telephonServiceMock );
     }
 
     @Test
-    public void testStrickMock2(){
-        Assert.assertNotNull(telephonServiceMock);
+    public void testStrickMock2()
+    {
+        Assert.assertNotNull( telephonServiceMock );
     }
 
 }

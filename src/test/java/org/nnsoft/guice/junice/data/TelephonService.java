@@ -15,7 +15,8 @@
  */
 package org.nnsoft.guice.junice.data;
 
-public interface TelephonService {
+public interface TelephonService
+{
 
     String getTelephonNumber();
 

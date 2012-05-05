@@ -22,17 +22,19 @@ import org.nnsoft.guice.junice.annotation.MockType;
 
 import org.nnsoft.guice.junice.data.Service;
 
-@MockFramework(MockType.MOCKITO)
-abstract public class AbstractMockitoTestCase {
+@MockFramework( MockType.MOCKITO )
+abstract public class AbstractMockitoTestCase
+{
 
-    //Create and inject a Provided EasyMock
-    @Mock(providedBy="getMock")
+    // Create and inject a Provided EasyMock
+    @Mock( providedBy = "getMock" )
     protected Service providedMock;
 
-    //@MockProvider
-    public static Service getMock() {
-        //Create the mock object and inject the dependency via Google-guice into HelloWorld
-        return Mockito.mock(Service.class);
+    // @MockProvider
+    public static Service getMock()
+    {
+        // Create the mock object and inject the dependency via Google-guice into HelloWorld
+        return Mockito.mock( Service.class );
     }
 
 }

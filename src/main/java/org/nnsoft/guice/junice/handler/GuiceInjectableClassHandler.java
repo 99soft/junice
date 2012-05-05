@@ -31,39 +31,50 @@ import com.google.inject.Inject;
 
 /**
  * Handler class to handle all {@link Inject} annotations.
- *
+ * 
  * @see ClassVisitor
  */
-public final class GuiceInjectableClassHandler implements AnnotationHandler<Inject, AccessibleObject> {
-    private static final Log logger = LogFactory.getLog(GuiceInjectableClassHandler.class);
+public final class GuiceInjectableClassHandler
+    implements AnnotationHandler<Inject, AccessibleObject>
+{
+    private static final Log logger = LogFactory.getLog( GuiceInjectableClassHandler.class );
 
     protected final Set<Class<?>> classes = new HashSet<Class<?>>();
 
     /**
      * Return all {@link Class} that contains at last one {@link Inject} annotation.
+     * 
      * @return {@link Class} array.
      */
-    public Class<?>[] getClasses() {
-        return this.classes.toArray(new Class<?>[this.classes.size()]);
+    public Class<?>[] getClasses()
+    {
+        return this.classes.toArray( new Class<?>[this.classes.size()] );
     }
 
     /**
      * {@inheritDoc}
      */
-    public void handle(Inject annotation, AccessibleObject element) throws HandleException {
+    public void handle( Inject annotation, AccessibleObject element )
+        throws HandleException
+    {
         Class<?> type = null;
 
-        if (element instanceof Field) {
-            type = ((Field) element).getDeclaringClass();
-        } else if (element instanceof Method) {
-            type = ((Method) element).getDeclaringClass();
+        if ( element instanceof Field )
+        {
+            type = ( (Field) element ).getDeclaringClass();
+        }
+        else if ( element instanceof Method )
+        {
+            type = ( (Method) element ).getDeclaringClass();
         }
 
-        if (type != null && !this.classes.contains(type)) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("   Found injectable type: " + type);
+        if ( type != null && !this.classes.contains( type ) )
+        {
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( "   Found injectable type: " + type );
             }
-            this.classes.add(type);
+            this.classes.add( type );
         }
     }
 

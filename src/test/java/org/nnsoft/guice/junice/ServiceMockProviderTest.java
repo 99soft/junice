@@ -24,15 +24,17 @@ import org.nnsoft.guice.junice.annotation.Mock;
 import org.nnsoft.guice.junice.data.Service;
 import org.nnsoft.guice.junice.data.ServiceMockProvider;
 
-@RunWith(JUniceRunner.class)
-public class ServiceMockProviderTest {
+@RunWith( JUniceRunner.class )
+public class ServiceMockProviderTest
+{
 
-    @Mock(providedBy="providerMethod", providerClass=ServiceMockProvider.class)
+    @Mock( providedBy = "providerMethod", providerClass = ServiceMockProvider.class )
     private Service service;
 
     @Test
-    public void test(){
-        Assert.assertNotNull(service);
+    public void test()
+    {
+        Assert.assertNotNull( service );
     }
 
 }

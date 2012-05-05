@@ -18,3 +18,4 @@
  * Contains core classes to handle annotations found by class introspector.
  */
 package org.nnsoft.guice.junice.handler;
+

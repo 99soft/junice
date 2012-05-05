@@ -20,15 +20,17 @@ import org.nnsoft.guice.junice.annotation.Mock;
 
 import org.nnsoft.guice.junice.data.Service;
 
-abstract public class AbstractMockTestCase {
+abstract public class AbstractMockTestCase
+{
 
-    //Create and inject a Provided EasyMock
-    @Mock(providedBy="getMock")
+    // Create and inject a Provided EasyMock
+    @Mock( providedBy = "getMock" )
     protected Service providedMock;
 
-    public static Service getMock() {
-        //Create the mock object and inject the dependency via Google-guice into HelloWorld
-        return EasyMock.createNiceMock(Service.class);
+    public static Service getMock()
+    {
+        // Create the mock object and inject the dependency via Google-guice into HelloWorld
+        return EasyMock.createNiceMock( Service.class );
     }
 
 }

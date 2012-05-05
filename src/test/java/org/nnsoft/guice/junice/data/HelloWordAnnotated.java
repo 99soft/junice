@@ -18,21 +18,24 @@ package org.nnsoft.guice.junice.data;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-public class HelloWordAnnotated {
+public class HelloWordAnnotated
+{
 
     @Inject
     @TestAnnotation
     Service service;
 
     @Inject
-    @Named("test.named")
+    @Named( "test.named" )
     Service named;
 
-    public String go() {
+    public String go()
+    {
         return service.go();
     }
 
-    public String getNamed() {
+    public String getNamed()
+    {
         return named.go();
     }
 

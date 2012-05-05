@@ -25,44 +25,54 @@ import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
 
 /**
- * <p>{@link TypeListener} implementation.</p>
- *
- * <p>Creates a specific {@link MockMembersInjector} for each {@link Mock}
- * annotation found.</p>
- *
+ * <p>
+ * {@link TypeListener} implementation.
+ * </p>
+ * <p>
+ * Creates a specific {@link MockMembersInjector} for each {@link Mock} annotation found.
+ * </p>
+ * 
  * @see MockMembersInjector
  * @see Mock
  */
-public class MockTypeListener implements TypeListener {
+public class MockTypeListener
+    implements TypeListener
+{
 
     private static final String JAVA_PACKAGE = "java";
 
     final private Map<Field, Object> mockedObjects;
 
-    public MockTypeListener(Map<Field, Object> mockedObjects) {
+    public MockTypeListener( Map<Field, Object> mockedObjects )
+    {
         this.mockedObjects = mockedObjects;
     }
 
     /**
      * {@inheritDoc}
      */
-    public <I> void hear(TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter) {
-        hear(typeLiteral.getRawType(), typeEncounter);
+    public <I> void hear( TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter )
+    {
+        hear( typeLiteral.getRawType(), typeEncounter );
     }
 
-    private <I> void hear(Class<? super I> type, TypeEncounter<I> typeEncounter) {
-        if (type.getPackage() != null && type.getPackage().getName().startsWith(JAVA_PACKAGE)) {
+    private <I> void hear( Class<? super I> type, TypeEncounter<I> typeEncounter )
+    {
+        if ( type.getPackage() != null && type.getPackage().getName().startsWith( JAVA_PACKAGE ) )
+        {
             return;
         }
 
-        for (Field field : type.getDeclaredFields()) {
-            if (field.isAnnotationPresent(Mock.class)) {
-                typeEncounter.register(new MockMembersInjector<I>(field, mockedObjects));
+        for ( Field field : type.getDeclaredFields() )
+        {
+            if ( field.isAnnotationPresent( Mock.class ) )
+            {
+                typeEncounter.register( new MockMembersInjector<I>( field, mockedObjects ) );
             }
         }
 
-        //visit super-class
-        hear(type.getSuperclass(), typeEncounter);
+        // visit super-class
+        hear( type.getSuperclass(), typeEncounter );
     }
 
 }

@@ -21,25 +21,27 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
 
 /**
  * Interface to specify mock framework class engine.
- *
+ * 
  * @see EasyMockFramework
  * @see MockitoFramework
  */
-public interface MockEngine {
+public interface MockEngine
+{
 
     /**
      * Reset the mock objects
+     * 
      * @param objects to reset.
      */
-    void resetMock(Object...objects);
+    void resetMock( Object... objects );
 
     /**
      * Create a typed mock
-     *
+     * 
      * @param <T> Class to mock
      * @param cls Class to mock
      * @return the mock object
      */
-    <T> T createMock(Class<T> cls, MockObjType type);
+    <T> T createMock( Class<T> cls, MockObjType type );
 
 }

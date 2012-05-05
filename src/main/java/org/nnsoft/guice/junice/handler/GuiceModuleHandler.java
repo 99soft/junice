@@ -29,38 +29,49 @@ import com.google.inject.Module;
 
 /**
  * Handler class to handle all {@link GuiceModules} annotations.
- *
+ * 
  * @see ClassVisitor
  */
-public final class GuiceModuleHandler implements ClassHandler<GuiceModules> {
+public final class GuiceModuleHandler
+    implements ClassHandler<GuiceModules>
+{
 
-    private static final Log logger = LogFactory.getLog(GuiceModuleHandler.class);
+    private static final Log logger = LogFactory.getLog( GuiceModuleHandler.class );
 
     final private List<Module> modules;
 
-    public GuiceModuleHandler() {
-        this.modules = new ArrayList<Module>(1);
+    public GuiceModuleHandler()
+    {
+        this.modules = new ArrayList<Module>( 1 );
     }
 
     /**
      * @return the modules
      */
-    public List<Module> getModules() {
+    public List<Module> getModules()
+    {
         return modules;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void handle(GuiceModules annotation, Class<?> element) throws HandleException {
-        for (Class<? extends Module> module : annotation.value()) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("   Try to create module: " + module);
+    public void handle( GuiceModules annotation, Class<?> element )
+        throws HandleException
+    {
+        for ( Class<? extends Module> module : annotation.value() )
+        {
+            if ( logger.isDebugEnabled() )
+            {
+                logger.debug( "   Try to create module: " + module );
             }
-            try {
-                this.modules.add(module.newInstance());
-            } catch (Exception e) {
-                throw new HandleException(e);
+            try
+            {
+                this.modules.add( module.newInstance() );
+            }
+            catch ( Exception e )
+            {
+                throw new HandleException( e );
             }
         }
     }

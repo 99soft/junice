@@ -21,6 +21,8 @@ import java.lang.reflect.Field;
 /**
  * Interface to specify a generic field handler.
  */
-public interface FieldHandler<A extends Annotation> extends AnnotationHandler<A, Field> {
+public interface FieldHandler<A extends Annotation>
+    extends AnnotationHandler<A, Field>
+{
 
 }
