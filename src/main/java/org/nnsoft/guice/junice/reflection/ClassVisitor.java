@@ -17,9 +17,8 @@ package org.nnsoft.guice.junice.reflection;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
@@ -34,7 +33,7 @@ import com.google.common.collect.Multimap;
  */
 public final class ClassVisitor
 {
-    private static final Log logger = LogFactory.getLog( ClassVisitor.class );
+    private static final Logger logger = Logger.getLogger( ClassVisitor.class.getName() );
 
     private final Multimap<Class<? extends Annotation>, AnnotationHandler<? extends Annotation, ? extends AnnotatedElement>> handlers =
         ArrayListMultimap.create();
@@ -48,9 +47,9 @@ public final class ClassVisitor
     public void visit( final Class<?> type )
         throws HandleException
     {
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( "  Visit class: " + type );
+            logger.finer( "  Visit class: " + type );
         }
         if ( Object.class == type )
         {

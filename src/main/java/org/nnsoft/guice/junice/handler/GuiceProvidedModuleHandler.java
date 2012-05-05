@@ -19,9 +19,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nnsoft.guice.junice.annotation.GuiceProvidedModules;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
 import org.nnsoft.guice.junice.reflection.HandleException;
@@ -41,7 +41,7 @@ public final class GuiceProvidedModuleHandler
     implements MethodHandler<GuiceProvidedModules>
 {
 
-    private static Log logger = LogFactory.getLog( GuiceProvidedModuleHandler.class );
+    private static Logger logger = Logger.getLogger( GuiceProvidedModuleHandler.class.getName() );
 
     final private List<Module> modules = new ArrayList<Module>();
 
@@ -62,9 +62,9 @@ public final class GuiceProvidedModuleHandler
     {
         final Class<?> returnType = method.getReturnType();
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( "  Found " + GuiceProvidedModules.class.getSimpleName()
+            logger.finer( "  Found " + GuiceProvidedModules.class.getSimpleName()
                 + " annotated method, checking if return type '" + returnType.getName() + "' is one of (''|''|'')..." );
         }
 
@@ -100,9 +100,9 @@ public final class GuiceProvidedModuleHandler
                                        e );
         }
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( "  Invoked method: " + method.toGenericString() );
+            logger.finer( "  Invoked method: " + method.toGenericString() );
         }
     }
 

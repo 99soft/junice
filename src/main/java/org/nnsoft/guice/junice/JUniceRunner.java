@@ -22,9 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.runner.RunWith;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
@@ -115,7 +115,7 @@ public class JUniceRunner
     extends BlockJUnit4ClassRunner
 {
 
-    final private static Log logger = LogFactory.getLog( JUniceRunner.class );
+    final private static Logger logger = Logger.getLogger( JUniceRunner.class.getName() );
 
     private Injector injector;
 
@@ -139,16 +139,16 @@ public class JUniceRunner
 
         try
         {
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( "Inizializing JUniceRunner for class: " + klass.getSimpleName() );
+                logger.finer( "Inizializing JUniceRunner for class: " + klass.getSimpleName() );
             }
 
             this.allModules = inizializeInjector( klass );
 
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( "done..." );
+                logger.finer( "done..." );
             }
         }
         catch ( Exception e )
@@ -164,19 +164,19 @@ public class JUniceRunner
      */
     public void run( final RunNotifier notifier )
     {
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( " ### Run test case: " + getTestClass().getJavaClass() + " ### " );
-            logger.debug( " #### Creating injector ####" );
+            logger.finer( " ### Run test case: " + getTestClass().getJavaClass() + " ### " );
+            logger.finer( " #### Creating injector ####" );
         }
 
         this.injector = createInjector( allModules );
         super.run( notifier );
         this.flush();
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( " ### End test case: " + getTestClass().getJavaClass().getName() + " ### " );
+            logger.finer( " ### End test case: " + getTestClass().getJavaClass().getName() + " ### " );
         }
     }
 
@@ -193,17 +193,17 @@ public class JUniceRunner
     @Override
     protected void runChild( FrameworkMethod method, RunNotifier notifier )
     {
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( " +++ invoke test method: " + method.getName() + " +++ " );
+            logger.finer( " +++ invoke test method: " + method.getName() + " +++ " );
         }
 
         super.runChild( method, notifier );
         resetAllResetAfterMocks();
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( " --- end test method: " + method.getName() + " --- " );
+            logger.finer( " --- end test method: " + method.getName() + " --- " );
         }
 
     }
@@ -212,9 +212,9 @@ public class JUniceRunner
     protected Object createTest()
         throws Exception
     {
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( " Create and inject test class: " + getTestClass().getJavaClass() );
+            logger.finer( " Create and inject test class: " + getTestClass().getJavaClass() );
         }
         return this.injector.getInstance( getTestClass().getJavaClass() );
     }
@@ -273,9 +273,9 @@ public class JUniceRunner
     {
         try
         {
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( "  Start introspecting class: " + clazz.getName() );
+                logger.finer( "  Start introspecting class: " + clazz.getName() );
             }
             final List<Module> allModules = new ArrayList<Module>( 1 );
 
@@ -336,9 +336,9 @@ public class JUniceRunner
             // Check if the class is itself a Google Module.
             if ( Module.class.isAssignableFrom( getTestClass().getJavaClass() ) )
             {
-                if ( logger.isDebugEnabled() )
+                if ( logger.isLoggable( Level.FINER ) )
                 {
-                    logger.debug( "   creating module from test class " + getTestClass().getJavaClass() );
+                    logger.finer( "   creating module from test class " + getTestClass().getJavaClass() );
                 }
                 final Module classModule = (Module) getTestClass().getJavaClass().newInstance();
                 allModules.add( classModule );
@@ -363,9 +363,9 @@ public class JUniceRunner
                     final Object mock = entry.getValue();
                     if ( Modifier.isStatic( field.getModifiers() ) )
                     {
-                        if ( logger.isDebugEnabled() )
+                        if ( logger.isLoggable( Level.FINER ) )
                         {
-                            logger.debug( "   inject static mock field: " + field.getName() );
+                            logger.finer( "   inject static mock field: " + field.getName() );
                         }
 
                         field.setAccessible( true );
@@ -379,7 +379,7 @@ public class JUniceRunner
 
             if ( allModules.size() != 0 )
             {
-                if ( logger.isDebugEnabled() )
+                if ( logger.isLoggable( Level.FINER ) )
                 {
                     StringBuilder builder = new StringBuilder();
                     builder.append( " Collected modules: " );
@@ -389,7 +389,7 @@ public class JUniceRunner
                         builder.append( "    " + module );
                         builder.append( "\n" );
                     }
-                    logger.debug( builder.toString() );
+                    logger.finer( builder.toString() );
                 }
                 return Modules.combine( allModules );
             }
@@ -397,9 +397,9 @@ public class JUniceRunner
         }
         finally
         {
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( " ...done" );
+                logger.finer( " ...done" );
             }
         }
     }

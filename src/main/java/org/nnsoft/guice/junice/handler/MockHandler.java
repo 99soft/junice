@@ -20,9 +20,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nnsoft.guice.junice.annotation.Mock;
 import org.nnsoft.guice.junice.mock.MockEngine;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
@@ -39,7 +39,7 @@ public final class MockHandler
     implements FieldHandler<Mock>
 {
 
-    private static final Log logger = LogFactory.getLog( MockHandler.class );
+    private static final Logger logger = Logger.getLogger( MockHandler.class.getName() );
 
     final private HashMap<Field, Object> mockedObjects = new HashMap<Field, Object>( 1 );
 
@@ -72,9 +72,9 @@ public final class MockHandler
     {
         final Class<? super Object> type = (Class<? super Object>) element.getDeclaringClass();
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( "      Found annotated field: " + element );
+            logger.finer( "      Found annotated field: " + element );
         }
         if ( annotation.providedBy().length() > 0 )
         {
@@ -132,9 +132,9 @@ public final class MockHandler
         {
             try
             {
-                if ( logger.isDebugEnabled() )
+                if ( logger.isLoggable( Level.FINER ) )
                 {
-                    logger.debug( "        ...invoke Provider method for Mock: " + method.getName() );
+                    logger.finer( "        ...invoke Provider method for Mock: " + method.getName() );
                 }
                 if ( !Modifier.isPublic( method.getModifiers() ) || !Modifier.isStatic( method.getModifiers() ) )
                 {

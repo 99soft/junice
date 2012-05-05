@@ -17,9 +17,9 @@ package org.nnsoft.guice.junice.handler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nnsoft.guice.junice.annotation.GuiceModules;
 import org.nnsoft.guice.junice.reflection.ClassHandler;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
@@ -36,7 +36,7 @@ public final class GuiceModuleHandler
     implements ClassHandler<GuiceModules>
 {
 
-    private static final Log logger = LogFactory.getLog( GuiceModuleHandler.class );
+    private static final Logger logger = Logger.getLogger( GuiceModuleHandler.class.getName() );
 
     final private List<Module> modules;
 
@@ -61,9 +61,9 @@ public final class GuiceModuleHandler
     {
         for ( Class<? extends Module> module : annotation.value() )
         {
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( "   Try to create module: " + module );
+                logger.finer( "   Try to create module: " + module );
             }
             try
             {

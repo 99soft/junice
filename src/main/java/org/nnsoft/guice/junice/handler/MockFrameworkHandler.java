@@ -15,8 +15,9 @@
  */
 package org.nnsoft.guice.junice.handler;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.nnsoft.guice.junice.annotation.MockFramework;
 import org.nnsoft.guice.junice.annotation.MockType;
 import org.nnsoft.guice.junice.reflection.ClassHandler;
@@ -33,7 +34,7 @@ public final class MockFrameworkHandler
     implements ClassHandler<MockFramework>
 {
 
-    final static private Log logger = LogFactory.getLog( MockFrameworkHandler.class );
+    final static private Logger logger = Logger.getLogger( MockFrameworkHandler.class.getName() );
 
     private MockType mockType;
 
@@ -57,9 +58,9 @@ public final class MockFrameworkHandler
                 + mockType + " now found: " + annotation.value() + "]" );
         }
 
-        if ( logger.isDebugEnabled() )
+        if ( logger.isLoggable( Level.FINER ) )
         {
-            logger.debug( "  Found MockFramework: " + annotation.value() );
+            logger.finer( "  Found MockFramework: " + annotation.value() );
         }
 
         this.mockType = annotation.value();

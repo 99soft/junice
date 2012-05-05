@@ -17,10 +17,11 @@ package org.nnsoft.guice.junice;
 
 import org.easymock.classextension.EasyMock;
 import org.nnsoft.guice.junice.annotation.Mock;
-
 import org.nnsoft.guice.junice.data.Service;
 
 abstract public class AbstractMockTestCase
+    extends AbstractEmptyTestCase
+
 {
 
     // Create and inject a Provided EasyMock

@@ -23,9 +23,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nnsoft.guice.junice.annotation.Mock;
 
 import com.google.common.collect.HashMultimap;
@@ -56,7 +56,7 @@ public class GuiceMockModule
     extends AbstractModule
 {
 
-    final static private Log logger = LogFactory.getLog( GuiceMockModule.class );
+    final static private Logger logger = Logger.getLogger( GuiceMockModule.class.getName() );
 
     final Map<Field, Object> mockedFields;
 
@@ -111,9 +111,9 @@ public class GuiceMockModule
                     {
                         bind( literal ).toInstance( mock );
                     }
-                    if ( logger.isDebugEnabled() )
+                    if ( logger.isLoggable( Level.FINER ) )
                     {
-                        logger.debug( "    Created binding for: " + type + " " + annoBy );
+                        logger.finer( "    Created binding for: " + type + " " + annoBy );
                     }
                 }
             }
@@ -123,7 +123,7 @@ public class GuiceMockModule
                 final String msg =
                     "   Found multiple annotation @" + Mock.class.getSimpleName() + " for type: " + type
                         + " Binding skipped!.";
-                logger.debug( msg );
+                logger.finer( msg );
                 throw new IllegalArgumentException( msg );
             }
         }
@@ -149,7 +149,7 @@ public class GuiceMockModule
             }
             if ( numOfSimpleType > 1 )
             {
-                logger.debug( "Found multiple simple type" );
+                logger.finer( "Found multiple simple type" );
                 return true;
             }
 
@@ -162,7 +162,7 @@ public class GuiceMockModule
                 else
                 {
                     // found two fields with same annotation
-                    logger.debug( "Found multiple annotatedBy type" );
+                    logger.finer( "Found multiple annotatedBy type" );
                     return true;
                 }
             }
@@ -176,7 +176,7 @@ public class GuiceMockModule
                 else
                 {
                     // found two fields with same named annotation
-                    logger.debug( "Found multiple namedWith type" );
+                    logger.finer( "Found multiple namedWith type" );
                     return true;
                 }
             }

@@ -19,11 +19,11 @@ import org.mockito.Mockito;
 import org.nnsoft.guice.junice.annotation.Mock;
 import org.nnsoft.guice.junice.annotation.MockFramework;
 import org.nnsoft.guice.junice.annotation.MockType;
-
 import org.nnsoft.guice.junice.data.Service;
 
 @MockFramework( MockType.MOCKITO )
 abstract public class AbstractMockitoTestCase
+    extends AbstractEmptyTestCase
 {
 
     // Create and inject a Provided EasyMock

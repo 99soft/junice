@@ -18,18 +18,18 @@ package org.nnsoft.guice.junice;
 import java.util.ArrayList;
 
 import org.junit.runner.RunWith;
-import org.nnsoft.guice.junice.JUniceRunner;
 import org.nnsoft.guice.junice.annotation.GuiceModules;
 import org.nnsoft.guice.junice.annotation.GuiceProvidedModules;
+import org.nnsoft.guice.junice.data.SimpleModule;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
-import org.nnsoft.guice.junice.data.SimpleModule;
 
 @RunWith( JUniceRunner.class )
 @GuiceModules( SimpleModule.class )
 abstract public class AbstractTestCase
+    extends AbstractEmptyTestCase
 {
 
     @GuiceProvidedModules

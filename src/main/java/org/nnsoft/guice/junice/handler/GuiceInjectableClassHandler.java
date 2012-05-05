@@ -20,9 +20,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nnsoft.guice.junice.reflection.AnnotationHandler;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
 import org.nnsoft.guice.junice.reflection.HandleException;
@@ -37,7 +37,7 @@ import com.google.inject.Inject;
 public final class GuiceInjectableClassHandler
     implements AnnotationHandler<Inject, AccessibleObject>
 {
-    private static final Log logger = LogFactory.getLog( GuiceInjectableClassHandler.class );
+    private static final Logger logger = Logger.getLogger( GuiceInjectableClassHandler.class.getName() );
 
     protected final Set<Class<?>> classes = new HashSet<Class<?>>();
 
@@ -70,9 +70,9 @@ public final class GuiceInjectableClassHandler
 
         if ( type != null && !this.classes.contains( type ) )
         {
-            if ( logger.isDebugEnabled() )
+            if ( logger.isLoggable( Level.FINER ) )
             {
-                logger.debug( "   Found injectable type: " + type );
+                logger.finer( "   Found injectable type: " + type );
             }
             this.classes.add( type );
         }
