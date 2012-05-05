@@ -56,34 +56,34 @@ import com.google.inject.util.Modules;
 /**
  * <p>It's a {@link BlockJUnit4ClassRunner} runner.</p>
  *
- * <p>This class creates a Google Guice {@link Injector} configured by 
+ * <p>This class creates a Google Guice {@link Injector} configured by
  * {@link GuiceModules} annotation (only fr modules with default constructor) and
  * {@link GuiceProvidedModules} annotation and {@link Mock}.</p>
- * 
+ *
  * <p>
  * <b>Example #1:</b> <br>
  * <pre>
- * 
+ *
  * &#064;RunWith(JUniceRunner.class)
  * &#064;GuiceModules(modules=SimpleModule.class)
  * public class AcmeTestCase {
- * 
+ *
  *     &#064;GuiceProvidedModules
  *     static public Module getProperties() {
  *         ...
  *         return Modules.combine(new ComplexModule(loadProperies()), ...  );
  *     }
- * 
+ *
  * </pre>
  * </p>
- * 
+ *
  * <p>
  * <b>Example #2:</b> <br>
  * <pre>
- * 
+ *
  * &#064;RunWith(JUniceRunner.class)
  * public class AcmeTestCase extends com.google.inject.AbstractModule {
- * 
+ *
  *     public void configure() {
  *         //Configure your proper modules
  *         ...
@@ -96,7 +96,7 @@ import com.google.inject.util.Modules;
  *
  *     &#064;Inject
  *     private Service serviceTest;
- * 
+ *
  *     &#064;org.junit.Test
  *     public void test() {
  *         assertNotNull(serviceMock);
@@ -105,10 +105,7 @@ import com.google.inject.util.Modules;
  * </pre>
  * </p>
  *
- * @see {@link GuiceMockModule}
- * @author Marco Speranza
- * @version $Id: $
- * 
+ * @see GuiceMockModule
  */
 public class JUniceRunner extends BlockJUnit4ClassRunner {
 
@@ -124,10 +121,10 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
 
     /**
      * JUniceRunner constructor to create the core JUnice class.
-     * 
+     *
      * @see RunWith
      * @param klass The test case class to run.
-     * @throws org.junit.runners.model.InitializationError if any error occurs. 
+     * @throws org.junit.runners.model.InitializationError if any error occurs.
      */
     public JUniceRunner(Class<?> klass) throws  InitializationError {
         super(klass);
@@ -180,7 +177,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
         this.mocked.clear();
     }
 
-    
+
     @Override
     protected void runChild(FrameworkMethod method, RunNotifier notifier) {
         if (logger.isDebugEnabled()) {
@@ -188,7 +185,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
                     + method.getName()
                     + " +++ ");
         }
-        
+
         super.runChild(method, notifier);
         resetAllResetAfterMocks();
 
@@ -197,7 +194,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
                     + method.getName()
                     + " --- ");
         }
-        
+
     }
 
     // create test class via Google-Guice to inject all not-static dependencies.
@@ -209,8 +206,8 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
     }
 
     protected Injector createInjector(List<Module> modules) {
-       
-        return Guice.createInjector(modules); 
+
+        return Guice.createInjector(modules);
     }
 
     /**
@@ -219,10 +216,10 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
      * <p>This methot collects modules from {@link GuiceModules},
      * {@link GuiceProvidedModules}, {@link Mock}, creates a Google-Guice Injector and than
      * inject static members into callings class.</p>
-     * 
-     * @throws IllegalAccessException 
-     * @throws InstantiationException 
-     * @throws HandleException 
+     *
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     * @throws HandleException
      */
     protected List<Module> inizializeInjector(Class<?> clazz) throws HandleException, InstantiationException, IllegalAccessException {
         final List<Module> modules = new ArrayList<Module>();
@@ -244,10 +241,10 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
     }
 
     /**
-     * @throws HandleException 
-     * @throws IllegalAccessException 
-     * @throws InstantiationException 
-     * 
+     * @throws HandleException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     *
      */
     private Module visitClass(final Class<?> clazz) throws HandleException, InstantiationException, IllegalAccessException {
         try {
@@ -291,7 +288,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
                 allModules.add(m);
             }
 
-            //Add only clasess that have got the Inject annotation 
+            //Add only clasess that have got the Inject annotation
             final Class<?>[] injectableClasses = guiceInjectableClassHandler.getClasses();
             //final Class<?>[] mockInjectableClasses = mockInjectableClassHandler.getClasses();
 
@@ -325,7 +322,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
                     }
                 };
 
-                // BEGIN patch for issue: google-guice: #452 
+                // BEGIN patch for issue: google-guice: #452
                 for (Entry<Field, Object> entry : mocked.entrySet()) {
                     final Field field = entry.getKey();
                     final Object mock = entry.getValue();

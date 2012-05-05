@@ -24,9 +24,6 @@ import com.google.inject.Module;
 
 /**
  * Annotate your class to define a list of Google Guice {@link Module} whit default constructor.
- *
- * @author Marco Speranza
- * @version $Id: GuiceModules.java 1 2009-12-29 00:33:36Z marco.speranza79 $
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -34,7 +31,7 @@ public @interface GuiceModules {
 
     /**
      * List of Google Guice {@link Module}.
-     * 
+     *
      * @return the list of Google Guice {@link Module}.
      */
     Class<? extends Module>[] modules();

@@ -16,8 +16,5 @@
 
 /**
  * Contains core classes to build mock framework and mock objects.
- *
- * @author Simone Tripodi
- * @version $Id: package-info.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 package org.nnsoft.guice.junice.mock;

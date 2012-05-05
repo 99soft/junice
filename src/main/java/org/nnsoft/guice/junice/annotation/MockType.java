@@ -19,8 +19,6 @@ package org.nnsoft.guice.junice.annotation;
  * Enumeration class to specifies your preferred mock framework.
  *
  * @see MockFramework
- * @author Marco Speranza
- * @version $Id: MockFrameworkType.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public enum MockType {
 

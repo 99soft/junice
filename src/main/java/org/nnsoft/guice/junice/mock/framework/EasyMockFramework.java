@@ -24,8 +24,6 @@ import org.nnsoft.guice.junice.mock.MockEngine;
  * Specifies the Easy-Mock Framework.
  *
  * @see MockEngine
- * @author Marco Speranza
- * @version $Id: EasyMockFramework.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public class EasyMockFramework implements MockEngine {
 

@@ -22,16 +22,13 @@ import java.lang.annotation.Target;
 
 /**
  * Annotate  test class to specify you favorite mock framework
- *
- * @author Marco Speranza
- * @version $Id: MockFramework.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface MockFramework {
 
     /**
-     * Type of mock that JUnice has to create. 
+     * Type of mock that JUnice has to create.
      * @return the choosen mock type.
      */
     public MockType type();

@@ -33,11 +33,9 @@ import com.google.inject.internal.MoreTypes;
 
 /**
  * Handler class to handle all {@link GuiceProvidedModules} annotations.
- * 
+ *
  * @see ClassVisitor
  * @see GuiceProvidedModules
- * @author Marco Speranza
- * @version $Id: GuiceProviderHandler.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public final class GuiceProvidedModuleHandler implements MethodHandler<GuiceProvidedModules> {
 
@@ -60,7 +58,7 @@ public final class GuiceProvidedModuleHandler implements MethodHandler<GuiceProv
         final Class<?> returnType = method.getReturnType();
 
         if (logger.isDebugEnabled()) {
-            logger.debug("  Found " 
+            logger.debug("  Found "
                     + GuiceProvidedModules.class.getSimpleName()
                     + " annotated method, checking if return type '"
                     + returnType.getName()

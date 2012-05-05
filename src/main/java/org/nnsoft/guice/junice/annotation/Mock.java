@@ -26,11 +26,8 @@ import org.nnsoft.guice.junice.GuiceMockModule;
 import com.google.inject.name.Named;
 
 /**
- * Annotate your filed into which {@link GuiceMockModule} will create and inject 
+ * Annotate your filed into which {@link GuiceMockModule} will create and inject
  * the mock object.
- *
- * @author Marco Speranza
- * @version $Id: Mock.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
@@ -41,14 +38,14 @@ public @interface Mock {
 
     /**
      * Indicates if this mock object has to be resetted after each test method
-     * Default: true 
+     * Default: true
      * @return the value
      */
     public boolean resetAfter() default true;
 
     /**
      * The name of the method that provides to mock creation.
-     * 
+     *
      * @return
      */
     public String providedBy() default "";
@@ -56,7 +53,7 @@ public @interface Mock {
     /**
      * The {@link Class} that contains the method {@link Mock#providedBy()}.
      * By default: the filed declaring class.
-     *   
+     *
      * @return
      */
     public Class<?> providerClass() default Object.class;
@@ -64,23 +61,23 @@ public @interface Mock {
     /**
      * Specifies an annotaion {@link Class} that will be used in the <em>Google Guice</em> binder
      * to execute the literal annotating binding.
-     * 
+     *
      * @return
      */
     public Class<?> annotatedWith() default NoAnnotation.class;
-    
-    
+
+
     /**
      * Specifies an {@link String} annotation that will be used in the <em>Google Guice</em> binder
      * to execute the literal annotating binding via {@link Named} class.
-     * 
+     *
      * @return
      */
     public String namedWith() default "";
-    
+
     /**
-     * Specifies 
-     * 
+     * Specifies
+     *
      * @return
      */
     public MockObjType type() default MockObjType.DEFAULT;

@@ -20,17 +20,13 @@ import java.lang.reflect.AnnotatedElement;
 
 /**
  * Interface to specify a generic annotation handler.
- * 
- * @author Simone Tripodi
- * @version $Id: AnnotationHandler.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 public interface AnnotationHandler<A extends Annotation, E extends AnnotatedElement> {
 
-    
     /**
      * Invoked when {@link ClassVisitor} found an annotation into a class.
-     * 
-     * @param annotation that 
+     *
+     * @param annotation that
      * @param element
      * @throws HandleException
      */

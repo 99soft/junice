@@ -19,9 +19,6 @@ import java.lang.annotation.Annotation;
 
 /**
  * Interface to specify a generic class handler.
- *
- * @author Marco Speranza
- * @version $Id: ClassHandler.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public interface ClassHandler<A extends Annotation> extends AnnotationHandler<A, Class<?>> {
 

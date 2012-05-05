@@ -17,9 +17,6 @@ package org.nnsoft.guice.junice.reflection;
 
 /**
  * Exception thrown by a {@link ClassVisitor} when a error occurs.
- * 
- * @author Simone Tripodi
- * @version $Id: HandleException.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 public final class HandleException extends Exception {
 

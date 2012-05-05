@@ -37,7 +37,7 @@ import com.google.inject.name.Names;
 /**
  *  <p>This class creates the binding for all mock objects found.</p>
  *
- *  <p>Method {@link GuiceMockModule#configure()} creates a binding for each 
+ *  <p>Method {@link GuiceMockModule#configure()} creates a binding for each
  *  {@link Mock} annotation found. The binding will be created <b>if and only if</b> there is no
  *  types conflict between {@link Mock} caught.<p>
  *
@@ -47,9 +47,6 @@ import com.google.inject.name.Names;
  *
  *  <p>If a conflict is detected the binding will not create for the conflicted type,
  *  moreover the field will be injected into the test class.</p>
- *
- * @author Marco Speranza
- * @version $Id: GuiceMockModule.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public class GuiceMockModule extends AbstractModule {
 
@@ -59,10 +56,10 @@ public class GuiceMockModule extends AbstractModule {
 
     /**
      * Costructor.
-     * 
+     *
      * @param mockedFields the map of mock fileds.
      */
-     
+
     public GuiceMockModule(final Map<Field, Object> mockedFields) {
         this.mockedFields = mockedFields;
     }
@@ -101,11 +98,11 @@ public class GuiceMockModule extends AbstractModule {
                     }
                 }
             } else {
-                
-                final String msg = "   Found multiple annotation @" 
-                    + Mock.class.getSimpleName() 
+
+                final String msg = "   Found multiple annotation @"
+                    + Mock.class.getSimpleName()
                     + " for type: "
-                    + type 
+                    + type
                     + " Binding skipped!.";
                 logger.debug(msg);
                 throw new IllegalArgumentException(msg);
@@ -114,7 +111,7 @@ public class GuiceMockModule extends AbstractModule {
     }
 
     /**
-     * 
+     *
      *
      * @param fields
      * @return
@@ -123,18 +120,18 @@ public class GuiceMockModule extends AbstractModule {
         final List<Class<?>> listAnnotatedType = new ArrayList<Class<?>>();
         final List<String> listNamedType = new ArrayList<String>();
         int numOfSimpleType = 0;
-        
+
         for (Field field : fields) {
             final Mock annoBy = field.getAnnotation(Mock.class);
-            
+
             if ( annoBy.annotatedWith() == Mock.NoAnnotation.class && "".equals(annoBy.namedWith()) ) {
-                numOfSimpleType++;       
-            } 
+                numOfSimpleType++;
+            }
             if (numOfSimpleType > 1) {
                 logger.debug("Found multiple simple type");
                 return true;
             }
-            
+
             if (annoBy.annotatedWith() != Mock.NoAnnotation.class) {
                 if ( ! listAnnotatedType.contains(annoBy.annotatedWith()) ) {
                     listAnnotatedType.add(annoBy.annotatedWith());
@@ -144,7 +141,7 @@ public class GuiceMockModule extends AbstractModule {
                     return true;
                 }
             }
-            
+
             if (! "".equals(annoBy.namedWith())) {
                 if ( ! listNamedType.contains(annoBy.namedWith()) ) {
                     listNamedType.add(annoBy.namedWith());

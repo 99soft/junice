@@ -35,8 +35,6 @@ import org.nnsoft.guice.junice.reflection.HandleException;
  *
  * @see ClassVisitor
  * @see Mock
- * @author Marco Speranza
- * @version $Id: MockHandler.java 264 2010-10-07 20:58:47Z marco.speranza79 $
  */
 public final class MockHandler implements FieldHandler<Mock> {
 
@@ -45,7 +43,7 @@ public final class MockHandler implements FieldHandler<Mock> {
     final private HashMap<Field, Object> mockedObjects = new HashMap<Field, Object>(1);
 
     /**
-     * 
+     *
      *
      * @param engine
      * @return
@@ -129,7 +127,7 @@ public final class MockHandler implements FieldHandler<Mock> {
                 if (!Modifier.isPublic(method.getModifiers())
                         || !Modifier.isStatic(method.getModifiers())) {
                     throw new HandleException("Impossible to invoke method "
-                            + cls 
+                            + cls
                             + "#" + method.getName()
                             + ". The method shuld be 'static public "
                             + method.getReturnType().getName()

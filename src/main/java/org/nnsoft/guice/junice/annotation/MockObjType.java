@@ -17,9 +17,6 @@ package org.nnsoft.guice.junice.annotation;
 
 /**
  * Enumeration class to specifies the preferred mock object.
- *
- * @author Marco Speranza
- * @version $Id: MockedType.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public enum MockObjType {
 

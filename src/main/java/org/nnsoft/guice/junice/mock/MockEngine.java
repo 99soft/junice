@@ -21,11 +21,9 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
 
 /**
  * Interface to specify mock framework class engine.
- * 
+ *
  * @see EasyMockFramework
  * @see MockitoFramework
- * @author Marco Speranza
- * @version $Id: MockEngine.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public interface MockEngine {
 

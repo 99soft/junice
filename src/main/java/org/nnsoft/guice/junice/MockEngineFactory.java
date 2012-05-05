@@ -25,8 +25,6 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
  * Factory class to create the mock framework.
  *
  * @see MockFramework
- * @author Marco Speranza
- * @version $Id: MockEngineFactory.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 final class MockEngineFactory {
 

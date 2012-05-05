@@ -32,8 +32,6 @@ import com.google.inject.spi.TypeListener;
  *
  * @see MockMembersInjector
  * @see Mock
- * @author Marco Speranza
- * @version $Id: MockTypeListener.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public class MockTypeListener implements TypeListener {
 

@@ -31,8 +31,6 @@ import com.google.inject.Module;
  * Handler class to handle all {@link GuiceModules} annotations.
  *
  * @see ClassVisitor
- * @author Marco Speranza
- * @version $Id: GuiceModuleHandler.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public final class GuiceModuleHandler implements ClassHandler<GuiceModules> {
 

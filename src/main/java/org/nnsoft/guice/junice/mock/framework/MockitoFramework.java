@@ -24,8 +24,6 @@ import org.nnsoft.guice.junice.mock.MockEngine;
  * Specifies the Mockito Framework.
  *
  * @see MockEngine
- * @author Marco Speranza
- * @version $Id: MokitoFramework.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public class MockitoFramework implements MockEngine {
 
@@ -36,7 +34,7 @@ public class MockitoFramework implements MockEngine {
         Mockito.reset(objects);
     }
 
-   
+
     /**
      * {@inheritDoc}
      */
@@ -45,7 +43,7 @@ public class MockitoFramework implements MockEngine {
             return Mockito.mock(cls);
         }
 
-        throw new IllegalArgumentException("Unsupported mock type '" 
+        throw new IllegalArgumentException("Unsupported mock type '"
                     + type
                     + "' for Mockito Framework." );
     }

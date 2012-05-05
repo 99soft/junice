@@ -22,9 +22,6 @@ import com.google.inject.MembersInjector;
 
 /**
  * Class to inject via google-guice mock members into test cases classes.
- *
- * @author Marco Speranza
- * @version $Id: MockMembersInjector.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public class MockMembersInjector<T> implements MembersInjector<T> {
 

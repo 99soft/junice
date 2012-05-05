@@ -29,9 +29,6 @@ import com.google.common.collect.Multimap;
  *
  * <p>Visit the input class and all super classes and invokes handler to register
  * annotations.</p>
- *
- * @author Simone Tripodi
- * @version $Id: ClassVisitor.java 264 2010-10-07 20:58:47Z marco.speranza79 $
  */
 public final class ClassVisitor {
     private static final Log logger = LogFactory.getLog(ClassVisitor.class);

@@ -20,9 +20,6 @@ import java.lang.reflect.Method;
 
 /**
  * Interface to specify a generic method handler.
- *
- * @author Simone Tripodi
- * @version $Id: MethodHandler.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 public interface MethodHandler<A extends Annotation> extends AnnotationHandler<A, Method> {
 

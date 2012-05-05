@@ -16,8 +16,5 @@
 
 /**
  * Contains core classes to handle annotations found by class introspector.
- *
- * @author Simone Tripodi
- * @version $Id: package-info.java 245 2010-07-10 19:52:45Z marco.speranza79 $
  */
 package org.nnsoft.guice.junice.handler;

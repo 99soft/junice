@@ -29,9 +29,6 @@ import com.google.inject.Module;
  * <li>com.google.inject.Module</li>
  * <li>Iterable&lt;com.google.inject.Module&gt;</li>
  * <li>com.google.inject.Module[]</li></p>
- *
- * @author Marco Speranza
- * @version $Id: GuiceProvidedModules.java 1 2009-12-29 00:33:36Z marco.speranza79 $
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

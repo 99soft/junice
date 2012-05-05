@@ -33,8 +33,6 @@ import com.google.inject.Inject;
  * Handler class to handle all {@link Inject} annotations.
  *
  * @see ClassVisitor
- * @author Marco Speranza
- * @version $Id: GuiceInjectableClassHandler.java 000 2009-12-01 00:00:00Z marco.speranza79 $
  */
 public final class GuiceInjectableClassHandler implements AnnotationHandler<Inject, AccessibleObject> {
     private static final Log logger = LogFactory.getLog(GuiceInjectableClassHandler.class);
