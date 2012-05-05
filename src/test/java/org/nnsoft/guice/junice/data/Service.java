@@ -15,15 +15,10 @@
  */
 package org.nnsoft.guice.junice.data;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: Service.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public interface Service {
 
     String go();
-    
+
     void call(String value);
+
 }

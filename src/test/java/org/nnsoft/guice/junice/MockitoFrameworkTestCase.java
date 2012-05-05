@@ -26,14 +26,9 @@ import com.google.inject.Inject;
 import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.TelephonService;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: MockitoFrameworkTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class MockitoFrameworkTestCase extends AbstractMockitoTestCase{
+
     /*
      * Any NON-static filed will be injecteded before run each tests.
      */
@@ -42,12 +37,11 @@ public class MockitoFrameworkTestCase extends AbstractMockitoTestCase{
 
     @Mock
     private TelephonService service;
-    
+
     @BeforeClass
     public static void setUpClass(){
-    }    
-    
-    
+    }
+
     @Test
     public void testInjectNotStatic() {
         Assert.assertNotNull(helloWorldNotStatic);
@@ -55,4 +49,5 @@ public class MockitoFrameworkTestCase extends AbstractMockitoTestCase{
         Assert.assertNotNull(service);
         Assert.assertNotNull(providedMock);
     }
+
 }

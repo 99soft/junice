@@ -18,36 +18,27 @@ package org.nnsoft.guice.junice;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.nnsoft.guice.junice.JUniceRunner;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: InjectModuleClassTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class InjectModuleClassTestCase extends AbstractModule {
 
-    
     public void configure() {
         bind(Integer.class).annotatedWith(Names.named("numeber.version")).toInstance(10);
     }
-    
+
     @Inject
     @Named("numeber.version")
     private Integer version;
-    
-    
 
     @Test
     public void testInjectModuleClass(){
         Assert.assertNotNull(version);
         Assert.assertEquals(10, version.intValue());
     }
+
 }

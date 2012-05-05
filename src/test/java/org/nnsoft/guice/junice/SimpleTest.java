@@ -26,36 +26,24 @@ import com.google.inject.Inject;
 import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: SimpleTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 @GuiceModules(modules=SimpleModule.class)
 public class SimpleTest {
 
-    
     /*
      * Any NON-static filed will be injecteded before run each tests.
      */
     @Inject
     private HelloWorld helloWorldNotStatic;
 
-    
     @BeforeClass
     public static void setUpClass(){
-    }    
-    
-    
+    }
+
     @Test
     public void testInjectNotStatic() {
         Assert.assertNotNull(helloWorldNotStatic);
         Assert.assertEquals("Hello World!!!!", helloWorldNotStatic.sayHallo());
-        
     }
-    
-   
-   
+
 }

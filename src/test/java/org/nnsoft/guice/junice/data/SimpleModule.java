@@ -17,12 +17,6 @@ package org.nnsoft.guice.junice.data;
 
 import com.google.inject.AbstractModule;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: SimpleModule.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class SimpleModule extends AbstractModule {
 
     @Override

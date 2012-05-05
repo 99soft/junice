@@ -15,52 +15,40 @@
  */
 package org.nnsoft.guice.junice.data;
 
-
 import java.util.List;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: HelloWorld.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @Singleton
 public class HelloWorld {
 
     @Inject(optional=true)
     private Service service;
-    
+
     @Inject(optional=true)
     private TelephonService telephon;
 
-    
     @Inject(optional=true)
     private List<Service> services;
 
-    
     public String sayHallo() {
         return "Hello World!!!!";
     }
-    
-    
-    
+
     public String sayHalloByService() {
         return service.go();
     }
-    
+
     public void callHelloWorldTelephon() {
         String number = telephon.getTelephonNumber();
         service.call(number);
     }
-    
+
     public void sayHalloByServiceLists() {
         for (Service service : services) {
-           service.go(); 
+           service.go();
         }
-        
     }
-    
+
 }

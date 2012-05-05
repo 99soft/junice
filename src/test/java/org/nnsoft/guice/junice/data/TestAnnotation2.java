@@ -20,12 +20,6 @@ import java.lang.annotation.RetentionPolicy;
 
 import com.google.inject.BindingAnnotation;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: TestAnnotation.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @BindingAnnotation
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TestAnnotation2 {

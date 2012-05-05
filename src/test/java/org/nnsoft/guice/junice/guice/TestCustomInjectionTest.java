@@ -23,33 +23,26 @@ import org.junit.runner.RunWith;
 import org.nnsoft.guice.junice.JUniceRunner;
 import org.nnsoft.guice.junice.annotation.GuiceModules;
 import org.nnsoft.guice.junice.annotation.Mock;
-
-import com.google.inject.Inject;
-import com.google.inject.Injector;
 import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.Service;
 import org.nnsoft.guice.junice.data.ServiceModule;
 import org.nnsoft.guice.junice.data.TelephonService;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: TestCustomInjectionTest.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
+import com.google.inject.Inject;
+
 @RunWith(JUniceRunner.class)
 @GuiceModules(modules=ServiceModule.class)
 public class TestCustomInjectionTest {
 
     @Mock
     private static Service service;
-    
+
     @Inject
     private TelephonService telephonService;
 
     @Inject
     private HelloWorld helloWorld;
-    
+
     @BeforeClass
     public static void setUp() {
         Assert.assertNotNull(service);
@@ -62,18 +55,18 @@ public class TestCustomInjectionTest {
         Assert.assertNotNull(telephonService);
         Assert.assertNotNull(helloWorld);
     }
-    
+
     @Test
     public void testOverideModule() throws Exception {
         Assert.assertNotNull(service);
         Assert.assertNotNull(telephonService);
         Assert.assertEquals("It's real class", telephonService.getTelephonNumber());
-        
-        
+
         EasyMock.expect(service.go()).andReturn("Mocked injected class");
         EasyMock.replay(service);
-        
+
         Assert.assertEquals("Mocked injected class", helloWorld.sayHalloByService());
         EasyMock.verify(service);
     }
+
 }

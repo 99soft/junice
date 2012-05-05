@@ -29,45 +29,34 @@ import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 import org.nnsoft.guice.junice.data.WhoIm;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: InjectStaticSimpleTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 @GuiceModules(modules=SimpleModule.class)
 public class InjectStaticSimpleTestCase {
-    
+
     /*
      * Any static filed will be injecteded once before creation of SimpleTest Class
      */
-    
     @Inject
     public static HelloWorld helloWorld;
-    
+
     @Inject
     public static WhoIm whoIm;
-    
+
     @GuiceProvidedModules
     public static Module createComplexModule(){
         return new ComplexModule("Marco Speranza");
     }
-    
 
-    
     @Test
     public void testHelloWorld() {
         Assert.assertNotNull(helloWorld);
         Assert.assertEquals("Hello World!!!!", helloWorld.sayHallo());
-        
     }
-    
+
     @Test
     public void testWhoIm() {
         Assert.assertNotNull(whoIm);
         Assert.assertEquals("Marco Speranza", whoIm.sayWhoIm());
-        
     }
 
 }

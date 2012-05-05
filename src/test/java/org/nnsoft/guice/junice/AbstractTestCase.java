@@ -27,12 +27,6 @@ import com.google.inject.Module;
 import com.google.inject.name.Names;
 import org.nnsoft.guice.junice.data.SimpleModule;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: AbstractTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 @GuiceModules(modules=SimpleModule.class)
 abstract public class AbstractTestCase {
@@ -45,9 +39,8 @@ abstract public class AbstractTestCase {
                 bind(String.class).annotatedWith(Names.named("test.info.inject")).toInstance("JUnice = JUnit + Guice");
             }
         };
-        
     }
-    
+
     @GuiceProvidedModules
     public static Iterable<Module> genericModule2() {
         AbstractModule a = new AbstractModule() {
@@ -55,13 +48,13 @@ abstract public class AbstractTestCase {
             protected void configure() {
                 bind(String.class).annotatedWith(Names.named("test.info.inject2")).toInstance("JUnice = JUnit + Guice Iterable");
             }
-        };        
-        
+        };
+
         ArrayList<Module> al = new ArrayList<Module>();
         al.add(a);
         return al;
     }
-    
+
     @GuiceProvidedModules
     public static Module[] genericModule3() {
         AbstractModule a = new AbstractModule() {
@@ -69,7 +62,8 @@ abstract public class AbstractTestCase {
             protected void configure() {
                 bind(String.class).annotatedWith(Names.named("test.info.inject3")).toInstance("JUnice = JUnit + Guice Array");
             }
-        };        
+        };
         return new Module[] {a};
     }
+
 }

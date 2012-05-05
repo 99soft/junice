@@ -27,51 +27,41 @@ import org.nnsoft.guice.junice.data.HelloWordAnnotated;
 import org.nnsoft.guice.junice.data.Service;
 import org.nnsoft.guice.junice.data.TestAnnotation;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: MockAnnotatedWithTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class MockAnnotatedWithTestCase {
-    
+
     @Mock(annotatedWith=TestAnnotation.class)
     private  Service service2;
-    
+
     @Mock
     private  Service service;
-    
+
     @Mock(namedWith="test.named")
     private  Service serviceNamed;
-    
-    @Inject 
-    private HelloWordAnnotated seviceImplAnnotated; 
 
-    
+    @Inject
+    private HelloWordAnnotated seviceImplAnnotated;
+
     @Test
     public void test() throws Exception {
         Assert.assertNotNull(service2);
         Assert.assertNotNull(service);
         Assert.assertNotNull(serviceNamed);
     }
-    
+
     @Test
     public void test3() throws Exception {
         Assert.assertNotNull(service2);
         Assert.assertNotNull(serviceNamed);
-        
+
         EasyMock.expect(service2.go()).andReturn("Mocked injected class annotated").anyTimes();
         EasyMock.expect(serviceNamed.go()).andReturn("Mocked injected class named").anyTimes();
         EasyMock.replay(service2,serviceNamed);
-        
+
         Assert.assertEquals("Mocked injected class annotated", service2.go());
         Assert.assertEquals("Mocked injected class annotated", seviceImplAnnotated.go());
         Assert.assertEquals("Mocked injected class named", seviceImplAnnotated.getNamed() );
         EasyMock.verify(service2);
     }
 
-    
 }
-
-

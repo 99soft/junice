@@ -29,51 +29,40 @@ import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.SimpleModule;
 import org.nnsoft.guice.junice.data.TelephonService;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: InjectMockObjectTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 @GuiceModules(modules=SimpleModule.class)
 public class InjectMockObjectTestCase  extends AbstractMockTestCase {
-    
+
     //Create and inject a simple EasyMock Strict mock
-    @Mock 
-    private TelephonService telephonServiceMock; 
-    
+    @Mock
+    private TelephonService telephonServiceMock;
+
     @Inject
     Injector injector;
-    
 
     @Inject
     private HelloWorld helloWorld;
-    
-    
+
     @Test
     public void testMock(){
         EasyMock.expect(providedMock.go()).andReturn("Ciao");
         EasyMock.replay(providedMock);
-        
+
         Assert.assertNotNull(this.providedMock);
         Assert.assertEquals("Ciao", helloWorld.sayHalloByService());
         EasyMock.verify(providedMock);
-        
     }
-    
+
     @Test
     public void testMock2(){
         EasyMock.expect(providedMock.go()).andReturn("Ciao");
         EasyMock.replay(providedMock);
-        
+
         Assert.assertNotNull(this.providedMock);
         Assert.assertEquals("Ciao", helloWorld.sayHalloByService());
         EasyMock.verify(providedMock);
-        
     }
-    
-    
+
     @Test
     public void testStrickMock(){
         EasyMock.expect(telephonServiceMock.getTelephonNumber()).andReturn("1234567890");
@@ -81,20 +70,19 @@ public class InjectMockObjectTestCase  extends AbstractMockTestCase {
         EasyMock.expectLastCall().once();
         EasyMock.replay(telephonServiceMock);
         EasyMock.replay(providedMock);
-        
+
         helloWorld.callHelloWorldTelephon();
-        
+
         EasyMock.verify(telephonServiceMock);
         EasyMock.verify(providedMock);
-        
+
         //reset manually the mock object. Flag resettable is false!!!
         EasyMock.reset(telephonServiceMock);
-        
     }
-    
+
     @Test
     public void testStrickMock2(){
         Assert.assertNotNull(telephonServiceMock);
-        
     }
+
 }

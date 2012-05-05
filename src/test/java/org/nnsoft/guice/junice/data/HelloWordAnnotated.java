@@ -18,29 +18,22 @@ package org.nnsoft.guice.junice.data;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: HelloWordAnnotated.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class HelloWordAnnotated {
-    
-    
-    @Inject 
+
+    @Inject
     @TestAnnotation
     Service service;
-    
-    @Inject 
+
+    @Inject
     @Named("test.named")
     Service named;
 
-    
     public String go() {
         return service.go();
     }
-    
+
     public String getNamed() {
         return named.go();
     }
+
 }

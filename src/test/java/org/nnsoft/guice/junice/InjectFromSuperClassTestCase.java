@@ -21,37 +21,28 @@ import org.junit.Test;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: InjectFromSuperClassTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class InjectFromSuperClassTestCase extends AbstractTestCase {
 
     @Inject
     @Named("test.info.inject")
     private String info;
-    
+
     @Inject
     @Named("test.info.inject2")
     private String infoFromIterable;
-    
-    
+
     @Inject
     @Named("test.info.inject3")
     private String infoFromArray;
-    
-    
-    
+
     @Test
     public void testInjectFromSuperClass(){
         Assert.assertNotNull(info);
         Assert.assertEquals("JUnice = JUnit + Guice", info);
-        
+
         Assert.assertNotNull(infoFromIterable);
         Assert.assertEquals("JUnice = JUnit + Guice Iterable", infoFromIterable);
-        
+
         Assert.assertNotNull(infoFromArray);
         Assert.assertEquals("JUnice = JUnit + Guice Array", infoFromArray);
     }

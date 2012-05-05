@@ -24,22 +24,15 @@ import org.nnsoft.guice.junice.annotation.Mock;
 import org.nnsoft.guice.junice.data.Service;
 import org.nnsoft.guice.junice.data.ServiceMockProvider;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: ServiceMockProviderTest.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class ServiceMockProviderTest {
 
-    
     @Mock(providedBy="providerMethod", providerClass=ServiceMockProvider.class)
     private Service service;
-    
-    
+
     @Test
     public void test(){
         Assert.assertNotNull(service);
     }
+
 }

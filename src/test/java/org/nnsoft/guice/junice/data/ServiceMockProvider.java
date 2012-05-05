@@ -16,17 +16,11 @@ package org.nnsoft.guice.junice.data;
 
 import org.easymock.classextension.EasyMock;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: ServiceMockProvider.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class ServiceMockProvider {
-    
-    
+
     public static Service providerMethod() {
         Service mockedService = EasyMock.createNiceMock(Service.class);
         return mockedService;
     }
+
 }

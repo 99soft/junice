@@ -33,56 +33,45 @@ import com.google.inject.TypeLiteral;
 import org.nnsoft.guice.junice.data.HelloWorld;
 import org.nnsoft.guice.junice.data.Service;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: InjectDependingMockObjectTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class InjectDependingMockObjectTestCase  {
 
     @Mock
     static private Service service;
-    
-    @Inject 
+
+    @Inject
     Injector injector;
-    
+
     private HelloWorld helloWorld;
 
     @Before
     public void setUp() {
         final List<Service> list = new ArrayList<Service>();
         list.add(service);
-        
+
         AbstractModule listAbstractModule = new  AbstractModule() {
             @Override
             protected void configure() {
                 bind(new TypeLiteral<List<Service>>(){}).toInstance(list);
             }
         };
-        
+
         Injector cInjector = injector.createChildInjector(listAbstractModule);
         helloWorld = cInjector.getInstance(HelloWorld.class);
         // required for optional dependencies
         cInjector.injectMembers(helloWorld);
     }
-    
-    
-    
-    
+
     @Test
     public void testMock(){
         Assert.assertNotNull(helloWorld);
         Assert.assertNotNull(service);
         EasyMock.expect(service.go()).andReturn("Ciao");
         EasyMock.expectLastCall().once();
-        
+
         EasyMock.replay(service);
         helloWorld.sayHalloByServiceLists();
         EasyMock.verify(service);
-        
-        
     }
-    
+
 }

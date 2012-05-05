@@ -20,22 +20,15 @@ import org.nnsoft.guice.junice.annotation.Mock;
 
 import org.nnsoft.guice.junice.data.Service;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: AbstractMockTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 abstract public class AbstractMockTestCase {
 
-    
     //Create and inject a Provided EasyMock
     @Mock(providedBy="getMock")
     protected Service providedMock;
-    
+
     public static Service getMock() {
         //Create the mock object and inject the dependency via Google-guice into HelloWorld
         return EasyMock.createNiceMock(Service.class);
     }
-    
+
 }

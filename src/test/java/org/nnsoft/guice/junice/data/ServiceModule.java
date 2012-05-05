@@ -17,22 +17,12 @@ package org.nnsoft.guice.junice.data;
 
 import com.google.inject.AbstractModule;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: ServiceModule.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class ServiceModule extends AbstractModule {
 
-    /* (non-Javadoc)
-     * @see com.google.inject.AbstractModule#configure()
-     */
     @Override
     protected void configure() {
         bind(Service.class).to(ServiceImpl.class).asEagerSingleton();
         bind(TelephonService.class).to(TelephonServiceImpl.class).asEagerSingleton();
-
     }
 
 }

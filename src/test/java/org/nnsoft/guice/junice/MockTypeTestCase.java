@@ -24,23 +24,15 @@ import org.nnsoft.guice.junice.annotation.MockObjType;
 
 import org.nnsoft.guice.junice.data.Service;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: MockTypeTestCase.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 @RunWith(JUniceRunner.class)
 public class MockTypeTestCase {
 
-    
     @Mock(type=MockObjType.EASY_MOCK_STRICT)
     Service service;
-    
-    
+
     @Test
     public void test(){
         Assert.assertNotNull(service);
     }
-    
+
 }

@@ -15,22 +15,16 @@
  */
 package org.nnsoft.guice.junice.data;
 
-
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: WhoIm.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class WhoIm {
-    
+
     private String name;
-    
+
     public WhoIm(String name){
         this.name = name;
     }
-    
+
     public String sayWhoIm(){
         return name;
     }
+
 }

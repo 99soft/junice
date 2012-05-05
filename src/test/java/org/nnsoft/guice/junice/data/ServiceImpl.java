@@ -15,24 +15,12 @@
  */
 package org.nnsoft.guice.junice.data;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: ServiceImpl.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class ServiceImpl implements Service {
 
-    /* (non-Javadoc)
-     * @see com.junice.data.Service#call(java.lang.String)
-     */
     public void call(String value) {
         // do nothing
     }
 
-    /* (non-Javadoc)
-     * @see com.junice.data.Service#go()
-     */
     public String go() {
         return "It's real class";
     }

@@ -17,20 +17,14 @@ package org.nnsoft.guice.junice.data;
 
 import com.google.inject.AbstractModule;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: ComplexModule.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class ComplexModule extends AbstractModule {
 
     private String name;
-    
+
     public ComplexModule(String name) {
         this.name = name;
     }
-    
+
     @Override
     protected void configure() {
         bind(WhoIm.class).toInstance(new WhoIm(name));

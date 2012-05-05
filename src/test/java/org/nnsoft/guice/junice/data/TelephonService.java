@@ -15,13 +15,8 @@
  */
 package org.nnsoft.guice.junice.data;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: TelephonService.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public interface TelephonService {
 
     String getTelephonNumber();
+
 }

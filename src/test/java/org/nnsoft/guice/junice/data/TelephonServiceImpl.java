@@ -15,17 +15,8 @@
  */
 package org.nnsoft.guice.junice.data;
 
-/**
- * 
- * 
- * @author Marco Speranza
- * @version $Id: TelephonServiceImpl.java 000 2009-12-01 00:00:00Z marco.speranza79 $
- */
 public class TelephonServiceImpl implements TelephonService {
 
-    /* (non-Javadoc)
-     * @see com.junice.data.TelephonService#getTelephonNumber()
-     */
     public String getTelephonNumber() {
         return "It's real class";
     }
