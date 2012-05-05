@@ -22,7 +22,7 @@ import org.nnsoft.guice.junice.annotation.MockType;
 
 import org.nnsoft.guice.junice.data.Service;
 
-@MockFramework(type=MockType.MOCKITO)
+@MockFramework(MockType.MOCKITO)
 abstract public class AbstractMockitoTestCase {
 
     //Create and inject a Provided EasyMock

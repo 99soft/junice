@@ -53,7 +53,7 @@ public final class GuiceModuleHandler implements ClassHandler<GuiceModules> {
      * {@inheritDoc}
      */
     public void handle(GuiceModules annotation, Class<?> element) throws HandleException {
-        for (Class<? extends Module> module : annotation.modules()) {
+        for (Class<? extends Module> module : annotation.value()) {
             if (logger.isDebugEnabled()) {
                 logger.debug("   Try to create module: " + module);
             }

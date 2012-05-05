@@ -28,7 +28,7 @@ import com.google.inject.name.Names;
 import org.nnsoft.guice.junice.data.SimpleModule;
 
 @RunWith(JUniceRunner.class)
-@GuiceModules(modules=SimpleModule.class)
+@GuiceModules( SimpleModule.class )
 abstract public class AbstractTestCase {
 
     @GuiceProvidedModules

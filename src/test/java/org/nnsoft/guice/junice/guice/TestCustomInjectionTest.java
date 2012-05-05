@@ -31,7 +31,7 @@ import org.nnsoft.guice.junice.data.TelephonService;
 import com.google.inject.Inject;
 
 @RunWith(JUniceRunner.class)
-@GuiceModules(modules=ServiceModule.class)
+@GuiceModules(ServiceModule.class)
 public class TestCustomInjectionTest {
 
     @Mock

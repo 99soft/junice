@@ -47,20 +47,20 @@ public final class MockFrameworkHandler implements ClassHandler<MockFramework> {
      * {@inheritDoc}
      */
     public void handle(MockFramework annotation, Class<?> element) throws HandleException {
-        if (this.mockType != null && this.mockType != annotation.type()) {
+        if (this.mockType != null && this.mockType != annotation.value()) {
             throw new HandleException("Inconsistent mock framework found. "
                     + "Mock framework already set [setted: "
                     + mockType
                     + " now found: "
-                    + annotation.type()
+                    + annotation.value()
                     + "]");
         }
 
         if (logger.isDebugEnabled()) {
-            logger.debug("  Found MockFramework: " + annotation.type());
+            logger.debug("  Found MockFramework: " + annotation.value());
         }
 
-        this.mockType = annotation.type();
+        this.mockType = annotation.value();
     }
 
 }

@@ -30,7 +30,7 @@ import org.nnsoft.guice.junice.data.SimpleModule;
 import org.nnsoft.guice.junice.data.TelephonService;
 
 @RunWith(JUniceRunner.class)
-@GuiceModules(modules=SimpleModule.class)
+@GuiceModules(SimpleModule.class)
 public class InjectMockObjectTestCase  extends AbstractMockTestCase {
 
     //Create and inject a simple EasyMock Strict mock
