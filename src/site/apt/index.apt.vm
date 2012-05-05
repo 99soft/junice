@@ -34,22 +34,7 @@ Welcome to JUnice!
 
 Before Coding...
 
-  To set up your project, configure in your pom.xml the <<<repository>>>:
-
-+----------------------------------------+
-<repositories>
-    ...
-    <repository>
-        <id>junice-repository</id>
-        <name>JUnice Repository for Maven</name>
-        <url>http://junice.googlecode.com/svn/repo</url>
-        <layout>default</layout>
-    </repository>
-    ...
-</repositories>
-+----------------------------------------+
-
-  and add the junice dependency in your <<<dependency>>>:
+  To set up your project, configure in your pom.xml the <<<dependency>>>:
 
 +----------------------------------------+
 <dependencies>
@@ -57,7 +42,7 @@ Before Coding...
     <dependency>
         <groupId>org.nnsoft.guice.junice</groupId>
         <artifactId>junice</artifactId>
-        <version>XX.XX</version>
+        <version>${project.version}</version>
     </dependency>
     ...
 </dependencies>
