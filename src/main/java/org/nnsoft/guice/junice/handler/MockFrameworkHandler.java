@@ -54,7 +54,7 @@ public final class MockFrameworkHandler
     {
         if ( mockType != null && mockType != annotation.value() )
         {
-            throw new HandleException( "Inconsistent mock framework found. " + "Mock framework already set [setted: "
+            throw new HandleException( "Inconsistent mock framework found. " + "Mock framework already set [set: "
                 + mockType + " now found: " + annotation.value() + "]" );
         }
 
