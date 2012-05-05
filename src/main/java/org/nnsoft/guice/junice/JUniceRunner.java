@@ -150,7 +150,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
      * {@inheritDoc}
      */
     public void run(final RunNotifier notifier) {
-        if (logger.isInfoEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug(" ### Run test case: "
                     + getTestClass().getJavaClass()
                     + " ### ");
@@ -161,7 +161,7 @@ public class JUniceRunner extends BlockJUnit4ClassRunner {
         super.run(notifier);
         this.flush();
 
-        if (logger.isInfoEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug(" ### End test case: "
                     + getTestClass().getJavaClass().getName()
                     + " ### ");
