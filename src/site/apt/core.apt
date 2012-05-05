@@ -1,7 +1,7 @@
  ------
  JUnice core - The JUniceRunner
  ------
- Marco Speranza and Simone Tripodi
+ The 99 Software Foundation
  ------
  2010
  ------
@@ -20,10 +20,6 @@
 ~~   See the License for the specific language governing permissions and
 ~~   limitations under the License.
 ~~
-
-~~author: Marco Speranza
-~~version: $Id: .apt 924 2009-12-31 10:11:36Z  marco.speranza79 $
-
 
 JUnice core - The JUniceRunner
 
