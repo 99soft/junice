@@ -15,13 +15,15 @@
  */
 package org.nnsoft.guice.junice.mock.framework;
 
+import static org.nnsoft.guice.junice.annotation.MockObjType.DEFAULT;
+
 import org.mockito.Mockito;
 import org.nnsoft.guice.junice.annotation.MockObjType;
 import org.nnsoft.guice.junice.mock.MockEngine;
 
 /**
  * Specifies the Mockito Framework.
- * 
+ *
  * @see MockEngine
  */
 public class MockitoFramework
@@ -41,7 +43,7 @@ public class MockitoFramework
      */
     public <T> T createMock( Class<T> cls, MockObjType type )
     {
-        if ( MockObjType.DEFAULT.equals( type ) )
+        if ( DEFAULT == type )
         {
             return Mockito.mock( cls );
         }
