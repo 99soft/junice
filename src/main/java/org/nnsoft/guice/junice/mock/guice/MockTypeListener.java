@@ -37,27 +37,34 @@ import com.google.inject.spi.TypeListener;
  */
 public class MockTypeListener implements TypeListener {
 
+    private static final String JAVA_PACKAGE = "java";
+
     final private Map<Field, Object> mockedObjects;
 
     public MockTypeListener(Map<Field, Object> mockedObjects) {
         this.mockedObjects = mockedObjects;
     }
 
-    @SuppressWarnings("unchecked")
-    public <T> void hear(TypeLiteral<T> typeLiteral, TypeEncounter<T> typeEncounter) {
-        if ( typeLiteral.getRawType() == Object.class) {
+    /**
+     * {@inheritDoc}
+     */
+    public <I> void hear(TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter) {
+        hear(typeLiteral.getRawType(), typeEncounter);
+    }
+
+    private <I> void hear(Class<? super I> type, TypeEncounter<I> typeEncounter) {
+        if (type.getPackage() != null && type.getPackage().getName().startsWith(JAVA_PACKAGE)) {
             return;
         }
 
-        for (Field field : typeLiteral.getRawType().getDeclaredFields()) {
+        for (Field field : type.getDeclaredFields()) {
             if (field.isAnnotationPresent(Mock.class)) {
-                typeEncounter.register(
-                        new MockMembersInjector<T>(field, this.mockedObjects));
+                typeEncounter.register(new MockMembersInjector<I>(field, mockedObjects));
             }
         }
 
         //visit super-class
-        this.hear((TypeLiteral<T>) TypeLiteral.get(typeLiteral.getRawType().getSuperclass()), typeEncounter);
+        hear(type.getSuperclass(), typeEncounter);
     }
 
 }
