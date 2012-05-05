@@ -14,11 +14,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
-<!--
-    author: Marco Speranza (marco.speranza79)
-    version: $Id: site.xml 4 2009-12-31 14:25:21Z marco.speranza79 $
--->
 <project name="${project.name}">
 
     <version position="left"/>
