@@ -19,7 +19,11 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 import org.nnsoft.guice.junice.annotation.Mock;
+import org.nnsoft.guice.junice.reflection.AnnotationHandler;
+import org.nnsoft.guice.junice.reflection.ClassVisitor;
+import org.nnsoft.guice.junice.reflection.HandleException;
 
+import com.google.inject.ProvisionException;
 import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
@@ -31,15 +35,13 @@ import com.google.inject.spi.TypeListener;
  * <p>
  * Creates a specific {@link MockMembersInjector} for each {@link Mock} annotation found.
  * </p>
- * 
+ *
  * @see MockMembersInjector
  * @see Mock
  */
 public class MockTypeListener
     implements TypeListener
 {
-
-    private static final String JAVA_PACKAGE = "java";
 
     final private Map<Field, Object> mockedObjects;
 
@@ -51,28 +53,28 @@ public class MockTypeListener
     /**
      * {@inheritDoc}
      */
-    public <I> void hear( TypeLiteral<I> typeLiteral, TypeEncounter<I> typeEncounter )
+    public <I> void hear( final TypeLiteral<I> typeLiteral, final TypeEncounter<I> typeEncounter )
     {
-        hear( typeLiteral.getRawType(), typeEncounter );
-    }
-
-    private <I> void hear( Class<? super I> type, TypeEncounter<I> typeEncounter )
-    {
-        if ( type.getPackage() != null && type.getPackage().getName().startsWith( JAVA_PACKAGE ) )
+        ClassVisitor classVisitor = new ClassVisitor();
+        classVisitor.registerHandler( Mock.class, new AnnotationHandler<Mock, Field>()
         {
-            return;
-        }
 
-        for ( Field field : type.getDeclaredFields() )
-        {
-            if ( field.isAnnotationPresent( Mock.class ) )
+            public void handle( Mock annotation, Field field )
+                throws HandleException
             {
                 typeEncounter.register( new MockMembersInjector<I>( field, mockedObjects ) );
             }
-        }
 
-        // visit super-class
-        hear( type.getSuperclass(), typeEncounter );
+        } );
+
+        try
+        {
+            classVisitor.visit( typeLiteral.getRawType() );
+        }
+        catch ( HandleException e )
+        {
+            throw new ProvisionException( e.getMessage(), e );
+        }
     }
 
 }

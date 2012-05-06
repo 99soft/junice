@@ -33,6 +33,9 @@ import com.google.common.collect.Multimap;
  */
 public final class ClassVisitor
 {
+
+    private static final String JAVA_PACKAGE = "java";
+
     private static final Logger logger = Logger.getLogger( ClassVisitor.class.getName() );
 
     private final Multimap<Class<? extends Annotation>, AnnotationHandler<? extends Annotation, ? extends AnnotatedElement>> handlers =
@@ -41,7 +44,7 @@ public final class ClassVisitor
     public <A extends Annotation> void registerHandler( Class<A> annotationType,
                                                         AnnotationHandler<A, ? extends AnnotatedElement> handler )
     {
-        this.handlers.put( annotationType, handler );
+        handlers.put( annotationType, handler );
     }
 
     public void visit( final Class<?> type )
@@ -51,16 +54,16 @@ public final class ClassVisitor
         {
             logger.finer( "  Visit class: " + type );
         }
-        if ( Object.class == type )
+        if ( type.getPackage() != null && type.getPackage().getName().startsWith( JAVA_PACKAGE ) )
         {
             return;
         }
 
-        this.handle( type );
-        this.handle( type.getDeclaredFields() );
-        this.handle( type.getDeclaredMethods() );
+        handle( type );
+        handle( type.getDeclaredFields() );
+        handle( type.getDeclaredMethods() );
 
-        this.visit( type.getSuperclass() );
+        visit( type.getSuperclass() );
     }
 
     @SuppressWarnings( "unchecked" )
