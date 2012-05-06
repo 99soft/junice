@@ -80,7 +80,7 @@ public final class ClassVisitor
         {
             for ( Annotation annotation : element.getAnnotations() )
             {
-                for ( AnnotationHandler<? extends Annotation, ? extends AnnotatedElement> handler : this.handlers.get( annotation.annotationType() ) )
+                for ( AnnotationHandler<? extends Annotation, ? extends AnnotatedElement> handler : handlers.get( annotation.annotationType() ) )
                 {
                     ( (AnnotationHandler<Annotation, AnnotatedElement>) handler ).handle( annotation, element );
                 }
