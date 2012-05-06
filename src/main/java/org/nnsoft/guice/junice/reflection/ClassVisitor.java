@@ -47,13 +47,19 @@ public final class ClassVisitor
         handlers.put( annotationType, handler );
     }
 
-    public void visit( final Class<?> type )
+    public <T> void visit( final Class<? super T> type )
         throws HandleException
     {
+        if ( type == null )
+        {
+            throw new IllegalArgumentException( "Type to be visited cannot be null" );
+        }
+
         if ( logger.isLoggable( Level.FINER ) )
         {
             logger.finer( "  Visit class: " + type );
         }
+
         if ( type.getPackage() != null && type.getPackage().getName().startsWith( JAVA_PACKAGE ) )
         {
             return;
