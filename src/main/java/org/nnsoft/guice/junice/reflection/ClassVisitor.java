@@ -15,6 +15,8 @@
  */
 package org.nnsoft.guice.junice.reflection;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 import java.util.logging.Level;
@@ -51,10 +53,7 @@ public final class ClassVisitor
     public <T> void visit( final Class<? super T> type )
         throws HandleException
     {
-        if ( type == null )
-        {
-            throw new IllegalArgumentException( "Type to be visited cannot be null" );
-        }
+        checkArgument( type != null, "Type to be visited cannot be null" );
 
         if ( logger.isLoggable( Level.FINER ) )
         {

@@ -16,6 +16,8 @@
 
 package org.nnsoft.guice.junice;
 
+import static com.google.common.base.Preconditions.checkState;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -62,7 +64,7 @@ public class GuiceMockModule
 
     /**
      * Costructor.
-     * 
+     *
      * @param mockedFields the map of mock fileds.
      */
 
@@ -92,39 +94,29 @@ public class GuiceMockModule
                 isTypeConflicts = checkTypeConflict( fields );
             }
 
-            if ( !isTypeConflicts )
+            checkState( !isTypeConflicts, "   Found multiple annotation @%s for type: %s; binding skipped!.",
+                        Mock.class.getSimpleName(), type );
+            for ( final Field field : fields )
             {
-                for ( final Field field : fields )
+                final TypeLiteral literal = TypeLiteral.get( type );
+                final Mock annoBy = field.getAnnotation( Mock.class );
+                final Object mock = this.mockedFields.get( field );
+                if ( annoBy.annotatedWith() != Mock.NoAnnotation.class )
                 {
-                    final TypeLiteral literal = TypeLiteral.get( type );
-                    final Mock annoBy = field.getAnnotation( Mock.class );
-                    final Object mock = this.mockedFields.get( field );
-                    if ( annoBy.annotatedWith() != Mock.NoAnnotation.class )
-                    {
-                        bind( literal ).annotatedWith( annoBy.annotatedWith() ).toInstance( mock );
-                    }
-                    else if ( !"".equals( annoBy.namedWith() ) )
-                    {
-                        bind( literal ).annotatedWith( Names.named( annoBy.namedWith() ) ).toInstance( mock );
-                    }
-                    else
-                    {
-                        bind( literal ).toInstance( mock );
-                    }
-                    if ( logger.isLoggable( Level.FINER ) )
-                    {
-                        logger.finer( "    Created binding for: " + type + " " + annoBy );
-                    }
+                    bind( literal ).annotatedWith( annoBy.annotatedWith() ).toInstance( mock );
                 }
-            }
-            else
-            {
-
-                final String msg =
-                    "   Found multiple annotation @" + Mock.class.getSimpleName() + " for type: " + type
-                        + " Binding skipped!.";
-                logger.finer( msg );
-                throw new IllegalArgumentException( msg );
+                else if ( !"".equals( annoBy.namedWith() ) )
+                {
+                    bind( literal ).annotatedWith( Names.named( annoBy.namedWith() ) ).toInstance( mock );
+                }
+                else
+                {
+                    bind( literal ).toInstance( mock );
+                }
+                if ( logger.isLoggable( Level.FINER ) )
+                {
+                    logger.finer( "    Created binding for: " + type + " " + annoBy );
+                }
             }
         }
     }

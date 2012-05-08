@@ -15,6 +15,7 @@
  */
 package org.nnsoft.guice.junice.mock.framework;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static org.nnsoft.guice.junice.annotation.MockObjType.DEFAULT;
 
 import org.mockito.Mockito;
@@ -43,12 +44,8 @@ public class MockitoFramework
      */
     public <T> T createMock( Class<T> cls, MockObjType type )
     {
-        if ( DEFAULT == type )
-        {
-            return Mockito.mock( cls );
-        }
-
-        throw new IllegalArgumentException( "Unsupported mock type '" + type + "' for Mockito Framework." );
+        checkArgument( DEFAULT == type, "Unsupported mock type '%s' for Mockito Framework.", type );
+        return Mockito.mock( cls );
     }
 
 }
