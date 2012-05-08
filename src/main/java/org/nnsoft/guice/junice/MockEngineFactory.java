@@ -1,3 +1,5 @@
+package org.nnsoft.guice.junice;
+
 /*
  *    Copyright 2010-2012 The 99 Software Foundation
  *
@@ -13,7 +15,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.nnsoft.guice.junice;
 
 import org.nnsoft.guice.junice.annotation.MockFramework;
 import org.nnsoft.guice.junice.annotation.MockType;
@@ -23,7 +24,7 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
 
 /**
  * Factory class to create the mock framework.
- * 
+ *
  * @see MockFramework
  */
 final class MockEngineFactory
@@ -32,7 +33,7 @@ final class MockEngineFactory
     /**
      * Mock factory constructor. <br>
      * Supported framewors: <li> {@link MockType}.EASY_MOCK <li> {@link MockType}.MOCKITO <br>
-     * 
+     *
      * @see MockType
      * @param type of mock framework to create.
      * @return An instance of mock framework.

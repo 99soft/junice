@@ -1,3 +1,5 @@
+package org.nnsoft.guice.junice.mock;
+
 /*
  *    Copyright 2010-2012 The 99 Software Foundation
  *
@@ -13,7 +15,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.nnsoft.guice.junice.mock;
 
 import org.nnsoft.guice.junice.annotation.MockObjType;
 import org.nnsoft.guice.junice.mock.framework.EasyMockFramework;
@@ -21,7 +22,7 @@ import org.nnsoft.guice.junice.mock.framework.MockitoFramework;
 
 /**
  * Interface to specify mock framework class engine.
- * 
+ *
  * @see EasyMockFramework
  * @see MockitoFramework
  */
@@ -30,14 +31,14 @@ public interface MockEngine
 
     /**
      * Reset the mock objects
-     * 
+     *
      * @param objects to reset.
      */
     void resetMock( Object... objects );
 
     /**
      * Create a typed mock
-     * 
+     *
      * @param <T> Class to mock
      * @param cls Class to mock
      * @return the mock object

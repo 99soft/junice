@@ -1,3 +1,5 @@
+package org.nnsoft.guice.junice.mock.framework;
+
 /*
  *    Copyright 2010-2012 The 99 Software Foundation
  *
@@ -13,7 +15,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.nnsoft.guice.junice.mock.framework;
 
 import org.easymock.classextension.EasyMock;
 import org.nnsoft.guice.junice.annotation.MockObjType;
@@ -21,7 +22,7 @@ import org.nnsoft.guice.junice.mock.MockEngine;
 
 /**
  * Specifies the Easy-Mock Framework.
- * 
+ *
  * @see MockEngine
  */
 public class EasyMockFramework

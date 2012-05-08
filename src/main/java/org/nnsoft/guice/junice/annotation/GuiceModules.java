@@ -1,3 +1,5 @@
+package org.nnsoft.guice.junice.annotation;
+
 /*
  *    Copyright 2010-2012 The 99 Software Foundation
  *
@@ -13,7 +15,6 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.nnsoft.guice.junice.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -32,7 +33,7 @@ public @interface GuiceModules
 
     /**
      * List of Google Guice {@link Module}.
-     * 
+     *
      * @return the list of Google Guice {@link Module}.
      */
     Class<? extends Module>[] value();
