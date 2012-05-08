@@ -24,7 +24,6 @@ import org.nnsoft.guice.junice.reflection.AnnotationHandler;
 import org.nnsoft.guice.junice.reflection.ClassVisitor;
 import org.nnsoft.guice.junice.reflection.HandleException;
 
-import com.google.inject.ProvisionException;
 import com.google.inject.TypeLiteral;
 import com.google.inject.spi.TypeEncounter;
 import com.google.inject.spi.TypeListener;
@@ -73,7 +72,7 @@ public class MockTypeListener
         }
         catch ( HandleException e )
         {
-            throw new ProvisionException( e.getMessage(), e );
+            typeEncounter.addError( e );
         }
     }
 
