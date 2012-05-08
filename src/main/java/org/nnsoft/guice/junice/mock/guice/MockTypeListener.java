@@ -55,21 +55,20 @@ public class MockTypeListener
      */
     public <I> void hear( final TypeLiteral<I> typeLiteral, final TypeEncounter<I> typeEncounter )
     {
-        ClassVisitor classVisitor = new ClassVisitor();
-        classVisitor.registerHandler( Mock.class, new AnnotationHandler<Mock, Field>()
-        {
-
-            public void handle( Mock annotation, Field field )
-                throws HandleException
-            {
-                typeEncounter.register( new MockMembersInjector<I>( field, mockedObjects ) );
-            }
-
-        } );
-
         try
         {
-            classVisitor.visit( typeLiteral.getRawType() );
+            new ClassVisitor()
+            .registerHandler( Mock.class, new AnnotationHandler<Mock, Field>()
+            {
+
+                public void handle( Mock annotation, Field field )
+                    throws HandleException
+                {
+                    typeEncounter.register( new MockMembersInjector<I>( field, mockedObjects ) );
+                }
+
+            } )
+            .visit( typeLiteral.getRawType() );
         }
         catch ( HandleException e )
         {

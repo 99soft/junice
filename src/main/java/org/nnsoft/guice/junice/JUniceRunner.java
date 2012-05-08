@@ -286,15 +286,14 @@ public class JUniceRunner
             final MockHandler mockHandler = new MockHandler();
             final MockFrameworkHandler mockFrameworkHandler = new MockFrameworkHandler();
 
-            final ClassVisitor visitor = new ClassVisitor();
-            visitor.registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler );
-            visitor.registerHandler( GuiceModules.class, guiceModuleHandler );
-            visitor.registerHandler( Mock.class, mockHandler );
-            visitor.registerHandler( MockFramework.class, mockFrameworkHandler );
-            visitor.registerHandler( Inject.class, guiceInjectableClassHandler );
-
+            new ClassVisitor()
+            .registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler )
+            .registerHandler( GuiceModules.class, guiceModuleHandler )
+            .registerHandler( Mock.class, mockHandler )
+            .registerHandler( MockFramework.class, mockFrameworkHandler )
+            .registerHandler( Inject.class, guiceInjectableClassHandler )
             // Visit class and super-classes
-            visitor.visit( clazz );
+            .visit( clazz );
 
             // Retrieve mock framework
             if ( mockFrameworkHandler.getMockType() != null )

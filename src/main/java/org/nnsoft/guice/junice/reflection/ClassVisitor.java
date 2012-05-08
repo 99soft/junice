@@ -41,10 +41,11 @@ public final class ClassVisitor
     private final Multimap<Class<? extends Annotation>, AnnotationHandler<? extends Annotation, ? extends AnnotatedElement>> handlers =
         ArrayListMultimap.create();
 
-    public <A extends Annotation> void registerHandler( Class<A> annotationType,
+    public <A extends Annotation> ClassVisitor registerHandler( Class<A> annotationType,
                                                         AnnotationHandler<A, ? extends AnnotatedElement> handler )
     {
         handlers.put( annotationType, handler );
+        return this;
     }
 
     public <T> void visit( final Class<? super T> type )
