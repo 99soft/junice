@@ -16,6 +16,7 @@ package org.nnsoft.guice.junice.handler;
  *    limitations under the License.
  */
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Member;
 import java.util.HashSet;
@@ -34,8 +35,8 @@ import com.google.inject.Inject;
  *
  * @see ClassVisitor
  */
-public final class GuiceInjectableClassHandler
-    implements AnnotationHandler<Inject, AccessibleObject>
+public final class GuiceInjectableClassHandler<A extends Annotation>
+    implements AnnotationHandler<A, AccessibleObject>
 {
     private static final Logger logger = Logger.getLogger( GuiceInjectableClassHandler.class.getName() );
 
@@ -54,7 +55,7 @@ public final class GuiceInjectableClassHandler
     /**
      * {@inheritDoc}
      */
-    public void handle( Inject annotation, AccessibleObject element )
+    public void handle( A annotation, AccessibleObject element )
         throws HandleException
     {
         Class<?> type = null;

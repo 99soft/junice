@@ -64,52 +64,52 @@ import com.google.inject.util.Modules;
  * </p>
  * <p>
  * <b>Example #1:</b> <br>
- *
+ * 
  * <pre>
- *
+ * 
  * &#064;RunWith(JUniceRunner.class)
  * &#064;GuiceModules(modules=SimpleModule.class)
  * public class AcmeTestCase {
- *
+ * 
  *     &#064;GuiceProvidedModules
  *     static public Module getProperties() {
  *         ...
  *         return Modules.combine(new ComplexModule(loadProperies()), ...  );
  *     }
- *
+ * 
  * </pre>
- *
+ * 
  * </p>
  * <p>
  * <b>Example #2:</b> <br>
- *
+ * 
  * <pre>
- *
+ * 
  * &#064;RunWith(JUniceRunner.class)
  * public class AcmeTestCase extends com.google.inject.AbstractModule {
- *
+ * 
  *     public void configure() {
  *         //Configure your proper modules
  *         ...
  *         bind(Service.class).annotatedWith(TestAnnotation.class).to(ServiceTestImpl.class);
  *         ...
  *     }
- *
+ * 
  *     &#064;Mock
  *     private AnotherService serviceMock;
- *
+ * 
  *     &#064;Inject
  *     private Service serviceTest;
- *
+ * 
  *     &#064;org.junit.Test
  *     public void test() {
  *         assertNotNull(serviceMock);
  *         assertNotNull(serviceTest);
  *     }
  * </pre>
- *
+ * 
  * </p>
- *
+ * 
  * @see GuiceMockModule
  */
 public class JUniceRunner
@@ -128,7 +128,7 @@ public class JUniceRunner
 
     /**
      * JUniceRunner constructor to create the core JUnice class.
-     *
+     * 
      * @see RunWith
      * @param klass The test case class to run.
      * @throws org.junit.runners.model.InitializationError if any error occurs.
@@ -234,7 +234,7 @@ public class JUniceRunner
      * This methot collects modules from {@link GuiceModules}, {@link GuiceProvidedModules}, {@link Mock}, creates a
      * Google-Guice Injector and than inject static members into callings class.
      * </p>
-     *
+     * 
      * @throws IllegalAccessException
      * @throws InstantiationException
      * @throws HandleException
@@ -283,16 +283,20 @@ public class JUniceRunner
             // Setup the handlers
             final GuiceProvidedModuleHandler guiceProvidedModuleHandler = new GuiceProvidedModuleHandler();
             final GuiceModuleHandler guiceModuleHandler = new GuiceModuleHandler();
-            final GuiceInjectableClassHandler guiceInjectableClassHandler = new GuiceInjectableClassHandler();
+            final GuiceInjectableClassHandler<Inject> guiceInjectableClassHandler =
+                new GuiceInjectableClassHandler<Inject>();
+            final GuiceInjectableClassHandler<javax.inject.Inject> jsr330InjectableClassHandler =
+                new GuiceInjectableClassHandler<javax.inject.Inject>();
+
             final MockHandler mockHandler = new MockHandler();
             final MockFrameworkHandler mockFrameworkHandler = new MockFrameworkHandler();
 
-            new ClassVisitor()
-            .registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler )
-            .registerHandler( GuiceModules.class, guiceModuleHandler )
-            .registerHandler( Mock.class, mockHandler )
-            .registerHandler( MockFramework.class, mockFrameworkHandler )
-            .registerHandler( Inject.class, guiceInjectableClassHandler )
+            new ClassVisitor().registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler ).registerHandler( GuiceModules.class,
+                                                                                                                          guiceModuleHandler ).registerHandler( Mock.class,
+                                                                                                                                                                mockHandler ).registerHandler( MockFramework.class,
+                                                                                                                                                                                               mockFrameworkHandler ).registerHandler( Inject.class,
+                                                                                                                                                                                                                                       guiceInjectableClassHandler ).registerHandler( javax.inject.Inject.class,
+                                                                                                                                                                                                                                                                                      jsr330InjectableClassHandler )
             // Visit class and super-classes
             .visit( clazz );
 
@@ -316,7 +320,8 @@ public class JUniceRunner
             }
 
             // Add only clasess that have got the Inject annotation
-            final Class<?>[] injectableClasses = guiceInjectableClassHandler.getClasses();
+             final Class<?>[] guiceInjectableClasses = guiceInjectableClassHandler.getClasses();
+             final Class<?>[] jsr330InjectableClasses = jsr330InjectableClassHandler.getClasses();
             // final Class<?>[] mockInjectableClasses = mockInjectableClassHandler.getClasses();
 
             final AbstractModule statcInjector = new AbstractModule()
@@ -325,10 +330,20 @@ public class JUniceRunner
                 protected void configure()
                 {
                     // inject all STATIC dependencies
-                    requestStaticInjection( injectableClasses );
+                    if ( guiceInjectableClasses.length != 0 )
+                    {
+                        requestStaticInjection( guiceInjectableClasses );
+                    }
+                    
+                    if ( jsr330InjectableClasses.length != 0 )
+                    {
+                        requestStaticInjection( jsr330InjectableClasses );
+                    }
+
+                    
                 }
             };
-            if ( injectableClasses.length != 0 )
+            if ( guiceInjectableClasses.length != 0 || jsr330InjectableClasses.length != 0 )
             {
                 allModules.add( statcInjector );
             }
