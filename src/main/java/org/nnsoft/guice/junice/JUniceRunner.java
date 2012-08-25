@@ -283,21 +283,20 @@ public class JUniceRunner
             // Setup the handlers
             final GuiceProvidedModuleHandler guiceProvidedModuleHandler = new GuiceProvidedModuleHandler();
             final GuiceModuleHandler guiceModuleHandler = new GuiceModuleHandler();
-            final GuiceInjectableClassHandler<Inject> guiceInjectableClassHandler =
-                new GuiceInjectableClassHandler<Inject>();
-            final GuiceInjectableClassHandler<javax.inject.Inject> jsr330InjectableClassHandler =
-                new GuiceInjectableClassHandler<javax.inject.Inject>();
+            final GuiceInjectableClassHandler<Inject> guiceInjectableClassHandler = new GuiceInjectableClassHandler<Inject>();
+            final GuiceInjectableClassHandler<javax.inject.Inject> jsr330InjectableClassHandler = new GuiceInjectableClassHandler<javax.inject.Inject>();
 
             final MockHandler mockHandler = new MockHandler();
             final MockFrameworkHandler mockFrameworkHandler = new MockFrameworkHandler();
 
-            new ClassVisitor().registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler ).registerHandler( GuiceModules.class,
-                                                                                                                          guiceModuleHandler ).registerHandler( Mock.class,
-                                                                                                                                                                mockHandler ).registerHandler( MockFramework.class,
-                                                                                                                                                                                               mockFrameworkHandler ).registerHandler( Inject.class,
-                                                                                                                                                                                                                                       guiceInjectableClassHandler ).registerHandler( javax.inject.Inject.class,
-                                                                                                                                                                                                                                                                                      jsr330InjectableClassHandler )
             // Visit class and super-classes
+            new ClassVisitor()
+            .registerHandler( GuiceProvidedModules.class, guiceProvidedModuleHandler )
+            .registerHandler( GuiceModules.class, guiceModuleHandler )
+            .registerHandler( Mock.class, mockHandler )
+            .registerHandler( MockFramework.class, mockFrameworkHandler )
+            .registerHandler( Inject.class, guiceInjectableClassHandler )
+            .registerHandler( javax.inject.Inject.class, jsr330InjectableClassHandler )
             .visit( clazz );
 
             // Retrieve mock framework
@@ -322,7 +321,6 @@ public class JUniceRunner
             // Add only clasess that have got the Inject annotation
              final Class<?>[] guiceInjectableClasses = guiceInjectableClassHandler.getClasses();
              final Class<?>[] jsr330InjectableClasses = jsr330InjectableClassHandler.getClasses();
-            // final Class<?>[] mockInjectableClasses = mockInjectableClassHandler.getClasses();
 
             final AbstractModule statcInjector = new AbstractModule()
             {
